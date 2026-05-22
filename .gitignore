@@ -7,3 +7,4 @@ high_throughput_lnp_activity_values_*.csv
 high_throughput_lnp_components_*.csv
 __pycache__/
 .pytest_cache/
+server*.log
