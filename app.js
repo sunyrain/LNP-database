@@ -470,10 +470,27 @@ function renderUseSourceMatrix() {
           <h3>${escapeHtml(label(block, "label"))}</h3>
           <span>${number(block.records)} ${escapeHtml(t("records"))}</span>
         </div>
-        ${barRows(rows.map((row) => ({ label: row.source_dataset, value: row.records })), t("records"))}
+        ${matrixRows(rows.map((row) => ({ label: row.source_dataset, value: row.records })), t("records"))}
       </section>
     `;
   }).join("");
+}
+
+function matrixRows(rows, valueLabel) {
+  if (!rows.length) return `<div class="matrix-bars"><div class="matrix-source-row"><span>${escapeHtml(t("noData"))}</span></div></div>`;
+  const max = Math.max(...rows.map((row) => Number(row.value || 0)), 1);
+  return `<div class="matrix-bars">${
+    rows.map((row) => {
+      const width = Math.max(1, Math.round((Number(row.value || 0) / max) * 100));
+      return `
+        <div class="matrix-source-row" title="${escapeHtml(row.label)}">
+          <span class="matrix-source-name">${escapeHtml(row.label)}</span>
+          <span class="matrix-source-track"><i style="width:${width}%"></i></span>
+          <span class="matrix-source-value">${number(row.value)} ${escapeHtml(valueLabel)}</span>
+        </div>
+      `;
+    }).join("")
+  }</div>`;
 }
 
 function renderMetricFamilies() {
