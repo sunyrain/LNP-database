@@ -1,0 +1,1569 @@
+{
+  "generated_at": "2026-05-22T20:52:30",
+  "db": "D:\\Research\\AtctiveOPV\\LNP\\data\\external\\lnp_open\\external_lnp_open.db",
+  "record_count": 79201,
+  "activity_value_count": 97031,
+  "component_count": 156420,
+  "source_summary": [
+    {
+      "source_key": "agile",
+      "record_role": "experimental_finetuning",
+      "records": 2400,
+      "unique_ionizable_smiles": 1100,
+      "activity_metrics": 2,
+      "numeric_activity_values": 2400,
+      "unique_component_smiles": 1100
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_library",
+      "records": 9600,
+      "unique_ionizable_smiles": 1200,
+      "activity_metrics": 2,
+      "numeric_activity_values": 9600,
+      "unique_component_smiles": 1237
+    },
+    {
+      "source_key": "agile",
+      "record_role": "virtual_candidate",
+      "records": 12276,
+      "unique_ionizable_smiles": 12276,
+      "activity_metrics": 0,
+      "numeric_activity_values": 0,
+      "unique_component_smiles": 12276
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "records": 127771,
+      "unique_ionizable_smiles": 7,
+      "activity_metrics": 4,
+      "numeric_activity_values": 127771,
+      "unique_component_smiles": 22
+    },
+    {
+      "source_key": "exosome_mimetic_gan",
+      "record_role": "synthetic_candidate",
+      "records": 10000,
+      "unique_ionizable_smiles": 0,
+      "activity_metrics": 0,
+      "numeric_activity_values": 0,
+      "unique_component_smiles": 0
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "records": 18304,
+      "unique_ionizable_smiles": 572,
+      "activity_metrics": 4,
+      "numeric_activity_values": 18304,
+      "unique_component_smiles": 575
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_structure",
+      "records": 1716,
+      "unique_ionizable_smiles": 572,
+      "activity_metrics": 0,
+      "numeric_activity_values": 0,
+      "unique_component_smiles": 613
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "records": 616,
+      "unique_ionizable_smiles": 0,
+      "activity_metrics": 14,
+      "numeric_activity_values": 572,
+      "unique_component_smiles": 0
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery",
+      "records": 52132,
+      "unique_ionizable_smiles": 9377,
+      "activity_metrics": 2,
+      "numeric_activity_values": 52132,
+      "unique_component_smiles": 9381
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery_paper_subset",
+      "records": 41995,
+      "unique_ionizable_smiles": 7493,
+      "activity_metrics": 2,
+      "numeric_activity_values": 41995,
+      "unique_component_smiles": 7497
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "records": 2232,
+      "unique_ionizable_smiles": 165,
+      "activity_metrics": 6,
+      "numeric_activity_values": 2232,
+      "unique_component_smiles": 165
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "design_component_set",
+      "records": 7360,
+      "unique_ionizable_smiles": 0,
+      "activity_metrics": 0,
+      "numeric_activity_values": 0,
+      "unique_component_smiles": 96
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "experimental_screen",
+      "records": 1920,
+      "unique_ionizable_smiles": 1920,
+      "activity_metrics": 1,
+      "numeric_activity_values": 1920,
+      "unique_component_smiles": 1920
+    },
+    {
+      "source_key": "translnp",
+      "record_role": "activity_split",
+      "records": 2400,
+      "unique_ionizable_smiles": 1100,
+      "activity_metrics": 1,
+      "numeric_activity_values": 2400,
+      "unique_component_smiles": 1100
+    },
+    {
+      "source_key": "transma",
+      "record_role": "activity_split",
+      "records": 4800,
+      "unique_ionizable_smiles": 1100,
+      "activity_metrics": 1,
+      "numeric_activity_values": 4800,
+      "unique_component_smiles": 1100
+    }
+  ],
+  "activity_summary": [
+    {
+      "source_key": "agile",
+      "record_role": "experimental_finetuning",
+      "metric": "expt_Raw",
+      "rows": 1200,
+      "numeric_rows": 1200,
+      "min_value": -2.5307831,
+      "max_value": 11.4112837,
+      "avg_value": 2.177283039416667
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_finetuning",
+      "metric": "expt_Hela",
+      "rows": 1200,
+      "numeric_rows": 1200,
+      "min_value": -2.345629161,
+      "max_value": 15.9596558,
+      "avg_value": 4.845546808890004
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_library",
+      "metric": "expt_Raw",
+      "rows": 1200,
+      "numeric_rows": 1200,
+      "min_value": -2.530783132,
+      "max_value": 11.41128373,
+      "avg_value": 2.175360913852499
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_library",
+      "metric": "expt_Hela",
+      "rows": 1200,
+      "numeric_rows": 1200,
+      "min_value": -2.3456292,
+      "max_value": 15.9596558,
+      "avg_value": 4.850145813024998
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "metric": "in_house_lnp_DC24_luc",
+      "rows": 15867,
+      "numeric_rows": 15867,
+      "min_value": 0.0,
+      "max_value": 1.0,
+      "avg_value": 0.47336747390913786
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "metric": "in_house_lnp_B16F10_luc",
+      "rows": 12748,
+      "numeric_rows": 12748,
+      "min_value": 0.0,
+      "max_value": 1.0,
+      "avg_value": 0.35771317872189184
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "metric": "in_house_lnp_CACO2_luc",
+      "rows": 295,
+      "numeric_rows": 295,
+      "min_value": 0.0,
+      "max_value": 1.0,
+      "avg_value": 0.5591766487564597
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "metric": "SSLNP_in_house_lnp_B16F10_luc",
+      "rows": 168,
+      "numeric_rows": 168,
+      "min_value": 0.0,
+      "max_value": 1.0,
+      "avg_value": 0.3279703800228686
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "metric": "y2",
+      "rows": 572,
+      "numeric_rows": 572,
+      "min_value": 0.0,
+      "max_value": 1.0,
+      "avg_value": 0.1555944055944056
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "metric": "y1",
+      "rows": 572,
+      "numeric_rows": 572,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 0.8479020979020979
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "metric": "family;y1;y2",
+      "rows": 572,
+      "numeric_rows": 572,
+      "min_value": 0.0,
+      "max_value": 6.0,
+      "avg_value": 2.7045454545454546
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "metric": "family",
+      "rows": 572,
+      "numeric_rows": 572,
+      "min_value": 0.0,
+      "max_value": 6.0,
+      "avg_value": 2.7045454545454546
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "Unnamed: 0",
+      "rows": 44,
+      "numeric_rows": 0,
+      "min_value": null,
+      "max_value": null,
+      "avg_value": null
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P9",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 1.3863636363636365
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P8",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 2.0,
+      "avg_value": 0.7727272727272727
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P7",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 2.0,
+      "avg_value": 0.8863636363636364
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P6",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 2.0,
+      "avg_value": 0.75
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P5",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 2.0,
+      "avg_value": 0.5227272727272727
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P4",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 2.0,
+      "avg_value": 0.9318181818181818
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P16",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 0.5
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P15",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 0.6136363636363636
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P14",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 0.7727272727272727
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P13",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 0.7954545454545454
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P12",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 2.0,
+      "avg_value": 0.8636363636363636
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P11",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 0.9545454545454546
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "target_definition",
+      "metric": "P10",
+      "rows": 44,
+      "numeric_rows": 44,
+      "min_value": 0.0,
+      "max_value": 3.0,
+      "avg_value": 1.2727272727272727
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery",
+      "metric": "unnormalized_delivery",
+      "rows": 13069,
+      "numeric_rows": 13069,
+      "min_value": -3.220623659,
+      "max_value": 37800.0,
+      "avg_value": 32.41406874485428
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery",
+      "metric": "quantified_delivery",
+      "rows": 13069,
+      "numeric_rows": 13069,
+      "min_value": -3.156676774262336,
+      "max_value": 7.223938424120641,
+      "avg_value": -3.869002787782396e-16
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery_paper_subset",
+      "metric": "quantified_delivery",
+      "rows": 13069,
+      "numeric_rows": 13069,
+      "min_value": -3.156676774,
+      "max_value": 7.223938424,
+      "avg_value": 5.202706372818167e-12
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery_paper_subset",
+      "metric": "unnormalized_delivery",
+      "rows": 9690,
+      "numeric_rows": 9690,
+      "min_value": -3.220623659,
+      "max_value": 11.5903614,
+      "avg_value": 2.018469485968247
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "metric": "cv_4_pred_delivery",
+      "rows": 372,
+      "numeric_rows": 372,
+      "min_value": -1.10550629055687,
+      "max_value": 1.7582108277501451,
+      "avg_value": 0.1778402425259342
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "metric": "cv_3_pred_delivery",
+      "rows": 372,
+      "numeric_rows": 372,
+      "min_value": -1.0209740099356572,
+      "max_value": 1.8869931206821409,
+      "avg_value": 0.2013842452463017
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "metric": "cv_2_pred_delivery",
+      "rows": 372,
+      "numeric_rows": 372,
+      "min_value": -1.2513114436246848,
+      "max_value": 2.23881819203543,
+      "avg_value": 0.14816948950372058
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "metric": "cv_1_pred_delivery",
+      "rows": 372,
+      "numeric_rows": 372,
+      "min_value": -1.0925197064580416,
+      "max_value": 1.4197203267618028,
+      "avg_value": 0.15280770424424756
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "metric": "cv_0_pred_delivery",
+      "rows": 372,
+      "numeric_rows": 372,
+      "min_value": -1.2319483586094384,
+      "max_value": 1.9316905263238464,
+      "avg_value": 0.1869279721376793
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "metric": "avg_pred_delivery",
+      "rows": 372,
+      "numeric_rows": 372,
+      "min_value": -0.8896677609136127,
+      "max_value": 1.7646619856270758,
+      "avg_value": 0.1734259307315765
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "experimental_screen",
+      "metric": "RLU_log2",
+      "rows": 1920,
+      "numeric_rows": 1920,
+      "min_value": -5.523561956,
+      "max_value": 16.21709132,
+      "avg_value": 4.128139653055197
+    },
+    {
+      "source_key": "translnp",
+      "record_role": "activity_split",
+      "metric": "TARGET",
+      "rows": 2400,
+      "numeric_rows": 2400,
+      "min_value": -2.345629161,
+      "max_value": 15.9596558,
+      "avg_value": 4.845546808890001
+    },
+    {
+      "source_key": "transma",
+      "record_role": "activity_split",
+      "metric": "TARGET",
+      "rows": 4800,
+      "numeric_rows": 4800,
+      "min_value": -2.5307831,
+      "max_value": 15.9596558,
+      "avg_value": 3.511414924153354
+    }
+  ],
+  "component_summary": [
+    {
+      "source_key": "agile",
+      "record_role": "experimental_finetuning",
+      "component_type": "IL",
+      "rows": 1200,
+      "unique_smiles": 1100
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_library",
+      "component_type": "A_smiles",
+      "rows": 1200,
+      "unique_smiles": 20
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_library",
+      "component_type": "B_smiles",
+      "rows": 1200,
+      "unique_smiles": 12
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_library",
+      "component_type": "C_smiles",
+      "rows": 1200,
+      "unique_smiles": 5
+    },
+    {
+      "source_key": "agile",
+      "record_role": "experimental_library",
+      "component_type": "IL",
+      "rows": 1200,
+      "unique_smiles": 1200
+    },
+    {
+      "source_key": "agile",
+      "record_role": "virtual_candidate",
+      "component_type": "IL",
+      "rows": 12276,
+      "unique_smiles": 12276
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "component_type": "CH",
+      "rows": 15867,
+      "unique_smiles": 3
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "component_type": "HL",
+      "rows": 15867,
+      "unique_smiles": 2
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "component_type": "IL",
+      "rows": 21117,
+      "unique_smiles": 7
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "component_type": "PBAE_branching_agent",
+      "rows": 454,
+      "unique_smiles": 3
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "component_type": "PBAE_monomer",
+      "rows": 454,
+      "unique_smiles": 5
+    },
+    {
+      "source_key": "comet_lance",
+      "record_role": "formulation_activity",
+      "component_type": "PEG",
+      "rows": 15867,
+      "unique_smiles": 2
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "CH",
+      "rows": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "HL",
+      "rows": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "IL",
+      "rows": 572,
+      "unique_smiles": 572
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "PEG",
+      "rows": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "m1",
+      "rows": 572,
+      "unique_smiles": 572
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "m2",
+      "rows": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "m3",
+      "rows": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_activity",
+      "component_type": "m4",
+      "rows": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_structure",
+      "component_type": "IL",
+      "rows": 572,
+      "unique_smiles": 572
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_structure",
+      "component_type": "head",
+      "rows": 572,
+      "unique_smiles": 13
+    },
+    {
+      "source_key": "lipobart",
+      "record_role": "material_structure",
+      "component_type": "tail",
+      "rows": 572,
+      "unique_smiles": 28
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery",
+      "component_type": "HL",
+      "rows": 12997,
+      "unique_smiles": 4
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery",
+      "component_type": "IL",
+      "rows": 13069,
+      "unique_smiles": 9377
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery_paper_subset",
+      "component_type": "HL",
+      "rows": 9618,
+      "unique_smiles": 4
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "experimental_delivery_paper_subset",
+      "component_type": "IL",
+      "rows": 9690,
+      "unique_smiles": 7493
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "record_role": "model_prediction",
+      "component_type": "IL",
+      "rows": 372,
+      "unique_smiles": 165
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "design_component_set",
+      "component_type": "amines",
+      "rows": 1840,
+      "unique_smiles": 32
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "design_component_set",
+      "component_type": "isocyanide",
+      "rows": 1840,
+      "unique_smiles": 12
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "design_component_set",
+      "component_type": "lipid_aldehyde",
+      "rows": 1840,
+      "unique_smiles": 16
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "design_component_set",
+      "component_type": "lipid_carboxylic_acid",
+      "rows": 1840,
+      "unique_smiles": 36
+    },
+    {
+      "source_key": "lumi_lab",
+      "record_role": "experimental_screen",
+      "component_type": "IL",
+      "rows": 1920,
+      "unique_smiles": 1920
+    },
+    {
+      "source_key": "translnp",
+      "record_role": "activity_split",
+      "component_type": "IL",
+      "rows": 2400,
+      "unique_smiles": 1100
+    },
+    {
+      "source_key": "transma",
+      "record_role": "activity_split",
+      "component_type": "IL",
+      "rows": 4800,
+      "unique_smiles": 1100
+    }
+  ],
+  "overlap": {
+    "existing_external_unique_smiles": 13108,
+    "unique_smiles_by_source": {
+      "agile": 13154,
+      "comet_lance": 7,
+      "lipobart": 806,
+      "lnp_ml_lion": 9377,
+      "lumi_lab": 1920,
+      "translnp": 1100,
+      "transma": 1100
+    },
+    "smiles_in_existing_external_by_source": {
+      "agile": 1255,
+      "comet_lance": 0,
+      "lipobart": 65,
+      "lnp_ml_lion": 1281,
+      "lumi_lab": 0,
+      "translnp": 432,
+      "transma": 432
+    },
+    "unique_smiles_by_source_role": {
+      "agile::experimental_finetuning": 1100,
+      "agile::experimental_library": 1200,
+      "agile::virtual_candidate": 12276,
+      "comet_lance::formulation_activity": 7,
+      "lipobart::material_activity": 572,
+      "lipobart::material_structure": 572,
+      "lnp_ml_lion::experimental_delivery": 9377,
+      "lnp_ml_lion::experimental_delivery_paper_subset": 7493,
+      "lnp_ml_lion::model_prediction": 165,
+      "lumi_lab::experimental_screen": 1920,
+      "translnp::activity_split": 1100,
+      "transma::activity_split": 1100
+    },
+    "pairwise_high_throughput_smiles_overlap": [
+      {
+        "left": "agile",
+        "right": "translnp",
+        "left_smiles": 13154,
+        "right_smiles": 1100,
+        "shared_smiles": 1100
+      },
+      {
+        "left": "agile",
+        "right": "transma",
+        "left_smiles": 13154,
+        "right_smiles": 1100,
+        "shared_smiles": 1100
+      },
+      {
+        "left": "translnp",
+        "right": "transma",
+        "left_smiles": 1100,
+        "right_smiles": 1100,
+        "shared_smiles": 1100
+      },
+      {
+        "left": "agile",
+        "right": "comet_lance",
+        "left_smiles": 13154,
+        "right_smiles": 7,
+        "shared_smiles": 0
+      },
+      {
+        "left": "agile",
+        "right": "lipobart",
+        "left_smiles": 13154,
+        "right_smiles": 806,
+        "shared_smiles": 0
+      },
+      {
+        "left": "agile",
+        "right": "lnp_ml_lion",
+        "left_smiles": 13154,
+        "right_smiles": 9377,
+        "shared_smiles": 0
+      },
+      {
+        "left": "agile",
+        "right": "lumi_lab",
+        "left_smiles": 13154,
+        "right_smiles": 1920,
+        "shared_smiles": 0
+      },
+      {
+        "left": "comet_lance",
+        "right": "lipobart",
+        "left_smiles": 7,
+        "right_smiles": 806,
+        "shared_smiles": 0
+      },
+      {
+        "left": "comet_lance",
+        "right": "lnp_ml_lion",
+        "left_smiles": 7,
+        "right_smiles": 9377,
+        "shared_smiles": 0
+      },
+      {
+        "left": "comet_lance",
+        "right": "lumi_lab",
+        "left_smiles": 7,
+        "right_smiles": 1920,
+        "shared_smiles": 0
+      },
+      {
+        "left": "comet_lance",
+        "right": "translnp",
+        "left_smiles": 7,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      },
+      {
+        "left": "comet_lance",
+        "right": "transma",
+        "left_smiles": 7,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lipobart",
+        "right": "lnp_ml_lion",
+        "left_smiles": 806,
+        "right_smiles": 9377,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lipobart",
+        "right": "lumi_lab",
+        "left_smiles": 806,
+        "right_smiles": 1920,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lipobart",
+        "right": "translnp",
+        "left_smiles": 806,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lipobart",
+        "right": "transma",
+        "left_smiles": 806,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lnp_ml_lion",
+        "right": "lumi_lab",
+        "left_smiles": 9377,
+        "right_smiles": 1920,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lnp_ml_lion",
+        "right": "translnp",
+        "left_smiles": 9377,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lnp_ml_lion",
+        "right": "transma",
+        "left_smiles": 9377,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lumi_lab",
+        "right": "translnp",
+        "left_smiles": 1920,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      },
+      {
+        "left": "lumi_lab",
+        "right": "transma",
+        "left_smiles": 1920,
+        "right_smiles": 1100,
+        "shared_smiles": 0
+      }
+    ],
+    "top_duplicate_smiles_within_source_role": [
+      {
+        "source_key": "comet_lance",
+        "record_role": "formulation_activity",
+        "ionizable_lipid_smiles": "OC(CCCCCCCCCC)CN(CCN(CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CCN1CCN(CCN(CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CC1",
+        "rows": 3372
+      },
+      {
+        "source_key": "comet_lance",
+        "record_role": "formulation_activity",
+        "ionizable_lipid_smiles": "OCCN(CCCCCCCC(OC(CCCCCCCC)CCCCCCCC)=O)CCCCCC(OCCCCCCCCCCC)=O",
+        "rows": 3072
+      },
+      {
+        "source_key": "comet_lance",
+        "record_role": "formulation_activity",
+        "ionizable_lipid_smiles": "CCCCCC=CCC=CCCCCCCCCC(CCCCCCCCC=CCC=CCCCCC)OC(=O)CCCN(C)C",
+        "rows": 2020
+      },
+      {
+        "source_key": "comet_lance",
+        "record_role": "formulation_activity",
+        "ionizable_lipid_smiles": "O=C1NC(CCCCN(CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)C(NC1CCCCN(CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)=O",
+        "rows": 1869
+      },
+      {
+        "source_key": "comet_lance",
+        "record_role": "formulation_activity",
+        "ionizable_lipid_smiles": "OCCCCN(CCCCCCOC(C(CCCCCC)CCCCCCCC)=O)CCCCCCOC(C(CCCCCC)CCCCCCCC)=O",
+        "rows": 1869
+      },
+      {
+        "source_key": "comet_lance",
+        "record_role": "formulation_activity",
+        "ionizable_lipid_smiles": "CN(C)CCCC(OC(CCCCCCCC(OC/C=C\\CCCCCC)=O)CCCCCCCC(OC/C=C\\CCCCCC)=O)=O",
+        "rows": 1861
+      },
+      {
+        "source_key": "comet_lance",
+        "record_role": "formulation_activity",
+        "ionizable_lipid_smiles": "CCCCC/C=C\\C/C=C\\CCCCCCCCC1(OC(CCN(C)C)CO1)CCCCCCCC/C=C\\C/C=C\\CCCCC",
+        "rows": 1804
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CN(C)CCCN1N=CC=C1)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 42
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 42
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CN(C)CCCN1N=CC=C1)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 42
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 42
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "N(CCC(=O)OCCCCCCCC\\C=C/CC(CCCCCC)OC(=O)CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\C/C=C\\CC)(CCC(=O)OCCCCCCCC\\C=C/CC(CCCCCC)OC(=O)CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\C/C=C\\CC)CCCN(CC)CC",
+        "rows": 27
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "N(CCC(=O)OCCCCCCCC\\C=C/CC(CCCCCC)OC(=O)CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\C/C=C\\CC)(CCC(=O)OCCCCCCCC\\C=C/CC(CCCCCC)OC(=O)CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\C/C=C\\CC)CCCN(CC)CC",
+        "rows": 27
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CCCCCCCCCCC(O)CN(CCCCC1NC(=O)C(CCCCN(CC(O)CCCCCCCCCC)CC(O)CCCCCCCCCC)NC1=O)CC(O)CCCCCCCCCC",
+        "rows": 25
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CCCCCCCCCCC(O)CN(CCCCC1NC(=O)C(CCCCN(CC(O)CCCCCCCCCC)CC(O)CCCCCCCCCC)NC1=O)CC(O)CCCCCCCCCC",
+        "rows": 25
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)CCCN(C)CCCN(CCC(OCCCCCCCC/C=C\\CC(CCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)C",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN(C)CCCN(CCC(OCCCCCCCC/C=C\\CC(CCCCC)OC(CC/C=C\\CCCCC)=O)=O)C",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN1CCN(C)CC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCN1CCN(C)CCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC1CCCCC1)=O)=O)CCN2CCCC2)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC3CCCCC3)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(OCCCCCC(C(CN(C)CCCN1N=CC=C1)CCCCOC(CCCCCCCCCCCCCCC)=O)O)CCCCCCCCCCCCCCC",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC1CCCCC1)=O)CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC2CCCCC2)=O)=O)CCCN(CC)CC",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)CCCN(C)CCCN(CCC(OCCCCCCCC/C=C\\CC(CCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)C",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN(C)CCCN(CCC(OCCCCCCCC/C=C\\CC(CCCCC)OC(CC/C=C\\CCCCC)=O)=O)C",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCC)CCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN1CCN(C)CC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCN1CCN(C)CCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC1CCCCC1)=O)=O)CCN2CCCC2)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC3CCCCC3)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O)=O)CCN1CCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCCCCCCCC)=O",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(OCCCCCC(C(CN(C)CCCN1N=CC=C1)CCCCOC(CCCCCCCCCCCCCCC)=O)O)CCCCCCCCCCCCCCC",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC1CCCCC1)=O)CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCC2CCCCC2)=O)=O)CCCN(CC)CC",
+        "rows": 24
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CN(CC(CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)C(O)CCCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)CCO",
+        "rows": 23
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O",
+        "rows": 23
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(OCCCCCC(C(CN1CCN(C)CC1)CCCCOC(CCCCCCCCCCCCCCC)=O)O)CCCCCCCCCCCCCCC",
+        "rows": 23
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CN(CC(CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)C(O)CCCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)CCO",
+        "rows": 23
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCCCCC)=O",
+        "rows": 23
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(OCCCCCC(C(CN1CCN(C)CC1)CCCCOC(CCCCCCCCCCCCCCC)=O)O)CCCCCCCCCCCCCCC",
+        "rows": 23
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCCCCN(C)CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)CCCN1CCN(C)CC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O)=O)CCC1=CC=NC=C1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "OC(C(CN1CCN(C)CC1)CCCCOC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)CCCCCOC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCCCCN(C)CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O)=O)CCCN1CCN(C)CC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(C(CCCCCCCC)CCCCCC)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O)=O)CCC1=CC=NC=C1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCC/C=C\\C/C=C\\C/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "OC(C(CN1CCN(C)CC1)CCCCOC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)CCCCCOC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 22
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CN1CCN(C)CC1)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 21
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CN1CCN(C)CC1)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 21
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "OC(CN(CCN(CCN1CCN(CC1)CCN(CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CCCCCCCCCC",
+        "rows": 20
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "OC(CN(CCN(CCN1CCN(CC1)CCN(CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CC(CCCCCCCCCC)O)CCCCCCCCCC",
+        "rows": 20
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CN(CCCCCC(OC(CCCCCCCC)CCCCCCCC)=O)CCOC(OCCN(CCCCCC(OC(CCCCCCCC)CCCCCCCC)=O)C)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCN1CCCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCCC)=O)=O)CCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCC/C=C\\CCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCC/C=C\\CCCCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CN(CCCCCC(OC(CCCCCCCC)CCCCCCCC)=O)CCOC(OCCN(CCCCCC(OC(CCCCCCCC)CCCCCCCC)=O)C)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCN1CCCCC1)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCCC)=O)=O)CCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCC/C=C\\CCCCCCC)=O)=O)CCCN(CC)CC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCCC/C=C\\CCCCCCC)=O",
+        "rows": 18
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CNCCCN(CCO)CCO)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 17
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CCCCCCCCC(OC(CCCCCCCN(CCO)CCCCCCCC(OCCCCCCCCC)=O)=O)CCCCCCCC",
+        "rows": 17
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)=O)CCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 17
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CNCCCN(CCO)CCO)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 17
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CCCCCCCCC(OC(CCCCCCCN(CCO)CCCCCCCC(OCCCCCCCCC)=O)=O)CCCCCCCC",
+        "rows": 17
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)=O)CCCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 17
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CNCCCN(C)C)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 16
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 16
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)=O)CCCN(CCCC)CCCC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 16
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O)=O)CCCN(CCCC)CCCC)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CCCCCCC/C=C\\CCCCCCCC)=O",
+        "rows": 16
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery",
+        "ionizable_lipid_smiles": "OC(C(CN(C)CC1=CC=CN=C1)CCCCOC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O)CCCCCOC(CCCCCCC/C=C\\C/C=C\\CCCCC)=O",
+        "rows": 16
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "CCCCCCCC/C=C\\CCCCCCCC(OCCCCCC(C(CNCCCN(C)C)CCCCOC(CCCCCCC/C=C\\CCCCCCCC)=O)O)=O",
+        "rows": 16
+      },
+      {
+        "source_key": "lnp_ml_lion",
+        "record_role": "experimental_delivery_paper_subset",
+        "ionizable_lipid_smiles": "O=C(CCN(CCC(OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O)=O)CCN(C)C)OCCCCCCCC/C=C\\CC(CCCCCC)OC(CC/C=C\\CCCCC)=O",
+        "rows": 16
+      }
+    ]
+  }
+}

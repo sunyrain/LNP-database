@@ -1,0 +1,36 @@
+source_key,source_dataset,record_role,component_type,rows,records,unique_smiles
+agile,AGILE,experimental_finetuning,IL,1200,1200,1100
+agile,AGILE,experimental_library,A_smiles,1200,1200,20
+agile,AGILE,experimental_library,B_smiles,1200,1200,12
+agile,AGILE,experimental_library,C_smiles,1200,1200,5
+agile,AGILE,experimental_library,IL,1200,1200,1200
+agile,AGILE,virtual_candidate,IL,12276,12276,12276
+comet_lance,COMET / LANCE,formulation_activity,IL,21117,15867,7
+comet_lance,COMET / LANCE,formulation_activity,CH,15867,15867,3
+comet_lance,COMET / LANCE,formulation_activity,HL,15867,15867,2
+comet_lance,COMET / LANCE,formulation_activity,PEG,15867,15867,2
+comet_lance,COMET / LANCE,formulation_activity,PBAE_branching_agent,454,454,3
+comet_lance,COMET / LANCE,formulation_activity,PBAE_monomer,454,454,5
+lipobart,LipoBART iPhos,material_activity,CH,572,572,1
+lipobart,LipoBART iPhos,material_activity,HL,572,572,1
+lipobart,LipoBART iPhos,material_activity,IL,572,572,572
+lipobart,LipoBART iPhos,material_activity,PEG,572,572,1
+lipobart,LipoBART iPhos,material_activity,m1,572,572,572
+lipobart,LipoBART iPhos,material_activity,m2,572,572,1
+lipobart,LipoBART iPhos,material_activity,m3,572,572,1
+lipobart,LipoBART iPhos,material_activity,m4,572,572,1
+lipobart,LipoBART iPhos,material_structure,IL,572,572,572
+lipobart,LipoBART iPhos,material_structure,head,572,572,13
+lipobart,LipoBART iPhos,material_structure,tail,572,572,28
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery,IL,13069,13069,9377
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery,HL,12997,12997,4
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery_paper_subset,IL,9690,9690,7493
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery_paper_subset,HL,9618,9618,4
+lnp_ml_lion,LNP_ML / LiON,model_prediction,IL,372,372,165
+lumi_lab,LUMI-lab,design_component_set,amines,1840,1840,32
+lumi_lab,LUMI-lab,design_component_set,isocyanide,1840,1840,12
+lumi_lab,LUMI-lab,design_component_set,lipid_aldehyde,1840,1840,16
+lumi_lab,LUMI-lab,design_component_set,lipid_carboxylic_acid,1840,1840,36
+lumi_lab,LUMI-lab,experimental_screen,IL,1920,1920,1920
+translnp,TransLNP,activity_split,IL,2400,2400,1100
+transma,TransMA,activity_split,IL,4800,4800,1100

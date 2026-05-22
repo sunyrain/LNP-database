@@ -1,0 +1,40 @@
+source_key,source_dataset,record_role,metric,rows,numeric_rows,min_value,avg_value,max_value
+agile,AGILE,experimental_finetuning,expt_Hela,1200,1200,-2.345629161,4.845546808890004,15.9596558
+agile,AGILE,experimental_finetuning,expt_Raw,1200,1200,-2.5307831,2.177283039416667,11.4112837
+agile,AGILE,experimental_library,expt_Hela,1200,1200,-2.3456292,4.850145813024998,15.9596558
+agile,AGILE,experimental_library,expt_Raw,1200,1200,-2.530783132,2.175360913852499,11.41128373
+comet_lance,COMET / LANCE,formulation_activity,in_house_lnp_DC24_luc,15867,15867,0.0,0.47336747390913786,1.0
+comet_lance,COMET / LANCE,formulation_activity,in_house_lnp_B16F10_luc,12748,12748,0.0,0.35771317872189184,1.0
+comet_lance,COMET / LANCE,formulation_activity,in_house_lnp_CACO2_luc,295,295,0.0,0.5591766487564597,1.0
+comet_lance,COMET / LANCE,formulation_activity,SSLNP_in_house_lnp_B16F10_luc,168,168,0.0,0.3279703800228686,1.0
+lipobart,LipoBART iPhos,material_activity,family,572,572,0.0,2.7045454545454546,6.0
+lipobart,LipoBART iPhos,material_activity,family;y1;y2,572,572,0.0,2.7045454545454546,6.0
+lipobart,LipoBART iPhos,material_activity,y1,572,572,0.0,0.8479020979020979,3.0
+lipobart,LipoBART iPhos,material_activity,y2,572,572,0.0,0.1555944055944056,1.0
+lipobart,LipoBART iPhos,target_definition,P10,44,44,0.0,1.2727272727272727,3.0
+lipobart,LipoBART iPhos,target_definition,P11,44,44,0.0,0.9545454545454546,3.0
+lipobart,LipoBART iPhos,target_definition,P12,44,44,0.0,0.8636363636363636,2.0
+lipobart,LipoBART iPhos,target_definition,P13,44,44,0.0,0.7954545454545454,3.0
+lipobart,LipoBART iPhos,target_definition,P14,44,44,0.0,0.7727272727272727,3.0
+lipobart,LipoBART iPhos,target_definition,P15,44,44,0.0,0.6136363636363636,3.0
+lipobart,LipoBART iPhos,target_definition,P16,44,44,0.0,0.5,3.0
+lipobart,LipoBART iPhos,target_definition,P4,44,44,0.0,0.9318181818181818,2.0
+lipobart,LipoBART iPhos,target_definition,P5,44,44,0.0,0.5227272727272727,2.0
+lipobart,LipoBART iPhos,target_definition,P6,44,44,0.0,0.75,2.0
+lipobart,LipoBART iPhos,target_definition,P7,44,44,0.0,0.8863636363636364,2.0
+lipobart,LipoBART iPhos,target_definition,P8,44,44,0.0,0.7727272727272727,2.0
+lipobart,LipoBART iPhos,target_definition,P9,44,44,0.0,1.3863636363636365,3.0
+lipobart,LipoBART iPhos,target_definition,Unnamed: 0,44,0,,,
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery,quantified_delivery,13069,13069,-3.156676774262336,-3.869002787782396e-16,7.223938424120641
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery,unnormalized_delivery,13069,13069,-3.220623659,32.41406874485428,37800.0
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery_paper_subset,quantified_delivery,13069,13069,-3.156676774,5.202706372818167e-12,7.223938424
+lnp_ml_lion,LNP_ML / LiON,experimental_delivery_paper_subset,unnormalized_delivery,9690,9690,-3.220623659,2.018469485968247,11.5903614
+lnp_ml_lion,LNP_ML / LiON,model_prediction,avg_pred_delivery,372,372,-0.8896677609136127,0.1734259307315765,1.7646619856270758
+lnp_ml_lion,LNP_ML / LiON,model_prediction,cv_0_pred_delivery,372,372,-1.2319483586094384,0.1869279721376793,1.9316905263238464
+lnp_ml_lion,LNP_ML / LiON,model_prediction,cv_1_pred_delivery,372,372,-1.0925197064580416,0.15280770424424756,1.4197203267618028
+lnp_ml_lion,LNP_ML / LiON,model_prediction,cv_2_pred_delivery,372,372,-1.2513114436246848,0.14816948950372058,2.23881819203543
+lnp_ml_lion,LNP_ML / LiON,model_prediction,cv_3_pred_delivery,372,372,-1.0209740099356572,0.2013842452463017,1.8869931206821409
+lnp_ml_lion,LNP_ML / LiON,model_prediction,cv_4_pred_delivery,372,372,-1.10550629055687,0.1778402425259342,1.7582108277501451
+lumi_lab,LUMI-lab,experimental_screen,RLU_log2,1920,1920,-5.523561956,4.128139653055197,16.21709132
+translnp,TransLNP,activity_split,TARGET,2400,2400,-2.345629161,4.845546808890001,15.9596558
+transma,TransMA,activity_split,TARGET,4800,4800,-2.5307831,3.511414924153354,15.9596558

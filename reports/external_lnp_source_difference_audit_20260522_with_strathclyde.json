@@ -1,0 +1,679 @@
+{
+  "generated_at": "2026-05-22T19:41:36",
+  "external_db": "D:\\Research\\AtctiveOPV\\LNP\\data\\external\\lnp_open\\external_lnp_open.db",
+  "sources": {
+    "LNP Atlas": {
+      "source_dataset": "LNP Atlas",
+      "records": 1092,
+      "unique_publication_dois": 62,
+      "missing_doi_records": 5,
+      "unique_titles": 63,
+      "unique_ionizable_lipids": 39,
+      "unique_ionizable_lipid_smiles": 270,
+      "unique_sterols": 11,
+      "payload_type_counts": {
+        "mRNA": 678,
+        "siRNA": 178,
+        "DNA": 135,
+        "empty": 53,
+        "ASO": 36,
+        "gold_nanoparticles": 6,
+        "mRNA, siRNA": 3,
+        "protein": 3
+      },
+      "bioactivity_profile_top20": {
+        "unknown": 162,
+        "animal_model: C57BL/6 mice; administration_route: IV (tail vein); dose: 0.4 ¥ìg per b-DNA; biodistribution_result: measured by deep sequencing in liver, spleen, kidney, small intestine, colon, stomach, cecum, feces": 92,
+        "cell_line: HeLa; animal_model: C57BL/6J female mice; administration_route: intravenous (IV); dose: 1.0 mg/kg total nucleic acid; biodistribution_result: Measured by deep sequencing in heart, liver, spleen, lungs, kidneys; toxicity_profile: Cell viability >85%": 86,
+        "animal_model: BALB/c mice; administration_route: nebulization; gene_expression_result: included in study": 33,
+        "animal_model: BALB/c mice; administration_route: nebulization; gene_expression_result: excluded from study": 20,
+        "cell_line: HeLa cells (dual luciferase); animal_model: C57BL/6 mice; administration_route: IV; dose: 1 mg/kg siRNA; gene_expression_result: High efficacy (>50% gene silencing); biodistribution_result: hepatocyte-specific delivery; toxicity_profile: Non-toxic at tested doses": 19,
+        "animal_model: BALB/c mice; administration_route: I.M. and I.T.; dose: 20 ¥ìg mRNA per mouse; gene_expression_result: Luciferase expression measured by IVIS imaging; biodistribution_result: Accumulation in liver, spleen, lungs": 19,
+        "animal_model: C57BL/6J, LDLR?/?, VLDLR?/?; administration_route: IV (intravenous); dose: 0.5 mg/kg total DNA; biodistribution_result: Measured in lung, spleen, liver endothelial cells, macrophages, and hepatocytes": 16,
+        "cell_line: HeLa cells (dual luciferase); animal_model: C57BL/6 mice; administration_route: IV; dose: 1 mg/kg siRNA; gene_expression_result: Low efficacy (<50% gene silencing); biodistribution_result: hepatocyte-specific delivery; toxicity_profile: Non-toxic at tested doses": 13,
+        "cell_line: bEnd.3; animal_model: C57BL/6 mice; administration_route: IV; dose: 0.25 ¥ìg b-mRNA per formulation; biodistribution_result: liver, spleen, lung, brain, kidney, heart, pancreas, muscle": 12,
+        "animal_model: E16 mouse fetuses (Balb/c); administration_route: Vitelline vein injection; dose: 5 ¥ìL (38.4 ng/¥ìL mRNA); gene_expression_result: Low luciferase expression; biodistribution_result: Primarily liver; toxicity_profile: >90% fetal survival; cytokine_response: No significant cytokine elevation": 8,
+        "cell_line: JEG-3 choriocarcinoma cells; dose: 50 ng mRNA per 25,000 cells; gene_expression_result: Normalized luciferase expression in JEG-3 cells; toxicity_profile: No significant decrease in cell viability vs Lipofectamine": 8,
+        "cell_line: IGROV1; animal_model: C57BL/6 mice; administration_route: i.v.; dose: 0.25 mg/kg mRNA; gene_expression_result: lung-specific expression; biodistribution_result: primarily lung; toxicity_profile: well tolerated": 8,
+        "cell_line: HeLa; animal_model: female C57BL/6 mice; administration_route: IV; dose: 0.75 mg/kg mRNA; gene_expression_result: modest luciferase expression; biodistribution_result: liver, spleen, kidneys, lungs": 8,
+        "cell_line: GFP-HEK cells; dose: 0.1 mg/mL ASO concentration; gene_expression_result: minimal GFP silencing": 7,
+        "cell_line: GFP-HEK cells; dose: 0.1 mg/mL ASO concentration; gene_expression_result: moderate GFP silencing": 7,
+        "animal_model: CD-1 mice; administration_route: IV; dose: 0.5 mg/kg; gene_expression_result: 2.1x fold change vs Lipid 1": 7,
+        "cell_line: HeLa-derived luciferase expressing cells; animal_model: C57BL/6 mice; administration_route: intravenous (tail vein); dose: 3 mg/kg total siRNA; gene_expression_result: gene silencing observed; biodistribution_result: liver-specific delivery; toxicity_profile: no body-weight loss observed": 7,
+        "animal_model: CD-1 mice; administration_route: IV; dose: 0.5 mg/kg; gene_expression_result: 2.2x fold change vs Lipid 1": 6,
+        "animal_model: CD-1 mice; administration_route: IV; dose: 0.5 mg/kg; gene_expression_result: 2.0x fold change vs Lipid 29": 6
+      },
+      "group_coverage": {
+        "publication": {
+          "any_count": 1092,
+          "any_fraction": 1.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "formulation_identity": {
+          "any_count": 1092,
+          "any_fraction": 1.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "lipid_identity": {
+          "any_count": 1092,
+          "any_fraction": 1.0,
+          "all_count": 1023,
+          "all_fraction": 0.9368
+        },
+        "lipid_structures": {
+          "any_count": 1058,
+          "any_fraction": 0.9689,
+          "all_count": 752,
+          "all_fraction": 0.6886
+        },
+        "composition": {
+          "any_count": 1092,
+          "any_fraction": 1.0,
+          "all_count": 1092,
+          "all_fraction": 1.0
+        },
+        "payload": {
+          "any_count": 1092,
+          "any_fraction": 1.0,
+          "all_count": 1092,
+          "all_fraction": 1.0
+        },
+        "physicochemical": {
+          "any_count": 817,
+          "any_fraction": 0.7482,
+          "all_count": 167,
+          "all_fraction": 0.1529
+        },
+        "bioactivity": {
+          "any_count": 930,
+          "any_fraction": 0.8516,
+          "all_count": 0,
+          "all_fraction": 0.0
+        }
+      },
+      "field_coverage": {
+        "publication": {
+          "publication_doi": {
+            "count": 1087,
+            "fraction": 0.9954
+          },
+          "publication_pmid": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "publication_link": {
+            "count": 1087,
+            "fraction": 0.9954
+          },
+          "paper_title": {
+            "count": 1092,
+            "fraction": 1.0
+          },
+          "paper_journal": {
+            "count": 1087,
+            "fraction": 0.9954
+          },
+          "paper_year": {
+            "count": 1087,
+            "fraction": 0.9954
+          }
+        },
+        "formulation_identity": {
+          "lnp_id": {
+            "count": 1092,
+            "fraction": 1.0
+          },
+          "experiment_id": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "formulation_id": {
+            "count": 1092,
+            "fraction": 1.0
+          }
+        },
+        "lipid_identity": {
+          "ionizable_lipid": {
+            "count": 1084,
+            "fraction": 0.9927
+          },
+          "helper_lipid": {
+            "count": 1045,
+            "fraction": 0.957
+          },
+          "peg_lipid": {
+            "count": 1046,
+            "fraction": 0.9579
+          },
+          "sterol_lipid": {
+            "count": 1046,
+            "fraction": 0.9579
+          }
+        },
+        "lipid_structures": {
+          "ionizable_lipid_smiles": {
+            "count": 940,
+            "fraction": 0.8608
+          },
+          "helper_lipid_smiles": {
+            "count": 1015,
+            "fraction": 0.9295
+          },
+          "peg_lipid_smiles": {
+            "count": 903,
+            "fraction": 0.8269
+          },
+          "sterol_lipid_smiles": {
+            "count": 1043,
+            "fraction": 0.9551
+          }
+        },
+        "composition": {
+          "lipid_molar_ratio": {
+            "count": 1092,
+            "fraction": 1.0
+          }
+        },
+        "payload": {
+          "payload_type": {
+            "count": 1092,
+            "fraction": 1.0
+          },
+          "payload_name": {
+            "count": 1092,
+            "fraction": 1.0
+          }
+        },
+        "physicochemical": {
+          "particle_size": {
+            "count": 766,
+            "fraction": 0.7015
+          },
+          "pdi": {
+            "count": 597,
+            "fraction": 0.5467
+          },
+          "zeta_potential": {
+            "count": 240,
+            "fraction": 0.2198
+          },
+          "encapsulation_efficiency": {
+            "count": 462,
+            "fraction": 0.4231
+          }
+        },
+        "bioactivity": {
+          "bioactivity_profile": {
+            "count": 930,
+            "fraction": 0.8516
+          },
+          "bioactivity_value": {
+            "count": 0,
+            "fraction": 0.0
+          }
+        }
+      },
+      "characterization": {
+        "record_grain": "one curated formulation/property row",
+        "strength": "balanced literature metadata, composition, physicochemical properties, SMILES, and bioactivity summaries",
+        "limitation": "smaller corpus; some rows do not carry a normalized DOI"
+      }
+    },
+    "LNPDB": {
+      "source_dataset": "LNPDB",
+      "records": 19797,
+      "unique_publication_dois": 42,
+      "missing_doi_records": 269,
+      "unique_titles": 0,
+      "unique_ionizable_lipids": 13016,
+      "unique_ionizable_lipid_smiles": 12845,
+      "unique_sterols": 16,
+      "payload_type_counts": {
+        "mRNA": 14578,
+        "siRNA": 3758,
+        "pDNA": 1192,
+        "unknown": 269
+      },
+      "bioactivity_profile_top20": {
+        "luminescence_normalized": 14630,
+        "luminescence_discretized_normalized": 3058,
+        "protein_adundance_normalized": 766,
+        "uptake": 479,
+        "unknown": 269,
+        "editing_efficiency_normalized": 141,
+        "LRP6_knockdown_normalized": 112,
+        "diameter": 96,
+        "zeta_potential": 96,
+        "hemolysis_percent": 90,
+        "luminescence_relative_to_Spikevax": 60
+      },
+      "group_coverage": {
+        "publication": {
+          "any_count": 19797,
+          "any_fraction": 1.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "formulation_identity": {
+          "any_count": 19797,
+          "any_fraction": 1.0,
+          "all_count": 19528,
+          "all_fraction": 0.9864
+        },
+        "lipid_identity": {
+          "any_count": 19797,
+          "any_fraction": 1.0,
+          "all_count": 18847,
+          "all_fraction": 0.952
+        },
+        "lipid_structures": {
+          "any_count": 19797,
+          "any_fraction": 1.0,
+          "all_count": 17049,
+          "all_fraction": 0.8612
+        },
+        "composition": {
+          "any_count": 19528,
+          "any_fraction": 0.9864,
+          "all_count": 19528,
+          "all_fraction": 0.9864
+        },
+        "payload": {
+          "any_count": 19528,
+          "any_fraction": 0.9864,
+          "all_count": 19528,
+          "all_fraction": 0.9864
+        },
+        "physicochemical": {
+          "any_count": 0,
+          "any_fraction": 0.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "bioactivity": {
+          "any_count": 19528,
+          "any_fraction": 0.9864,
+          "all_count": 19200,
+          "all_fraction": 0.9698
+        }
+      },
+      "field_coverage": {
+        "publication": {
+          "publication_doi": {
+            "count": 19528,
+            "fraction": 0.9864
+          },
+          "publication_pmid": {
+            "count": 19528,
+            "fraction": 0.9864
+          },
+          "publication_link": {
+            "count": 19797,
+            "fraction": 1.0
+          },
+          "paper_title": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "paper_journal": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "paper_year": {
+            "count": 0,
+            "fraction": 0.0
+          }
+        },
+        "formulation_identity": {
+          "lnp_id": {
+            "count": 19797,
+            "fraction": 1.0
+          },
+          "experiment_id": {
+            "count": 19797,
+            "fraction": 1.0
+          },
+          "formulation_id": {
+            "count": 19528,
+            "fraction": 0.9864
+          }
+        },
+        "lipid_identity": {
+          "ionizable_lipid": {
+            "count": 19797,
+            "fraction": 1.0
+          },
+          "helper_lipid": {
+            "count": 18959,
+            "fraction": 0.9577
+          },
+          "peg_lipid": {
+            "count": 19344,
+            "fraction": 0.9771
+          },
+          "sterol_lipid": {
+            "count": 19528,
+            "fraction": 0.9864
+          }
+        },
+        "lipid_structures": {
+          "ionizable_lipid_smiles": {
+            "count": 19797,
+            "fraction": 1.0
+          },
+          "helper_lipid_smiles": {
+            "count": 18959,
+            "fraction": 0.9577
+          },
+          "peg_lipid_smiles": {
+            "count": 17546,
+            "fraction": 0.8863
+          },
+          "sterol_lipid_smiles": {
+            "count": 19528,
+            "fraction": 0.9864
+          }
+        },
+        "composition": {
+          "lipid_molar_ratio": {
+            "count": 19528,
+            "fraction": 0.9864
+          }
+        },
+        "payload": {
+          "payload_type": {
+            "count": 19528,
+            "fraction": 0.9864
+          },
+          "payload_name": {
+            "count": 19528,
+            "fraction": 0.9864
+          }
+        },
+        "physicochemical": {
+          "particle_size": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "pdi": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "zeta_potential": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "encapsulation_efficiency": {
+            "count": 0,
+            "fraction": 0.0
+          }
+        },
+        "bioactivity": {
+          "bioactivity_profile": {
+            "count": 19528,
+            "fraction": 0.9864
+          },
+          "bioactivity_value": {
+            "count": 19200,
+            "fraction": 0.9698
+          }
+        }
+      },
+      "characterization": {
+        "record_grain": "one experiment/modeling row from high-throughput and literature datasets",
+        "strength": "largest record count; rich ionizable lipid structural descriptors and bioactivity labels",
+        "limitation": "paper titles/journals absent in source CSV; many records map to a small number of publications"
+      }
+    },
+    "Strathclyde ionisable lipid/sterol variation dataset": {
+      "source_dataset": "Strathclyde ionisable lipid/sterol variation dataset",
+      "records": 394,
+      "unique_publication_dois": 1,
+      "missing_doi_records": 0,
+      "unique_titles": 1,
+      "unique_ionizable_lipids": 14,
+      "unique_ionizable_lipid_smiles": 0,
+      "unique_sterols": 9,
+      "payload_type_counts": {
+        "mRNA": 394
+      },
+      "bioactivity_profile_top20": {
+        "summary_physicochemical_viability_expression": 76,
+        "particle_size_mean": 74,
+        "cell_viability_average": 51,
+        "mRNA_expression_average": 49,
+        "bioluminescence_mean; time=6 hours; body_part=Legs": 15,
+        "bioluminescence_mean; time=6 hours; body_part=Liver": 15,
+        "bioluminescence_mean; time=24 hours; body_part=Legs": 15,
+        "bioluminescence_mean; time=24 hours; body_part=Liver": 15,
+        "whole_mouse_bioluminescence_mean": 12,
+        "organ_bioluminescence_mean; organ=Heart": 12,
+        "organ_bioluminescence_mean; organ=Lungs": 12,
+        "organ_bioluminescence_mean; organ=Liver": 12,
+        "organ_bioluminescence_mean; organ=Spleen": 12,
+        "organ_bioluminescence_mean; organ=Kidneys": 12,
+        "organ_bioluminescence_mean; organ=Pancreas": 12
+      },
+      "group_coverage": {
+        "publication": {
+          "any_count": 394,
+          "any_fraction": 1.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "formulation_identity": {
+          "any_count": 0,
+          "any_fraction": 0.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "lipid_identity": {
+          "any_count": 394,
+          "any_fraction": 1.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "lipid_structures": {
+          "any_count": 0,
+          "any_fraction": 0.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "composition": {
+          "any_count": 0,
+          "any_fraction": 0.0,
+          "all_count": 0,
+          "all_fraction": 0.0
+        },
+        "payload": {
+          "any_count": 394,
+          "any_fraction": 1.0,
+          "all_count": 72,
+          "all_fraction": 0.1827
+        },
+        "physicochemical": {
+          "any_count": 120,
+          "any_fraction": 0.3046,
+          "all_count": 72,
+          "all_fraction": 0.1827
+        },
+        "bioactivity": {
+          "any_count": 394,
+          "any_fraction": 1.0,
+          "all_count": 319,
+          "all_fraction": 0.8096
+        }
+      },
+      "field_coverage": {
+        "publication": {
+          "publication_doi": {
+            "count": 394,
+            "fraction": 1.0
+          },
+          "publication_pmid": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "publication_link": {
+            "count": 394,
+            "fraction": 1.0
+          },
+          "paper_title": {
+            "count": 394,
+            "fraction": 1.0
+          },
+          "paper_journal": {
+            "count": 394,
+            "fraction": 1.0
+          },
+          "paper_year": {
+            "count": 394,
+            "fraction": 1.0
+          }
+        },
+        "formulation_identity": {
+          "lnp_id": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "experiment_id": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "formulation_id": {
+            "count": 0,
+            "fraction": 0.0
+          }
+        },
+        "lipid_identity": {
+          "ionizable_lipid": {
+            "count": 394,
+            "fraction": 1.0
+          },
+          "helper_lipid": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "peg_lipid": {
+            "count": 100,
+            "fraction": 0.2538
+          },
+          "sterol_lipid": {
+            "count": 394,
+            "fraction": 1.0
+          }
+        },
+        "lipid_structures": {
+          "ionizable_lipid_smiles": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "helper_lipid_smiles": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "peg_lipid_smiles": {
+            "count": 0,
+            "fraction": 0.0
+          },
+          "sterol_lipid_smiles": {
+            "count": 0,
+            "fraction": 0.0
+          }
+        },
+        "composition": {
+          "lipid_molar_ratio": {
+            "count": 0,
+            "fraction": 0.0
+          }
+        },
+        "payload": {
+          "payload_type": {
+            "count": 394,
+            "fraction": 1.0
+          },
+          "payload_name": {
+            "count": 72,
+            "fraction": 0.1827
+          }
+        },
+        "physicochemical": {
+          "particle_size": {
+            "count": 120,
+            "fraction": 0.3046
+          },
+          "pdi": {
+            "count": 72,
+            "fraction": 0.1827
+          },
+          "zeta_potential": {
+            "count": 72,
+            "fraction": 0.1827
+          },
+          "encapsulation_efficiency": {
+            "count": 72,
+            "fraction": 0.1827
+          }
+        },
+        "bioactivity": {
+          "bioactivity_profile": {
+            "count": 394,
+            "fraction": 1.0
+          },
+          "bioactivity_value": {
+            "count": 319,
+            "fraction": 0.8096
+          }
+        }
+      },
+      "characterization": {
+        "record_grain": "figure/table row from one focused 2025 study",
+        "strength": "dense paired ionisable-lipid/sterol comparisons with in vitro and in vivo readouts",
+        "limitation": "single-publication dataset; workbook layout requires figure-specific parsing"
+      }
+    }
+  },
+  "pairwise_overlaps": [
+    {
+      "left": "LNP Atlas",
+      "right": "LNPDB",
+      "shared_publication_dois": 10,
+      "left_publication_dois": 62,
+      "right_publication_dois": 42,
+      "shared_ionizable_lipid_names": 7,
+      "left_ionizable_lipid_names": 39,
+      "right_ionizable_lipid_names": 13015,
+      "shared_ionizable_lipid_smiles": 7,
+      "left_ionizable_lipid_smiles": 270,
+      "right_ionizable_lipid_smiles": 12845
+    },
+    {
+      "left": "LNP Atlas",
+      "right": "Strathclyde ionisable lipid/sterol variation dataset",
+      "shared_publication_dois": 0,
+      "left_publication_dois": 62,
+      "right_publication_dois": 1,
+      "shared_ionizable_lipid_names": 1,
+      "left_ionizable_lipid_names": 39,
+      "right_ionizable_lipid_names": 14,
+      "shared_ionizable_lipid_smiles": 0,
+      "left_ionizable_lipid_smiles": 270,
+      "right_ionizable_lipid_smiles": 0
+    },
+    {
+      "left": "LNPDB",
+      "right": "Strathclyde ionisable lipid/sterol variation dataset",
+      "shared_publication_dois": 0,
+      "left_publication_dois": 42,
+      "right_publication_dois": 1,
+      "shared_ionizable_lipid_names": 1,
+      "left_ionizable_lipid_names": 13015,
+      "right_ionizable_lipid_names": 14,
+      "shared_ionizable_lipid_smiles": 0,
+      "left_ionizable_lipid_smiles": 12845,
+      "right_ionizable_lipid_smiles": 0
+    }
+  ]
+}

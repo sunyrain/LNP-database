@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNP Open Data Registry</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <div class="brand">LNP Open Data Registry</div>
+        <h1>mRNA LNP formulation data mart</h1>
+        <p class="subtitle">Integrated open datasets, high-throughput screens, overlap audit, and literature extraction queue.</p>
+      </div>
+      <div class="header-actions">
+        <a class="header-link" href="data/summary.json">Summary JSON</a>
+        <a class="header-link" href="data/source_inventory.csv">Source CSV</a>
+        <button class="header-link button-link" id="downloadSummaryBtn" type="button">Export Summary</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="loading" id="loadingPanel">
+      <div class="spinner"></div>
+      <span>Loading LNP data assets</span>
+    </div>
+
+    <div id="errorPanel" class="error-panel" hidden></div>
+
+    <div id="mainContent" hidden>
+      <section class="stats-grid" aria-label="Database counts">
+        <div class="stat-card">
+          <span class="stat-label">Combined Records</span>
+          <strong class="stat-value" id="statCombined">-</strong>
+          <span class="stat-sub" id="statCoreHigh">-</span>
+        </div>
+        <div class="stat-card teal">
+          <span class="stat-label">Ionizable SMILES</span>
+          <strong class="stat-value" id="statSmiles">-</strong>
+          <span class="stat-sub">exact unique strings</span>
+        </div>
+        <div class="stat-card amber">
+          <span class="stat-label">Activity Values</span>
+          <strong class="stat-value" id="statActivity">-</strong>
+          <span class="stat-sub" id="statMetrics">-</span>
+        </div>
+        <div class="stat-card green">
+          <span class="stat-label">Component Rows</span>
+          <strong class="stat-value" id="statComponents">-</strong>
+          <span class="stat-sub" id="statSources">-</span>
+        </div>
+        <div class="stat-card red">
+          <span class="stat-label">Strong Overlaps</span>
+          <strong class="stat-value" id="statOverlaps">-</strong>
+          <span class="stat-sub" id="statQueue">-</span>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="LNP data sections">
+        <button class="tab active" type="button" data-tab="overview">Overview</button>
+        <button class="tab" type="button" data-tab="sources">Sources</button>
+        <button class="tab" type="button" data-tab="overlap">Overlap</button>
+        <button class="tab" type="button" data-tab="activity">Activity</button>
+        <button class="tab" type="button" data-tab="queue">Extraction Queue</button>
+        <button class="tab" type="button" data-tab="records">Record Preview</button>
+        <button class="tab" type="button" data-tab="reports">Reports</button>
+      </nav>
+
+      <section class="tab-panel active" id="tab-overview">
+        <div class="layout-two">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Records By Source</h2>
+              <span class="panel-meta" id="overviewGenerated">-</span>
+            </div>
+            <div class="bar-list" id="sourceBars"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Payload Distribution</h2>
+              <span class="panel-meta">combined tables</span>
+            </div>
+            <div class="bar-list compact" id="payloadBars"></div>
+          </section>
+        </div>
+        <div class="layout-two">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>High-Throughput Activity</h2>
+              <span class="panel-meta">numeric rows</span>
+            </div>
+            <div class="bar-list compact" id="activityBars"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Route And Target Coverage</h2>
+              <span class="panel-meta">high-throughput layer</span>
+            </div>
+            <div class="mini-grid">
+              <div>
+                <h3>Routes</h3>
+                <div class="bar-list mini" id="routeBars"></div>
+              </div>
+              <div>
+                <h3>Targets</h3>
+                <div class="bar-list mini" id="targetBars"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-sources">
+        <div class="toolbar">
+          <input type="search" id="sourceSearch" placeholder="Search source, role, collection">
+          <select id="sourceCollectionFilter">
+            <option value="">All collections</option>
+            <option value="core_open">Core open</option>
+            <option value="high_throughput">High-throughput</option>
+          </select>
+          <button class="btn" type="button" id="clearSourceFilters">Clear</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadSourcesBtn">Export CSV</button>
+          <span class="table-info" id="sourceInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-source-sort="collection">Collection</th>
+                <th data-source-sort="source_dataset">Source</th>
+                <th data-source-sort="record_role">Role</th>
+                <th data-source-sort="records" class="num">Records</th>
+                <th data-source-sort="unique_ionizable_smiles" class="num">Ionizable SMILES</th>
+                <th data-source-sort="numeric_activity_values" class="num">Numeric Activity</th>
+                <th data-source-sort="activity_metrics" class="num">Metrics</th>
+                <th data-source-sort="unique_component_smiles" class="num">Component SMILES</th>
+                <th data-source-sort="source_files" class="num">Files</th>
+              </tr>
+            </thead>
+            <tbody id="sourceTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-overlap">
+        <div class="toolbar">
+          <input type="search" id="overlapSearch" placeholder="Search source pair">
+          <select id="overlapRiskFilter">
+            <option value="">All risk levels</option>
+            <option value="duplicate_subset">Duplicate subset</option>
+            <option value="material_overlap">Material overlap</option>
+            <option value="moderate_overlap">Moderate overlap</option>
+            <option value="low_overlap">Low overlap</option>
+          </select>
+          <button class="btn" type="button" id="clearOverlapFilters">Clear</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadOverlapBtn">Export CSV</button>
+          <span class="table-info" id="overlapInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-overlap-sort="left_source_dataset">Left Source</th>
+                <th data-overlap-sort="right_source_dataset">Right Source</th>
+                <th data-overlap-sort="shared_smiles" class="num">Shared SMILES</th>
+                <th data-overlap-sort="overlap_of_smaller" class="num">Overlap Smaller</th>
+                <th data-overlap-sort="jaccard" class="num">Jaccard</th>
+                <th data-overlap-sort="risk_level">Risk</th>
+              </tr>
+            </thead>
+            <tbody id="overlapTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-activity">
+        <div class="toolbar">
+          <input type="search" id="activitySearch" placeholder="Search source, role, metric">
+          <button class="btn" type="button" id="clearActivityFilters">Clear</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadActivityBtn">Export CSV</button>
+          <span class="table-info" id="activityInfo">-</span>
+        </div>
+        <div class="layout-two activity-layout">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-activity-sort="source_dataset">Source</th>
+                  <th data-activity-sort="record_role">Role</th>
+                  <th data-activity-sort="metric">Metric</th>
+                  <th data-activity-sort="rows" class="num">Rows</th>
+                  <th data-activity-sort="numeric_rows" class="num">Numeric</th>
+                  <th data-activity-sort="avg_value" class="num">Average</th>
+                  <th data-activity-sort="min_value" class="num">Min</th>
+                  <th data-activity-sort="max_value" class="num">Max</th>
+                </tr>
+              </thead>
+              <tbody id="activityTable"></tbody>
+            </table>
+          </div>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Component Coverage</h2>
+              <span class="panel-meta">normalized components</span>
+            </div>
+            <div class="component-list" id="componentList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-queue">
+        <div class="toolbar">
+          <input type="search" id="queueSearch" placeholder="Search title, source, DOI, reason">
+          <select id="queuePriorityFilter">
+            <option value="">All priorities</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <button class="btn" type="button" id="clearQueueFilters">Clear</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadQueueBtn">Export CSV</button>
+          <span class="table-info" id="queueInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Source</th>
+                <th>Title</th>
+                <th>Paper DOI</th>
+                <th>Dataset DOI</th>
+                <th>Status</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody id="queueTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-records">
+        <div class="toolbar">
+          <input type="search" id="recordSearch" placeholder="Search source, DOI, lipid, SMILES, payload">
+          <select id="recordCollectionFilter">
+            <option value="">All collections</option>
+            <option value="core_open">Core open</option>
+            <option value="high_throughput">High-throughput</option>
+          </select>
+          <button class="btn" type="button" id="clearRecordFilters">Clear</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadRecordsBtn">Export CSV</button>
+          <span class="table-info" id="recordInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Collection</th>
+                <th>Source</th>
+                <th>Role</th>
+                <th>DOI</th>
+                <th>Lipid</th>
+                <th>Ionizable SMILES</th>
+                <th>Payload</th>
+                <th>Context</th>
+                <th>Metric</th>
+                <th class="num">Value</th>
+              </tr>
+            </thead>
+            <tbody id="recordTable"></tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <button class="btn" type="button" id="recordPrevBtn">Previous</button>
+          <span id="recordPageInfo">-</span>
+          <button class="btn" type="button" id="recordNextBtn">Next</button>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-reports">
+        <div class="report-grid" id="reportGrid"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="detailModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal-head">
+        <h2 id="detailTitle">Record Detail</h2>
+        <button class="modal-close" type="button" id="closeDetailBtn">Close</button>
+      </div>
+      <div class="modal-body" id="detailBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>LNP Open Data Registry</span>
+    <span id="footerUpdated">-</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

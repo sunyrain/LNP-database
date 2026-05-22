@@ -1,0 +1,2335 @@
+{
+  "generated_at": "2026-05-22T20:14:26",
+  "external_db": "D:\\Research\\AtctiveOPV\\LNP\\data\\external\\lnp_open\\external_lnp_open.db",
+  "integrated_source_stats": {
+    "LNPDB": {
+      "source_dataset": "LNPDB",
+      "records": 19797,
+      "publication_dois": 42,
+      "ionizable_lipids": 13016,
+      "ionizable_lipid_smiles": 12845
+    },
+    "LNP Atlas": {
+      "source_dataset": "LNP Atlas",
+      "records": 1092,
+      "publication_dois": 62,
+      "ionizable_lipids": 39,
+      "ionizable_lipid_smiles": 270
+    },
+    "Strathclyde ionisable lipid/sterol variation dataset": {
+      "source_dataset": "Strathclyde ionisable lipid/sterol variation dataset",
+      "records": 394,
+      "publication_dois": 1,
+      "ionizable_lipids": 14,
+      "ionizable_lipid_smiles": 0
+    }
+  },
+  "sources": [
+    {
+      "key": "lnp_atlas",
+      "title": "LNP Atlas",
+      "category": "curated_literature_database",
+      "priority": "already_integrated",
+      "status": "integrated",
+      "reason": "Balanced curated formulation/property database with DOI-level provenance.",
+      "paper_doi": "10.1038/s41597-025-06456-w",
+      "dataset_doi": "10.5281/zenodo.17243733",
+      "homepage": "https://www.nature.com/articles/s41597-025-06456-w",
+      "github": {},
+      "zenodo": {
+        "record_id": "17243732",
+        "title": "LNP Atlas: A Comprehensive Database of Lipid Nanoparticle Compositions and Properties for Nucleic Acid Delivery",
+        "doi": "10.5281/zenodo.17243733",
+        "publication_date": "2025-10-01",
+        "license": "cc-by-4.0",
+        "url": "https://zenodo.org/records/17243732",
+        "files": [
+          {
+            "path": "LNP_Atlas_DB_202509_v1.csv",
+            "size": 1785032,
+            "download_url": "https://zenodo.org/api/records/17243733/files/LNP_Atlas_DB_202509_v1.csv/content"
+          }
+        ]
+      },
+      "figshare": {},
+      "file_count": 1,
+      "file_count_by_platform": {
+        "Zenodo": 1
+      },
+      "structured_file_count": 1,
+      "data_file_bytes": 1785032,
+      "largest_files": [
+        {
+          "platform": "Zenodo",
+          "path": "LNP_Atlas_DB_202509_v1.csv",
+          "size": 1785032,
+          "download_url": "https://zenodo.org/api/records/17243733/files/LNP_Atlas_DB_202509_v1.csv/content"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "LNP_Atlas_DB_202509_v1.csv",
+          "size": 1785032,
+          "download_url": "https://zenodo.org/api/records/17243733/files/LNP_Atlas_DB_202509_v1.csv/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "lnp_id",
+              "ionizable_lipid",
+              "peg_lipid",
+              "sterol_lipid",
+              "helper_lipid",
+              "lipid_molar_ratio",
+              "particle_size_nm_std",
+              "pdi_std",
+              "zeta_potential_mv_std",
+              "encapsulation_efficiency_percent_std",
+              "loading_capacity_std",
+              "target_type",
+              "nucleic_acid_sequence",
+              "peg_lipid_original",
+              "ionizable_lipid_original",
+              "helper_lipid_original",
+              "sterol_lipid_original",
+              "synthesis_info",
+              "bioactivity_profile",
+              "paper_title",
+              "paper_authors",
+              "paper_doi",
+              "paper_journal",
+              "paper_year",
+              "ionizable_lipid_smiles",
+              "peg_lipid_smiles",
+              "sterol_lipid_smiles",
+              "helper_lipid_smiles"
+            ],
+            "column_count": 28,
+            "rows_observed_in_sample": 622,
+            "row_count": null,
+            "row_count_note": "sample only; full count not downloaded"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "lnpdb",
+      "title": "LNPDB / LiON source database",
+      "category": "curated_literature_database",
+      "priority": "already_integrated",
+      "status": "integrated",
+      "reason": "Largest currently integrated structured LNP table; strong ionizable lipid structure coverage.",
+      "paper_doi": "10.1038/s41467-026-68818-1",
+      "dataset_doi": "",
+      "homepage": "https://github.com/evancollins1/LNPDB",
+      "github": {
+        "repo": "evancollins1/LNPDB",
+        "url": "https://github.com/evancollins1/LNPDB",
+        "default_branch": "main",
+        "description": "Lipid Nanoparticle Database (LNPDB)",
+        "pushed_at": "2026-03-15T14:17:54Z",
+        "license": "MIT",
+        "stars": 7
+      },
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 394,
+      "file_count_by_platform": {
+        "GitHub": 394
+      },
+      "structured_file_count": 394,
+      "data_file_bytes": 495491274,
+      "largest_files": [
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_LiON/single_split/fingerprints_all_data.csv",
+          "size": 98395910,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_LiON/single_split/fingerprints_all_data.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_LiON/LNPDB.csv",
+          "size": 20118803,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_LiON/LNPDB.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/outputs/LM_2019_heldout_data_plus_features.csv",
+          "size": 13664691,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/outputs/LM_2019_heldout_data_plus_features.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/outputs/finetuning_set_smiles_plus_features_plus_features.csv",
+          "size": 10404035,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/outputs/finetuning_set_smiles_plus_features_plus_features.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/outputs/BL_2023_heldout_data_plus_features.csv",
+          "size": 9438604,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/outputs/BL_2023_heldout_data_plus_features.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/cv_splits/df2_train.csv",
+          "size": 8951730,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/cv_splits/df2_train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/cv_splits/df0_train.csv",
+          "size": 8950456,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/cv_splits/df0_train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/cv_splits/df1_train.csv",
+          "size": 8950010,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/cv_splits/df1_train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/cv_splits/df3_train.csv",
+          "size": 8949304,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/cv_splits/df3_train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/LNPDB_for_AGILE/cv_splits/df4_train.csv",
+          "size": 8947558,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_AGILE/cv_splits/df4_train.csv"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "data/LNPDB_for_LiON/LNPDB.csv",
+          "size": 20118803,
+          "download_url": "https://raw.githubusercontent.com/evancollins1/LNPDB/main/data/LNPDB_for_LiON/LNPDB.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "Index",
+              "LNP_ID",
+              "Experiment_ID",
+              "Formulation_ID",
+              "IL_name",
+              "IL_SMILES",
+              "IL_protonated_SMILES",
+              "IL_head_name",
+              "IL_head_SMILES",
+              "IL_linker_name",
+              "IL_linker_SMILES",
+              "IL_tail1_name",
+              "IL_tail1_SMILES",
+              "IL_tail2_name",
+              "IL_tail2_SMILES",
+              "IL_tail3_name",
+              "IL_tail3_SMILES",
+              "IL_tail4_name",
+              "IL_tail4_SMILES",
+              "IL_molratio",
+              "IL_to_nucleicacid_massratio",
+              "IL_to_nucleicacid_chargeratio",
+              "HL_name",
+              "HL_SMILES",
+              "HL_molratio",
+              "CHL_name",
+              "CHL_SMILES",
+              "CHL_molratio",
+              "PEG_name",
+              "PEG_SMILES",
+              "PEG_molratio",
+              "fifthcomponent_name",
+              "fifthcomponent_SMILES",
+              "fifthcomponent_molratio",
+              "Aqueous_buffer",
+              "Dialysis_buffer",
+              "Mixing_method",
+              "Model",
+              "Model_type",
+              "Model_target"
+            ],
+            "column_count": 66,
+            "rows_observed_in_sample": 1130,
+            "row_count": null,
+            "row_count_note": "sample only; full count not downloaded"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "strathclyde_2025",
+      "title": "Influence of ionisable lipid and sterol variations on LNP properties and performance",
+      "category": "focused_experimental_workbook",
+      "priority": "already_integrated",
+      "status": "integrated",
+      "reason": "Focused sterol/ionisable lipid matrix supplied locally and already parsed.",
+      "paper_doi": "10.1016/j.jconrel.2025.114056",
+      "dataset_doi": "10.15129/8c088f7e-06f1-45ad-9263-b433e92045ce",
+      "homepage": "https://pureportal.strath.ac.uk/en/datasets/influence-of-ionisable-lipid-and-sterol-variations-on-lipid-nanop/",
+      "github": {},
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 0,
+      "file_count_by_platform": {},
+      "structured_file_count": 0,
+      "data_file_bytes": 0,
+      "largest_files": [],
+      "sampled_files": [],
+      "errors": []
+    },
+    {
+      "key": "agile",
+      "title": "AGILE Platform: deep learning-powered acceleration of LNP development for mRNA delivery",
+      "category": "high_throughput_mrna_lnp_ml",
+      "priority": "A_integrate_next",
+      "status": "structured_open_data",
+      "reason": "Large open candidate and finetuning tables with SMILES/features, plus code repository.",
+      "paper_doi": "",
+      "dataset_doi": "10.5281/zenodo.11228093",
+      "homepage": "https://github.com/bowang-lab/AGILE",
+      "github": {
+        "repo": "bowang-lab/AGILE",
+        "url": "https://github.com/bowang-lab/AGILE",
+        "default_branch": "main",
+        "description": "AGILE Platform: A Deep Learning-Powered Approach to Accelerate LNP Development for mRNA Delivery",
+        "pushed_at": "2025-05-16T21:55:39Z",
+        "license": "MIT",
+        "stars": 56
+      },
+      "zenodo": {
+        "record_id": "11228093",
+        "title": "Dataset for AGILE Platform: A Deep Learning-Powered Approach to Accelerate LNP Development for mRNA Delivery",
+        "doi": "10.5281/zenodo.11228093",
+        "publication_date": "2024-05-21",
+        "license": "cc-by-4.0",
+        "url": "https://zenodo.org/records/11228093",
+        "files": [
+          {
+            "path": "candidate_set_smiles_plus_features.csv",
+            "size": 116969761,
+            "download_url": "https://zenodo.org/api/records/11228093/files/candidate_set_smiles_plus_features.csv/content"
+          },
+          {
+            "path": "finetuning_set_smiles_plus_features.csv",
+            "size": 11486738,
+            "download_url": "https://zenodo.org/api/records/11228093/files/finetuning_set_smiles_plus_features.csv/content"
+          }
+        ]
+      },
+      "figshare": {},
+      "file_count": 5,
+      "file_count_by_platform": {
+        "GitHub": 3,
+        "Zenodo": 2
+      },
+      "structured_file_count": 4,
+      "data_file_bytes": 180750627,
+      "largest_files": [
+        {
+          "platform": "Zenodo",
+          "path": "candidate_set_smiles_plus_features.csv",
+          "size": 116969761,
+          "download_url": "https://zenodo.org/api/records/11228093/files/candidate_set_smiles_plus_features.csv/content"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data.zip",
+          "size": 52097029,
+          "download_url": "https://raw.githubusercontent.com/bowang-lab/AGILE/main/data.zip"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "finetuning_set_smiles_plus_features.csv",
+          "size": 11486738,
+          "download_url": "https://zenodo.org/api/records/11228093/files/finetuning_set_smiles_plus_features.csv/content"
+        },
+        {
+          "platform": "GitHub",
+          "path": "AGILE_smiles_with_value_group.csv",
+          "size": 196871,
+          "download_url": "https://raw.githubusercontent.com/bowang-lab/AGILE/main/AGILE_smiles_with_value_group.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "requirements.txt",
+          "size": 228,
+          "download_url": "https://raw.githubusercontent.com/bowang-lab/AGILE/main/requirements.txt"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "AGILE_smiles_with_value_group.csv",
+          "size": 196871,
+          "download_url": "https://raw.githubusercontent.com/bowang-lab/AGILE/main/AGILE_smiles_with_value_group.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "id",
+              "label",
+              "combined_mol_SMILES",
+              "A_smiles",
+              "B_smiles",
+              "C_smiles",
+              "expt_Hela",
+              "expt_Raw"
+            ],
+            "column_count": 8,
+            "rows_observed_in_sample": 1200,
+            "row_count": 1200,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "candidate_set_smiles_plus_features.csv",
+          "size": 116969761,
+          "download_url": "https://zenodo.org/api/records/11228093/files/candidate_set_smiles_plus_features.csv/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "smiles",
+              "desc_ABC/10",
+              "desc_ABCGG/10",
+              "desc_nBase",
+              "desc_SpAbs_A/30",
+              "desc_SpMax_A",
+              "desc_SpDiam_A",
+              "desc_SpAD_A/30",
+              "desc_SpMAD_A",
+              "desc_LogEE_A",
+              "desc_VE1_A",
+              "desc_VE2_A",
+              "desc_log_VR1_A",
+              "desc_log_VR2_A",
+              "desc_VR3_A/10",
+              "desc_nAromAtom",
+              "desc_nAromBond",
+              "desc_nAtom/30",
+              "desc_nHeavyAtom/10",
+              "desc_nHetero",
+              "desc_nH/30",
+              "desc_nC/10",
+              "desc_nN",
+              "desc_ATS0dv/100",
+              "desc_ATS1dv/100",
+              "desc_ATS2dv/100",
+              "desc_ATS3dv/100",
+              "desc_ATS4dv/100",
+              "desc_ATS5dv/100",
+              "desc_ATS6dv/100",
+              "desc_ATS7dv/100",
+              "desc_ATS0d/100",
+              "desc_ATS1d/100",
+              "desc_ATS2d/100",
+              "desc_ATS3d/100",
+              "desc_ATS4d/100",
+              "desc_ATS5d/100",
+              "desc_ATS6d/100",
+              "desc_ATS7d/100",
+              "desc_ATS8d/100"
+            ],
+            "column_count": 814,
+            "rows_observed_in_sample": 105,
+            "row_count": null,
+            "row_count_note": "sample only; full count not downloaded"
+          }
+        },
+        {
+          "path": "finetuning_set_smiles_plus_features.csv",
+          "size": 11486738,
+          "download_url": "https://zenodo.org/api/records/11228093/files/finetuning_set_smiles_plus_features.csv/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "smiles",
+              "expt_Hela",
+              "expt_Raw",
+              "desc_ABC/10",
+              "desc_ABCGG/10",
+              "desc_nBase",
+              "desc_SpAbs_A/30",
+              "desc_SpMax_A",
+              "desc_SpDiam_A",
+              "desc_SpAD_A/30",
+              "desc_SpMAD_A",
+              "desc_LogEE_A",
+              "desc_VE1_A",
+              "desc_VE2_A",
+              "desc_log_VR1_A",
+              "desc_log_VR2_A",
+              "desc_VR3_A/10",
+              "desc_nAromAtom",
+              "desc_nAromBond",
+              "desc_nAtom/30",
+              "desc_nHeavyAtom/10",
+              "desc_nHetero",
+              "desc_nH/30",
+              "desc_nC/10",
+              "desc_nN",
+              "desc_ATS0dv/100",
+              "desc_ATS1dv/100",
+              "desc_ATS2dv/100",
+              "desc_ATS3dv/100",
+              "desc_ATS4dv/100",
+              "desc_ATS5dv/100",
+              "desc_ATS6dv/100",
+              "desc_ATS7dv/100",
+              "desc_ATS0d/100",
+              "desc_ATS1d/100",
+              "desc_ATS2d/100",
+              "desc_ATS3d/100",
+              "desc_ATS4d/100",
+              "desc_ATS5d/100",
+              "desc_ATS6d/100"
+            ],
+            "column_count": 816,
+            "rows_observed_in_sample": 105,
+            "row_count": null,
+            "row_count_note": "sample only; full count not downloaded"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "natmat_4cr_2024",
+      "title": "Accelerating ionizable lipid discovery for mRNA delivery using ML and combinatorial chemistry",
+      "category": "high_throughput_mrna_lnp_ml_supplement",
+      "priority": "A_literature_supplement_extraction",
+      "status": "supplement_pdf_and_embedded_code",
+      "reason": "Foundational 4CR screen: 584 experimentally screened ionizable lipids and 40,000 virtual lipids; data/code are stated to be in paper/SI rather than a separate CSV deposit.",
+      "paper_doi": "10.1038/s41563-024-01867-3",
+      "dataset_doi": "",
+      "homepage": "https://www.nature.com/articles/s41563-024-01867-3",
+      "github": {},
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 1,
+      "file_count_by_platform": {
+        "Nature": 1
+      },
+      "structured_file_count": 0,
+      "data_file_bytes": 0,
+      "largest_files": [],
+      "sampled_files": [
+        {
+          "platform": "Nature",
+          "path": "Supplementary Information PDF",
+          "size": 0,
+          "download_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41563-024-01867-3/MediaObjects/41563_2024_1867_MOESM1_ESM.pdf",
+          "manual": true,
+          "sample": {
+            "format": "unknown",
+            "parse_note": "not sampled"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "lumi_lab",
+      "title": "LUMI-lab: foundation model-driven autonomous platform for ionizable lipid designs",
+      "category": "high_throughput_mrna_lnp_ml",
+      "priority": "A_integrate_next",
+      "status": "structured_open_data",
+      "reason": "Open 4CR-1920 table and component matrices for autonomous ionizable lipid discovery.",
+      "paper_doi": "",
+      "dataset_doi": "10.5281/zenodo.17771224",
+      "homepage": "https://zenodo.org/records/17771224",
+      "github": {},
+      "zenodo": {
+        "record_id": "17771224",
+        "title": "Data from \"LUMI-lab: a Foundation Model-Driven Autonomous Platform Enabling Discovery of Ionizable Lipid Designs for mRNA Delivery\"",
+        "doi": "10.5281/zenodo.17771224",
+        "publication_date": "2025-11-30",
+        "license": "cc-by-4.0",
+        "url": "https://zenodo.org/records/17771224",
+        "files": [
+          {
+            "path": "qm9_al_ttest_results.xlsx",
+            "size": 12523,
+            "download_url": "https://zenodo.org/api/records/17771224/files/qm9_al_ttest_results.xlsx/content"
+          },
+          {
+            "path": "exploitation_data_mtx.npy",
+            "size": 7488,
+            "download_url": "https://zenodo.org/api/records/17771224/files/exploitation_data_mtx.npy/content"
+          },
+          {
+            "path": "readme.md",
+            "size": 566,
+            "download_url": "https://zenodo.org/api/records/17771224/files/readme.md/content"
+          },
+          {
+            "path": "4CR-1920.csv",
+            "size": 262119,
+            "download_url": "https://zenodo.org/api/records/17771224/files/4CR-1920.csv/content"
+          },
+          {
+            "path": "exploration_data_mtx.npy",
+            "size": 7488,
+            "download_url": "https://zenodo.org/api/records/17771224/files/exploration_data_mtx.npy/content"
+          },
+          {
+            "path": "exploration_components.json",
+            "size": 87589,
+            "download_url": "https://zenodo.org/api/records/17771224/files/exploration_components.json/content"
+          },
+          {
+            "path": "exploitation_components.json",
+            "size": 87271,
+            "download_url": "https://zenodo.org/api/records/17771224/files/exploitation_components.json/content"
+          }
+        ]
+      },
+      "figshare": {},
+      "file_count": 7,
+      "file_count_by_platform": {
+        "Zenodo": 7
+      },
+      "structured_file_count": 4,
+      "data_file_bytes": 464478,
+      "largest_files": [
+        {
+          "platform": "Zenodo",
+          "path": "4CR-1920.csv",
+          "size": 262119,
+          "download_url": "https://zenodo.org/api/records/17771224/files/4CR-1920.csv/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "exploration_components.json",
+          "size": 87589,
+          "download_url": "https://zenodo.org/api/records/17771224/files/exploration_components.json/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "exploitation_components.json",
+          "size": 87271,
+          "download_url": "https://zenodo.org/api/records/17771224/files/exploitation_components.json/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "qm9_al_ttest_results.xlsx",
+          "size": 12523,
+          "download_url": "https://zenodo.org/api/records/17771224/files/qm9_al_ttest_results.xlsx/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "exploitation_data_mtx.npy",
+          "size": 7488,
+          "download_url": "https://zenodo.org/api/records/17771224/files/exploitation_data_mtx.npy/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "exploration_data_mtx.npy",
+          "size": 7488,
+          "download_url": "https://zenodo.org/api/records/17771224/files/exploration_data_mtx.npy/content"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "4CR-1920.csv",
+          "size": 262119,
+          "download_url": "https://zenodo.org/api/records/17771224/files/4CR-1920.csv/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "RLU (log2)",
+              "mol",
+              "Markush code"
+            ],
+            "column_count": 3,
+            "rows_observed_in_sample": 1920,
+            "row_count": 1920,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "exploration_components.json",
+          "size": 87589,
+          "download_url": "https://zenodo.org/api/records/17771224/files/exploration_components.json/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "json_list",
+            "row_count": 10,
+            "columns": [],
+            "column_count": 0
+          }
+        },
+        {
+          "path": "exploitation_components.json",
+          "size": 87271,
+          "download_url": "https://zenodo.org/api/records/17771224/files/exploitation_components.json/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "json_list",
+            "row_count": 10,
+            "columns": [],
+            "column_count": 0
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "lumi_lab_suppfigures",
+      "title": "LUMI-lab supplementary figure PDFs",
+      "category": "high_throughput_mrna_lnp_ml_supplement",
+      "priority": "B_literature_supplement_extraction",
+      "status": "supplement_pdf_only",
+      "reason": "Companion Zenodo deposit contains supplementary figure PDFs for the LUMI-lab study; useful for figure-level validation after structured CSV import.",
+      "paper_doi": "",
+      "dataset_doi": "10.5281/zenodo.17771148",
+      "homepage": "https://zenodo.org/records/17771148",
+      "github": {},
+      "zenodo": {
+        "record_id": "17771148",
+        "title": "Data from \"LUMI-lab: a Foundation Model-Driven Autonomous Platform Enabling Discovery of Ionizable Lipid Designs for mRNA Delivery\"",
+        "doi": "10.5281/zenodo.17771148",
+        "publication_date": "2025-11-30",
+        "license": "cc-by-4.0",
+        "url": "https://zenodo.org/records/17771148",
+        "files": [
+          {
+            "path": "SupFig_C11_CHO.pdf",
+            "size": 37183,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C11_CHO.pdf/content"
+          },
+          {
+            "path": "SupFig_Top6 WO bromine.pdf",
+            "size": 46035,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top6%20WO%20bromine.pdf/content"
+          },
+          {
+            "path": "SupFig_D31.pdf",
+            "size": 41273,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D31.pdf/content"
+          },
+          {
+            "path": "SupFig_C10_OH.pdf",
+            "size": 40217,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C10_OH.pdf/content"
+          },
+          {
+            "path": "SupFig_Top6.pdf",
+            "size": 47022,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top6.pdf/content"
+          },
+          {
+            "path": "SupFig_LUMI6-Cl.pdf",
+            "size": 48050,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_LUMI6-Cl.pdf/content"
+          },
+          {
+            "path": "SupFig_C9_OH.pdf",
+            "size": 41063,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C9_OH.pdf/content"
+          },
+          {
+            "path": "SupFig_Top4.pdf",
+            "size": 49728,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top4.pdf/content"
+          },
+          {
+            "path": "SupFig_C13_CHO.pdf",
+            "size": 39209,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C13_CHO.pdf/content"
+          },
+          {
+            "path": "SupFig_Top1.pdf",
+            "size": 29079,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top1.pdf/content"
+          },
+          {
+            "path": "SupFig_Top2.pdf",
+            "size": 41983,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top2.pdf/content"
+          },
+          {
+            "path": "SupFig_C12_CHO.pdf",
+            "size": 36311,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C12_CHO.pdf/content"
+          },
+          {
+            "path": "SupFig_D32.pdf",
+            "size": 41585,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D32.pdf/content"
+          },
+          {
+            "path": "SupFig_C10_CHO.pdf",
+            "size": 41866,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C10_CHO.pdf/content"
+          },
+          {
+            "path": "SupFig_D33.pdf",
+            "size": 41596,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D33.pdf/content"
+          },
+          {
+            "path": "SupFig_D30.pdf",
+            "size": 39676,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D30.pdf/content"
+          },
+          {
+            "path": "SupFig_Top3.pdf",
+            "size": 40927,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top3.pdf/content"
+          },
+          {
+            "path": "SupFig_D34.pdf",
+            "size": 40082,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D34.pdf/content"
+          },
+          {
+            "path": "SupFig_Top5.pdf",
+            "size": 50798,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top5.pdf/content"
+          },
+          {
+            "path": "SupFig_D35.pdf",
+            "size": 39720,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D35.pdf/content"
+          },
+          {
+            "path": "SupFig_D36.pdf",
+            "size": 45530,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D36.pdf/content"
+          },
+          {
+            "path": "SupFig_C14_CHO.pdf",
+            "size": 36045,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C14_CHO.pdf/content"
+          },
+          {
+            "path": "SupFig_D29.pdf",
+            "size": 41329,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D29.pdf/content"
+          },
+          {
+            "path": "SupFig_D28.pdf",
+            "size": 41242,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D28.pdf/content"
+          },
+          {
+            "path": "SupFig_C9_CHO.pdf",
+            "size": 41981,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C9_CHO.pdf/content"
+          },
+          {
+            "path": "SupFig_C15_CHO.pdf",
+            "size": 39047,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C15_CHO.pdf/content"
+          },
+          {
+            "path": "SupFig_C16_CHO.pdf",
+            "size": 42200,
+            "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C16_CHO.pdf/content"
+          }
+        ]
+      },
+      "figshare": {},
+      "file_count": 27,
+      "file_count_by_platform": {
+        "Zenodo": 27
+      },
+      "structured_file_count": 0,
+      "data_file_bytes": 1120777,
+      "largest_files": [
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_Top5.pdf",
+          "size": 50798,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top5.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_Top4.pdf",
+          "size": 49728,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top4.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_LUMI6-Cl.pdf",
+          "size": 48050,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_LUMI6-Cl.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_Top6.pdf",
+          "size": 47022,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top6.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_Top6 WO bromine.pdf",
+          "size": 46035,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top6%20WO%20bromine.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_D36.pdf",
+          "size": 45530,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_D36.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_C16_CHO.pdf",
+          "size": 42200,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C16_CHO.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_Top2.pdf",
+          "size": 41983,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top2.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_C9_CHO.pdf",
+          "size": 41981,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C9_CHO.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "SupFig_C10_CHO.pdf",
+          "size": 41866,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_C10_CHO.pdf/content"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "SupFig_Top6.pdf",
+          "size": 47022,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_Top6.pdf/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "pdf",
+            "parse_note": "not sampled"
+          }
+        },
+        {
+          "path": "SupFig_LUMI6-Cl.pdf",
+          "size": 48050,
+          "download_url": "https://zenodo.org/api/records/17771148/files/SupFig_LUMI6-Cl.pdf/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "pdf",
+            "parse_note": "not sampled"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "comet_lance",
+      "title": "COMET / LANCE lipid nanoparticle transformer data",
+      "category": "high_throughput_lnp_transformer",
+      "priority": "A_integrate_next",
+      "status": "structured_open_data",
+      "reason": "Repository contains multi-megabyte LNP JSON datasets and processed splits for transformer training.",
+      "paper_doi": "",
+      "dataset_doi": "",
+      "homepage": "https://github.com/alvinchangw/COMET",
+      "github": {
+        "repo": "alvinchangw/COMET",
+        "url": "https://github.com/alvinchangw/COMET",
+        "default_branch": "main",
+        "description": "",
+        "pushed_at": "2025-11-20T06:20:35Z",
+        "license": "NOASSERTION",
+        "stars": 27
+      },
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 44,
+      "file_count_by_platform": {
+        "GitHub": 44
+      },
+      "structured_file_count": 43,
+      "data_file_bytes": 53775327,
+      "largest_files": [
+        {
+          "platform": "GitHub",
+          "path": "experiments/in_house_PBAE_lnp_library/demo_in_house_lnp_data_overall_new_full_with_pbae_NPratios_updated_09222023_npratios_09252023gen_fig4cDeployTrain_allastest_lmdb/in_house_lnp/test.json",
+          "size": 5350961,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/in_house_PBAE_lnp_library/demo_in_house_lnp_data_overall_new_full_with_pbae_NPratios_updated_09222023_npratios_09252023gen_fig4cDeployTrain_allastest_lmdb/in_house_lnp/test.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/data_json/in_house_lnp_data_overall_new_full_with_pbae_NPratios_updated_09222023_npratios.json",
+          "size": 4716484,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_lnp_data_overall_new_full_with_pbae_NPratios_updated_09222023_npratios.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/in_house_lnp_library/demo_in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios_09252023gen_fig3dDeployTrain_allastest_lmdb/in_house_lnp/infer.json",
+          "size": 4527275,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/in_house_lnp_library/demo_in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios_09252023gen_fig3dDeployTrain_allastest_lmdb/in_house_lnp/infer.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/in_house_lnp_library/demo_in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios_09252023gen_fig3dDeployTrain_allastest_lmdb/in_house_lnp/test.json",
+          "size": 4527275,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/in_house_lnp_library/demo_in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios_09252023gen_fig3dDeployTrain_allastest_lmdb/in_house_lnp/test.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/processed_data_dirs/demo_SSLNP/in_house_sslnp_data_overall_lance_without_pbae+p1_lyo_sucrose_2024-03-13_npratios_foldsslabel_20fixedtestLNPs_LANCELNPtrain100pct_fold_V0/in_house_lnp/train.json",
+          "size": 4369394,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/processed_data_dirs/demo_SSLNP/in_house_sslnp_data_overall_lance_without_pbae+p1_lyo_sucrose_2024-03-13_npratios_foldsslabel_20fixedtestLNPs_LANCELNPtrain100pct_fold_V0/in_house_lnp/train.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/processed_data_dirs/demo_CACO2/in_house_lnp_data_overall_lance_without_pbae+caco2_2024-04-16_npratios_foldcaco2label_fig2a/fold_V0/in_house_lnp/train.json",
+          "size": 4280894,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/processed_data_dirs/demo_CACO2/in_house_lnp_data_overall_lance_without_pbae+caco2_2024-04-16_npratios_foldcaco2label_fig2a/fold_V0/in_house_lnp/train.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/data_json/in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios.json",
+          "size": 4006925,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/data_json/in_house_lnp_data_overall_lance_without_pbae+caco2_2024-04-16_npratios_foldcaco2label.json",
+          "size": 3914580,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_lnp_data_overall_lance_without_pbae+caco2_2024-04-16_npratios_foldcaco2label.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/data_json/in_house_sslnp_data_overall_lance_without_pbae+p1_lyo_sucrose_2024-03-13_npratios_foldsslabel.json",
+          "size": 3914343,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_sslnp_data_overall_lance_without_pbae+p1_lyo_sucrose_2024-03-13_npratios_foldsslabel.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "experiments/data_json/in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios_onlyDC24.json",
+          "size": 3821740,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios_onlyDC24.json"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "experiments/data_json/in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios.json",
+          "size": 4006925,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_lnp_data_overall_new_full_without_pbae_NPratios_updated_09222023_npratios.json",
+          "platform": "GitHub",
+          "sample": {
+            "format": "json",
+            "parse_note": "sample is not complete JSON; skipped structural summary"
+          }
+        },
+        {
+          "path": "experiments/data_json/in_house_lnp_data_overall_new_full_with_pbae_NPratios_updated_09222023_npratios.json",
+          "size": 4716484,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_lnp_data_overall_new_full_with_pbae_NPratios_updated_09222023_npratios.json",
+          "platform": "GitHub",
+          "sample": {
+            "format": "json",
+            "parse_note": "sample is not complete JSON; skipped structural summary"
+          }
+        },
+        {
+          "path": "experiments/data_json/in_house_lnp_data_overall_lance_without_pbae+caco2_2024-04-16_npratios_foldcaco2label.json",
+          "size": 3914580,
+          "download_url": "https://raw.githubusercontent.com/alvinchangw/COMET/main/experiments/data_json/in_house_lnp_data_overall_lance_without_pbae+caco2_2024-04-16_npratios_foldcaco2label.json",
+          "platform": "GitHub",
+          "sample": {
+            "format": "json",
+            "parse_note": "sample is not complete JSON; skipped structural summary"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "transma",
+      "title": "TransMA: explainable multi-modal model for ionizable lipid nanoparticles in mRNA delivery",
+      "category": "lnp_delivery_activity_ml",
+      "priority": "B_audit_overlap",
+      "status": "structured_open_data",
+      "reason": "Open HeLa/RAW scaffold and transfection-cliff SMILES/TARGET splits; likely overlaps AGILE/TransLNP and needs deduplication.",
+      "paper_doi": "10.1093/bib/bbaf307",
+      "dataset_doi": "10.48550/arXiv.2407.05736",
+      "homepage": "https://github.com/wklix/TransMA",
+      "github": {
+        "repo": "wklix/TransMA",
+        "url": "https://github.com/wklix/TransMA",
+        "default_branch": "master",
+        "description": "",
+        "pushed_at": "2025-03-28T02:34:33Z",
+        "license": "",
+        "stars": 13
+      },
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 17,
+      "file_count_by_platform": {
+        "GitHub": 17
+      },
+      "structured_file_count": 17,
+      "data_file_bytes": 385308,
+      "largest_files": [
+        {
+          "platform": "GitHub",
+          "path": "dataset/Hela/scaffold/train.csv",
+          "size": 79430,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/Hela/scaffold/train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/Hela/cliff/train.csv",
+          "size": 79306,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/Hela/cliff/train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/RaW/scaffold/train.csv",
+          "size": 78308,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/RaW/scaffold/train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/RaW/cliff/train.csv",
+          "size": 78213,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/RaW/cliff/train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "models/ChemBERTa-77M-MTR/config.json",
+          "size": 17669,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/models/ChemBERTa-77M-MTR/config.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/Hela/cliff/test.csv",
+          "size": 8880,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/Hela/cliff/test.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/Hela/scaffold/test.csv",
+          "size": 8756,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/Hela/scaffold/test.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/RaW/cliff/test.csv",
+          "size": 8725,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/RaW/cliff/test.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/RaW/scaffold/test.csv",
+          "size": 8630,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/RaW/scaffold/test.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "models/ChemBERTa-77M-MTR/tokenizer.json",
+          "size": 8262,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/models/ChemBERTa-77M-MTR/tokenizer.json"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "dataset/Hela/scaffold/train.csv",
+          "size": 79430,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/Hela/scaffold/train.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 1080,
+            "row_count": 1080,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "dataset/RaW/scaffold/train.csv",
+          "size": 78308,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/RaW/scaffold/train.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 1080,
+            "row_count": 1080,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "dataset/Hela/cliff/train.csv",
+          "size": 79306,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/Hela/cliff/train.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 1080,
+            "row_count": 1080,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "dataset/RaW/cliff/train.csv",
+          "size": 78213,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransMA/master/dataset/RaW/cliff/train.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 1080,
+            "row_count": 1080,
+            "row_count_note": "complete small file"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "lnp_ml_lion",
+      "title": "LiON / LNP_ML",
+      "category": "lnp_ml_code_and_splits",
+      "priority": "B_audit_overlap",
+      "status": "structured_open_data",
+      "reason": "Modeling code/data around LNP optimization; likely overlaps LNPDB and should be deduplicated before import.",
+      "paper_doi": "",
+      "dataset_doi": "",
+      "homepage": "https://github.com/jswitten/LNP_ML",
+      "github": {
+        "repo": "jswitten/LNP_ML",
+        "url": "https://github.com/jswitten/LNP_ML",
+        "default_branch": "main",
+        "description": "",
+        "pushed_at": "2024-07-30T17:54:02Z",
+        "license": "MIT",
+        "stars": 28
+      },
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 699,
+      "file_count_by_platform": {
+        "GitHub": 699
+      },
+      "structured_file_count": 699,
+      "data_file_bytes": 128561555,
+      "largest_files": [
+        {
+          "platform": "GitHub",
+          "path": "data/all_data.csv",
+          "size": 8077574,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/all_data.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/all_data_for_paper.csv",
+          "size": 6804938,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/all_data_for_paper.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split/cv_3/train_metadata.csv",
+          "size": 2876616,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split/cv_3/train_metadata.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split/cv_2/train_metadata.csv",
+          "size": 2854365,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split/cv_2/train_metadata.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split/cv_4/train_metadata.csv",
+          "size": 2787724,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split/cv_4/train_metadata.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split/cv_1/train_metadata.csv",
+          "size": 2735587,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split/cv_1/train_metadata.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split/cv_0/train_metadata.csv",
+          "size": 2650444,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split/cv_0/train_metadata.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split_for_paper/cv_3/train_metadata.csv",
+          "size": 2334582,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split_for_paper/cv_3/train_metadata.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split_for_paper/cv_2/train_metadata.csv",
+          "size": 2275978,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split_for_paper/cv_2/train_metadata.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/crossval_splits/all_amine_split_for_paper/cv_1/train_metadata.csv",
+          "size": 2253189,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/data/crossval_splits/all_amine_split_for_paper/cv_1/train_metadata.csv"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "results/screen_results/all_amine_split_preds/test_screen/pred_file.csv",
+          "size": 96184,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/results/screen_results/all_amine_split_preds/test_screen/pred_file.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "Formulation_ID",
+              "Cationic_Lipid_Mass_Ratio",
+              "Phospholipid_Mass_Ratio",
+              "Cholesterol_Mass_Ratio",
+              "PEG_Lipid_Mass_Ratio",
+              "Helper_lipid_ID",
+              "Amine",
+              "Tail",
+              "Lipid_name",
+              "Library_ID",
+              "Experiment_ID",
+              "Purity",
+              "Mix_type",
+              "Cargo_type",
+              "Experimenter_ID",
+              "Model_type",
+              "Target_or_delivered_gene",
+              "Delivery_target",
+              "Route_of_administration",
+              "Experiment_weight",
+              "Goal",
+              "Batch_or_individual_or_barcoded",
+              "Value_name",
+              "screen_id",
+              "Comment",
+              "Amine_number",
+              "Full_SMILES",
+              "Amine_SMILES",
+              "Tail_length",
+              "Num_tails",
+              "Ketone",
+              "Isocyanide",
+              "Is_cyclic",
+              "Formulation",
+              "Batch_or_individual",
+              "Random_id",
+              "4CR_Lipid_name",
+              "Aldehyde",
+              "Carboxylic_acid",
+              "Amine_name"
+            ],
+            "column_count": 58,
+            "rows_observed_in_sample": 186,
+            "row_count": 186,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "results/screen_results/small_test_split_with_ultra_held_out_for_in_silico_screen_preds/test_screen/pred_file.csv",
+          "size": 96129,
+          "download_url": "https://raw.githubusercontent.com/jswitten/LNP_ML/main/results/screen_results/small_test_split_with_ultra_held_out_for_in_silico_screen_preds/test_screen/pred_file.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "Formulation_ID",
+              "Cationic_Lipid_Mass_Ratio",
+              "Phospholipid_Mass_Ratio",
+              "Cholesterol_Mass_Ratio",
+              "PEG_Lipid_Mass_Ratio",
+              "Helper_lipid_ID",
+              "Amine",
+              "Tail",
+              "Lipid_name",
+              "Library_ID",
+              "Experiment_ID",
+              "Purity",
+              "Mix_type",
+              "Cargo_type",
+              "Experimenter_ID",
+              "Model_type",
+              "Target_or_delivered_gene",
+              "Delivery_target",
+              "Route_of_administration",
+              "Experiment_weight",
+              "Goal",
+              "Batch_or_individual_or_barcoded",
+              "Value_name",
+              "screen_id",
+              "Comment",
+              "Amine_number",
+              "Full_SMILES",
+              "Amine_SMILES",
+              "Tail_length",
+              "Num_tails",
+              "Ketone",
+              "Isocyanide",
+              "Is_cyclic",
+              "Formulation",
+              "Batch_or_individual",
+              "Random_id",
+              "4CR_Lipid_name",
+              "Aldehyde",
+              "Carboxylic_acid",
+              "Amine_name"
+            ],
+            "column_count": 58,
+            "rows_observed_in_sample": 186,
+            "row_count": 186,
+            "row_count_note": "complete small file"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "a3_coupling_2024",
+      "title": "High-throughput synthesis and optimization of ionizable lipids through A3 coupling for efficient mRNA delivery",
+      "category": "high_throughput_synthesis_supplement",
+      "priority": "A_literature_supplement_extraction",
+      "status": "supplement_pdf_docx",
+      "reason": "Recent high-throughput ionizable-lipid synthesis/screening paper; supporting PDF/DOCX contain characterization and screening context but no standalone CSV located.",
+      "paper_doi": "10.1186/s12951-024-02919-1",
+      "dataset_doi": "",
+      "homepage": "https://jnanobiotechnology.biomedcentral.com/articles/10.1186/s12951-024-02919-1",
+      "github": {},
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 2,
+      "file_count_by_platform": {
+        "BMC": 2
+      },
+      "structured_file_count": 0,
+      "data_file_bytes": 0,
+      "largest_files": [],
+      "sampled_files": [
+        {
+          "platform": "BMC",
+          "path": "Supplementary Material 1 PDF",
+          "size": 7300000,
+          "download_url": "",
+          "manual": true,
+          "sample": {
+            "format": "unknown",
+            "parse_note": "not sampled"
+          }
+        },
+        {
+          "platform": "BMC",
+          "path": "Supplementary Material 2 DOCX",
+          "size": 3600000,
+          "download_url": "",
+          "manual": true,
+          "sample": {
+            "format": "unknown",
+            "parse_note": "not sampled"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "lipobart",
+      "title": "LipoBART iPhos lipid data",
+      "category": "ionizable_lipid_structure_activity_ml",
+      "priority": "B_audit_for_material_layer",
+      "status": "structured_open_data",
+      "reason": "Open ionizable phospholipid tables and fingerprints; stronger material-layer value than formulation-layer value.",
+      "paper_doi": "",
+      "dataset_doi": "",
+      "homepage": "https://github.com/Sanofi-Public/LipoBART",
+      "github": {
+        "repo": "Sanofi-Public/LipoBART",
+        "url": "https://github.com/Sanofi-Public/LipoBART",
+        "default_branch": "main",
+        "description": "",
+        "pushed_at": "2024-10-02T13:47:00Z",
+        "license": "NOASSERTION",
+        "stars": 19
+      },
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 12,
+      "file_count_by_platform": {
+        "GitHub": 12
+      },
+      "structured_file_count": 12,
+      "data_file_bytes": 35118020,
+      "largest_files": [
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_cfp_all_data.json",
+          "size": 6240688,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_cfp_all_data.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_CFP.json",
+          "size": 5938756,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_CFP.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_MegaMB_finetuned_all_data.json",
+          "size": 5247225,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_MegaMB_finetuned_all_data.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_MMB-FT.json",
+          "size": 5111670,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_MMB-FT.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_MegaMB_base_all_data.json",
+          "size": 4816581,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_MegaMB_base_all_data.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_MMB.json",
+          "size": 4684388,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_MMB.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_Expert.json",
+          "size": 2377364,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_Expert.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/mol2fp_gcn.json",
+          "size": 335516,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/mol2fp_gcn.json"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/iphos_multiclass.csv",
+          "size": 244256,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/iphos_multiclass.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/full_iPhos_lipids.csv",
+          "size": 73739,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/full_iPhos_lipids.csv"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "data/full_iPhos_lipids.csv",
+          "size": 73739,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/full_iPhos_lipids.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "",
+              "head",
+              "tail",
+              "combined"
+            ],
+            "column_count": 4,
+            "rows_observed_in_sample": 572,
+            "row_count": 572,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "data/iphos_multiclass.csv",
+          "size": 244256,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/iphos_multiclass.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "name",
+              "family",
+              "y1",
+              "y2",
+              "p1",
+              "p2",
+              "p3",
+              "p4",
+              "m1",
+              "m2",
+              "m3",
+              "m4"
+            ],
+            "column_count": 12,
+            "rows_observed_in_sample": 572,
+            "row_count": 572,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "data/iphos_targets.csv",
+          "size": 1405,
+          "download_url": "https://raw.githubusercontent.com/Sanofi-Public/LipoBART/main/data/iphos_targets.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "",
+              "P4",
+              "P5",
+              "P6",
+              "P7",
+              "P8",
+              "P9",
+              "P10",
+              "P11",
+              "P12",
+              "P13",
+              "P14",
+              "P15",
+              "P16"
+            ],
+            "column_count": 14,
+            "rows_observed_in_sample": 44,
+            "row_count": 44,
+            "row_count_note": "complete small file"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "translnp",
+      "title": "TransLNP / TransMA data-balanced transformer datasets",
+      "category": "lnp_delivery_activity_ml",
+      "priority": "B_audit_schema_fit",
+      "status": "structured_open_data",
+      "reason": "Small structured delivery/activity splits; useful if fields map cleanly to LNP material/activity schema.",
+      "paper_doi": "",
+      "dataset_doi": "",
+      "homepage": "https://github.com/wklix/TransLNP",
+      "github": {
+        "repo": "wklix/TransLNP",
+        "url": "https://github.com/wklix/TransLNP",
+        "default_branch": "main",
+        "description": "",
+        "pushed_at": "2024-05-22T09:38:24Z",
+        "license": "MIT",
+        "stars": 11
+      },
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 7,
+      "file_count_by_platform": {
+        "GitHub": 7
+      },
+      "structured_file_count": 7,
+      "data_file_bytes": 264941,
+      "largest_files": [
+        {
+          "platform": "GitHub",
+          "path": "visual_utils/example.csv",
+          "size": 88171,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/visual_utils/example.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/Scaffold/train.csv",
+          "size": 79430,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Scaffold/train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/Random/train.csv",
+          "size": 79392,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Random/train.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/Random/test.csv",
+          "size": 8794,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Random/test.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "dataset/Scaffold/test.csv",
+          "size": 8756,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Scaffold/test.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "requirements.txt",
+          "size": 307,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/requirements.txt"
+        },
+        {
+          "platform": "GitHub",
+          "path": "weights/mol.dict.txt",
+          "size": 91,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/weights/mol.dict.txt"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "dataset/Scaffold/train.csv",
+          "size": 79430,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Scaffold/train.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 1080,
+            "row_count": 1080,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "dataset/Scaffold/test.csv",
+          "size": 8756,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Scaffold/test.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 120,
+            "row_count": 120,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "dataset/Random/train.csv",
+          "size": 79392,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Random/train.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 1080,
+            "row_count": 1080,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "dataset/Random/test.csv",
+          "size": 8794,
+          "download_url": "https://raw.githubusercontent.com/wklix/TransLNP/main/dataset/Random/test.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "SMILES",
+              "TARGET"
+            ],
+            "column_count": 2,
+            "rows_observed_in_sample": 120,
+            "row_count": 120,
+            "row_count_note": "complete small file"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "nano_particles_active_learning",
+      "title": "Machine learning-guided high throughput nanoparticle design",
+      "category": "related_nanoparticle_active_learning",
+      "priority": "C_related_not_core_rna_lnp",
+      "status": "large_structured_open_data",
+      "reason": "Very large active-learning nanoparticle data; include as related HT design source unless nucleic-acid LNP relevance is confirmed.",
+      "paper_doi": "",
+      "dataset_doi": "10.5281/zenodo.8289605",
+      "homepage": "https://github.com/molML/Nano_Particles_Active_Learning",
+      "github": {
+        "repo": "molML/Nano_Particles_Active_Learning",
+        "url": "https://github.com/molML/Nano_Particles_Active_Learning",
+        "default_branch": "main",
+        "description": "Formulating Nanoparticles with Bayesian active learning. Codebase for the paper \"Machine learning-guided high throughput nanoparticle design\" (Digital Discovery, 2024)",
+        "pushed_at": "2024-05-29T07:27:40Z",
+        "license": "MIT",
+        "stars": 5
+      },
+      "zenodo": {
+        "record_id": "8289605",
+        "title": "Machine learning-guided high throughput nanoparticle design",
+        "doi": "10.5281/zenodo.8289605",
+        "publication_date": "2023-08-28",
+        "license": "cc-by-4.0",
+        "url": "https://zenodo.org/records/8289605",
+        "files": [
+          {
+            "path": "Ortiz-Perez_2023_all_data.zip",
+            "size": 9794791334,
+            "download_url": "https://zenodo.org/api/records/8289605/files/Ortiz-Perez_2023_all_data.zip/content"
+          }
+        ]
+      },
+      "figshare": {},
+      "file_count": 31,
+      "file_count_by_platform": {
+        "GitHub": 30,
+        "Zenodo": 1
+      },
+      "structured_file_count": 30,
+      "data_file_bytes": 9850398904,
+      "largest_files": [
+        {
+          "platform": "Zenodo",
+          "path": "Ortiz-Perez_2023_all_data.zip",
+          "size": 9794791334,
+          "download_url": "https://zenodo.org/api/records/8289605/files/Ortiz-Perez_2023_all_data.zip/content"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/screen_predictions_0_5Apr.csv",
+          "size": 15335040,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/screen_predictions_0_5Apr.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/screen_predictions_1_19Apr.csv",
+          "size": 15308733,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/screen_predictions_1_19Apr.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/screen_predictions_2_24Apr.csv",
+          "size": 15298412,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/screen_predictions_2_24Apr.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "data/screen_library.csv",
+          "size": 8549251,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/data/screen_library.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/pdi_model_1_hypers_xgb_19Apr.csv",
+          "size": 166584,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/pdi_model_1_hypers_xgb_19Apr.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/pdi_model_2_hypers_xgb_24Apr.csv",
+          "size": 166458,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/pdi_model_2_hypers_xgb_24Apr.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/pdi_model_0_hypers_xgb_5Apr.csv",
+          "size": 163723,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/pdi_model_0_hypers_xgb_5Apr.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/size_model_2_hypers_xgb_24Apr.csv",
+          "size": 163454,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/size_model_2_hypers_xgb_24Apr.csv"
+        },
+        {
+          "platform": "GitHub",
+          "path": "results/size_model_0_hypers_xgb_5Apr.csv",
+          "size": 156219,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/size_model_0_hypers_xgb_5Apr.csv"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "data/all_samples.csv",
+          "size": 22715,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/data/all_samples.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "ID",
+              "PLGA",
+              "PP-L",
+              "PP-COOH",
+              "PP-NH2",
+              "S/AS",
+              "Uptake",
+              "Uptake_stdev",
+              "PDI",
+              "PDI_stdev",
+              "Z_ave",
+              "Z_ave_stdev",
+              "cycle",
+              "cycle_type",
+              "cycle_origin",
+              "pick_for_next_cycle",
+              "Uptake_pred",
+              "Uptake_pred_stdev",
+              "Uptake_pred_5",
+              "Uptake_pred_95",
+              "PDI_pred",
+              "Z_ave_pred"
+            ],
+            "column_count": 22,
+            "rows_observed_in_sample": 150,
+            "row_count": 150,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "data/screen_library.csv",
+          "size": 8549251,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/data/screen_library.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "PLGA",
+              "PP-L",
+              "PP-COOH",
+              "PP-NH2",
+              "S/AS",
+              "ID"
+            ],
+            "column_count": 6,
+            "rows_observed_in_sample": 12357,
+            "row_count": null,
+            "row_count_note": "sample only; full count not downloaded"
+          }
+        },
+        {
+          "path": "results/screen_predictions_0_5Apr.csv",
+          "size": 15335040,
+          "download_url": "https://raw.githubusercontent.com/molML/Nano_Particles_Active_Learning/main/results/screen_predictions_0_5Apr.csv",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "ID",
+              "y_hat_uptake",
+              "y_uncertainty_uptake",
+              "y_hat_uptake_CI05%",
+              "y_hat_uptake_CI95%",
+              "y_hat_pdi",
+              "y_uncertainty_pdi",
+              "y_hat_size",
+              "y_uncertainty_size",
+              "x_PLGA",
+              "x_PP-L",
+              "x_PP-COOH",
+              "x_PP-NH2",
+              "x_S/AS"
+            ],
+            "column_count": 14,
+            "rows_observed_in_sample": 6832,
+            "row_count": null,
+            "row_count_note": "sample only; full count not downloaded"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "brain_targeted_mrna_lnp_2025",
+      "title": "AI-Validated Brain Targeted mRNA Lipid Nanoparticles with Neuronal Tropism",
+      "category": "ai_guided_targeted_mrna_lnp_supplement",
+      "priority": "A_literature_supplement_extraction",
+      "status": "supplement_pdf_only",
+      "reason": "Recent AI-guided mRNA-LNP targeting study with open Zenodo SI/accepted manuscript/spectra; route to paper/SI extraction rather than direct CSV import.",
+      "paper_doi": "10.1021/acsnano.4c15013",
+      "dataset_doi": "10.5281/zenodo.17132384",
+      "homepage": "https://zenodo.org/records/17132384",
+      "github": {},
+      "zenodo": {
+        "record_id": "17132384",
+        "title": "AI-Validated Brain Targeted mRNA Lipid  Nanoparticles with Neuronal Tropism",
+        "doi": "10.5281/zenodo.17132384",
+        "publication_date": "2025-09-16",
+        "license": "cc-by-4.0",
+        "url": "https://zenodo.org/records/17132384",
+        "files": [
+          {
+            "path": "Published Supporting Information ACS Nano.pdf",
+            "size": 1988827,
+            "download_url": "https://zenodo.org/api/records/17132384/files/Published%20Supporting%20Information%20ACS%20Nano.pdf/content"
+          },
+          {
+            "path": "2025 - ACS Nano - AI-Validated Brain Targeted mRNA Lipid - author's accepted version.pdf",
+            "size": 3242891,
+            "download_url": "https://zenodo.org/api/records/17132384/files/2025%20-%20ACS%20Nano%20-%20AI-Validated%20Brain%20Targeted%20mRNA%20Lipid%20-%20author's%20accepted%20version.pdf/content"
+          },
+          {
+            "path": "movie S2.avi",
+            "size": 7082868,
+            "download_url": "https://zenodo.org/api/records/17132384/files/movie%20S2.avi/content"
+          },
+          {
+            "path": "movie S3.avi",
+            "size": 9049188,
+            "download_url": "https://zenodo.org/api/records/17132384/files/movie%20S3.avi/content"
+          },
+          {
+            "path": "Compound spectra .pdf",
+            "size": 2528843,
+            "download_url": "https://zenodo.org/api/records/17132384/files/Compound%20spectra%20.pdf/content"
+          },
+          {
+            "path": "movie S1.avi",
+            "size": 7082868,
+            "download_url": "https://zenodo.org/api/records/17132384/files/movie%20S1.avi/content"
+          }
+        ]
+      },
+      "figshare": {},
+      "file_count": 6,
+      "file_count_by_platform": {
+        "Zenodo": 6
+      },
+      "structured_file_count": 0,
+      "data_file_bytes": 30975485,
+      "largest_files": [
+        {
+          "platform": "Zenodo",
+          "path": "movie S3.avi",
+          "size": 9049188,
+          "download_url": "https://zenodo.org/api/records/17132384/files/movie%20S3.avi/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "movie S2.avi",
+          "size": 7082868,
+          "download_url": "https://zenodo.org/api/records/17132384/files/movie%20S2.avi/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "movie S1.avi",
+          "size": 7082868,
+          "download_url": "https://zenodo.org/api/records/17132384/files/movie%20S1.avi/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "2025 - ACS Nano - AI-Validated Brain Targeted mRNA Lipid - author's accepted version.pdf",
+          "size": 3242891,
+          "download_url": "https://zenodo.org/api/records/17132384/files/2025%20-%20ACS%20Nano%20-%20AI-Validated%20Brain%20Targeted%20mRNA%20Lipid%20-%20author's%20accepted%20version.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "Compound spectra .pdf",
+          "size": 2528843,
+          "download_url": "https://zenodo.org/api/records/17132384/files/Compound%20spectra%20.pdf/content"
+        },
+        {
+          "platform": "Zenodo",
+          "path": "Published Supporting Information ACS Nano.pdf",
+          "size": 1988827,
+          "download_url": "https://zenodo.org/api/records/17132384/files/Published%20Supporting%20Information%20ACS%20Nano.pdf/content"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "Published Supporting Information ACS Nano.pdf",
+          "size": 1988827,
+          "download_url": "https://zenodo.org/api/records/17132384/files/Published%20Supporting%20Information%20ACS%20Nano.pdf/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "pdf",
+            "parse_note": "not sampled"
+          }
+        },
+        {
+          "path": "Compound spectra .pdf",
+          "size": 2528843,
+          "download_url": "https://zenodo.org/api/records/17132384/files/Compound%20spectra%20.pdf/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "pdf",
+            "parse_note": "not sampled"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "lnp_mod_2025",
+      "title": "LNP-MOD: machine-learning assisted morphology/object detection for lipid nanoparticles",
+      "category": "lnp_morphology_computer_vision",
+      "priority": "C_code_only_no_public_training_data",
+      "status": "code_model_no_public_dataset",
+      "reason": "Repository provides a cryo-EM analysis pipeline; the ACS paper states training/validation data are available on request, so it is not an open high-throughput database.",
+      "paper_doi": "10.1021/acsnano.5c09956",
+      "dataset_doi": "",
+      "homepage": "https://github.com/owenip/LNP_MOD_PUBLIC",
+      "github": {
+        "repo": "owenip/LNP_MOD_PUBLIC",
+        "url": "https://github.com/owenip/LNP_MOD_PUBLIC",
+        "default_branch": "main",
+        "description": "",
+        "pushed_at": "2025-06-13T05:19:40Z",
+        "license": "",
+        "stars": 1
+      },
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 2,
+      "file_count_by_platform": {
+        "GitHub": 2
+      },
+      "structured_file_count": 2,
+      "data_file_bytes": 735,
+      "largest_files": [
+        {
+          "platform": "GitHub",
+          "path": "requirements.txt",
+          "size": 479,
+          "download_url": "https://raw.githubusercontent.com/owenip/LNP_MOD_PUBLIC/main/requirements.txt"
+        },
+        {
+          "platform": "GitHub",
+          "path": "requirements-dev.txt",
+          "size": 256,
+          "download_url": "https://raw.githubusercontent.com/owenip/LNP_MOD_PUBLIC/main/requirements-dev.txt"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "requirements.txt",
+          "size": 479,
+          "download_url": "https://raw.githubusercontent.com/owenip/LNP_MOD_PUBLIC/main/requirements.txt",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "# Core ML/DL"
+            ],
+            "column_count": 1,
+            "rows_observed_in_sample": 32,
+            "row_count": 32,
+            "row_count_note": "complete small file"
+          }
+        },
+        {
+          "path": "requirements-dev.txt",
+          "size": 256,
+          "download_url": "https://raw.githubusercontent.com/owenip/LNP_MOD_PUBLIC/main/requirements-dev.txt",
+          "platform": "GitHub",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "# Testing"
+            ],
+            "column_count": 1,
+            "rows_observed_in_sample": 17,
+            "row_count": 17,
+            "row_count_note": "complete small file"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "mrna_lnp_manufacturing_2025",
+      "title": "Manufacturing mRNA-Loaded Lipid Nanoparticles with Precise Size and Morphology Control",
+      "category": "process_development_supplement",
+      "priority": "B_literature_supplement_extraction",
+      "status": "supplement_pdf_only",
+      "reason": "Recent mRNA-LNP process/morphology paper with a large ACS supporting-information PDF; no separate structured data deposit found.",
+      "paper_doi": "10.1021/acsnano.5c09800",
+      "dataset_doi": "",
+      "homepage": "https://pubs.acs.org/doi/10.1021/acsnano.5c09800",
+      "github": {},
+      "zenodo": {},
+      "figshare": {},
+      "file_count": 1,
+      "file_count_by_platform": {
+        "ACS": 1
+      },
+      "structured_file_count": 0,
+      "data_file_bytes": 35770000,
+      "largest_files": [
+        {
+          "platform": "ACS",
+          "path": "nn5c09800_si_001.pdf",
+          "size": 35770000,
+          "download_url": "https://pubs.acs.org/doi/suppl/10.1021/acsnano.5c09800/suppl_file/nn5c09800_si_001.pdf"
+        }
+      ],
+      "sampled_files": [
+        {
+          "platform": "ACS",
+          "path": "nn5c09800_si_001.pdf",
+          "size": 35770000,
+          "download_url": "https://pubs.acs.org/doi/suppl/10.1021/acsnano.5c09800/suppl_file/nn5c09800_si_001.pdf",
+          "manual": true,
+          "sample": {
+            "format": "pdf",
+            "parse_note": "not sampled"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "kumar_ardekani_2025",
+      "title": "Machine-learning framework to predict LNP performance for nucleic acid delivery",
+      "category": "supplementary_pdf_curated_dataset",
+      "priority": "A_literature_supplement_extraction",
+      "status": "supplement_pdf_only",
+      "reason": "Claims 6454 curated formulations across 21 studies, but Figshare exposes only a supplementary PDF; route through literature/SI extraction.",
+      "paper_doi": "10.1021/acsabm.4c01716",
+      "dataset_doi": "10.1021/acsabm.4c01716.s001",
+      "homepage": "https://acs.figshare.com/articles/journal_contribution/Machine-Learning_Framework_to_Predict_the_Performance_of_Lipid_Nanoparticles_for_Nucleic_Acid_Delivery/28851323",
+      "github": {},
+      "zenodo": {},
+      "figshare": {
+        "article_id": "28851323",
+        "title": "Machine-Learning Framework to Predict the Performance\nof Lipid Nanoparticles for Nucleic Acid Delivery",
+        "doi": "10.1021/acsabm.4c01716.s001",
+        "resource_doi": "10.1021/acsabm.4c01716",
+        "published_date": "2025-04-23T21:29:52Z",
+        "license": "CC BY-NC 4.0",
+        "url": "https://acs.figshare.com/articles/journal_contribution/Machine-Learning_Framework_to_Predict_the_Performance_of_Lipid_Nanoparticles_for_Nucleic_Acid_Delivery/28851323",
+        "files": [
+          {
+            "path": "mt4c01716_si_001.pdf",
+            "size": 600233,
+            "download_url": "https://ndownloader.figshare.com/files/53938742"
+          }
+        ]
+      },
+      "file_count": 1,
+      "file_count_by_platform": {
+        "Figshare": 1
+      },
+      "structured_file_count": 0,
+      "data_file_bytes": 600233,
+      "largest_files": [
+        {
+          "platform": "Figshare",
+          "path": "mt4c01716_si_001.pdf",
+          "size": 600233,
+          "download_url": "https://ndownloader.figshare.com/files/53938742"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "mt4c01716_si_001.pdf",
+          "size": 600233,
+          "download_url": "https://ndownloader.figshare.com/files/53938742",
+          "platform": "Figshare",
+          "sample": {
+            "format": "pdf",
+            "parse_note": "not sampled"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "key": "exosome_mimetic_gan",
+      "title": "Machine learning-driven rational design of exosome-mimetic lipid nanoparticles for cancer therapy",
+      "category": "synthetic_generated_lnp_candidates",
+      "priority": "C_synthetic_reference",
+      "status": "structured_open_data",
+      "reason": "GAN-generated 10,000-row lipid candidate file; useful as synthetic candidate/reference data, not primary experimental evidence.",
+      "paper_doi": "",
+      "dataset_doi": "10.5281/zenodo.16928013",
+      "homepage": "https://zenodo.org/records/16928013",
+      "github": {},
+      "zenodo": {
+        "record_id": "16928013",
+        "title": "Machine learning-driven rational design of exosome-mimetic lipid nanoparticles for cancer therapy",
+        "doi": "10.5281/zenodo.16928013",
+        "publication_date": "2025-08-22",
+        "license": "cc-by-4.0",
+        "url": "https://zenodo.org/records/16928013",
+        "files": [
+          {
+            "path": "GAN_generated_Lipiddata_10000.csv",
+            "size": 431741,
+            "download_url": "https://zenodo.org/api/records/16928013/files/GAN_generated_Lipiddata_10000.csv/content"
+          }
+        ]
+      },
+      "figshare": {},
+      "file_count": 1,
+      "file_count_by_platform": {
+        "Zenodo": 1
+      },
+      "structured_file_count": 1,
+      "data_file_bytes": 431741,
+      "largest_files": [
+        {
+          "platform": "Zenodo",
+          "path": "GAN_generated_Lipiddata_10000.csv",
+          "size": 431741,
+          "download_url": "https://zenodo.org/api/records/16928013/files/GAN_generated_Lipiddata_10000.csv/content"
+        }
+      ],
+      "sampled_files": [
+        {
+          "path": "GAN_generated_Lipiddata_10000.csv",
+          "size": 431741,
+          "download_url": "https://zenodo.org/api/records/16928013/files/GAN_generated_Lipiddata_10000.csv/content",
+          "platform": "Zenodo",
+          "sample": {
+            "format": "csv",
+            "columns": [
+              "CHOL",
+              "SM",
+              "PC",
+              "PS",
+              "PE",
+              "Particle size",
+              "PDI",
+              "Zeta potential"
+            ],
+            "column_count": 8,
+            "rows_observed_in_sample": 10000,
+            "row_count": 10000,
+            "row_count_note": "complete small file"
+          }
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+left_source_id,left_collection,left_source_key,left_source_dataset,left_unique_smiles,right_source_id,right_collection,right_source_key,right_source_dataset,right_unique_smiles,shared_smiles,jaccard,overlap_of_smaller,risk_level
+high_throughput:agile,high_throughput,agile,AGILE,13154,high_throughput:translnp,high_throughput,translnp,TransLNP,1100,1100,0.083625,1.0,duplicate_subset
+high_throughput:agile,high_throughput,agile,AGILE,13154,high_throughput:transma,high_throughput,transma,TransMA,1100,1100,0.083625,1.0,duplicate_subset
+high_throughput:translnp,high_throughput,translnp,TransLNP,1100,high_throughput:transma,high_throughput,transma,TransMA,1100,1100,1.0,1.0,duplicate_subset
+core_open:LNPDB,core_open,LNPDB,LNPDB,12845,high_throughput:translnp,high_throughput,translnp,TransLNP,1100,432,0.031969,0.392727,moderate_overlap
+core_open:LNPDB,core_open,LNPDB,LNPDB,12845,high_throughput:transma,high_throughput,transma,TransMA,1100,432,0.031969,0.392727,moderate_overlap
+core_open:LNPDB,core_open,LNPDB,LNPDB,12845,high_throughput:lnp_ml_lion,high_throughput,lnp_ml_lion,LNP_ML / LiON,9377,1281,0.061172,0.136611,material_overlap
+core_open:LNPDB,core_open,LNPDB,LNPDB,12845,high_throughput:agile,high_throughput,agile,AGILE,13154,1255,0.050719,0.097703,material_overlap
+core_open:LNPDB,core_open,LNPDB,LNPDB,12845,high_throughput:lipobart,high_throughput,lipobart,LipoBART iPhos,806,65,0.004784,0.080645,low_overlap
+core_open:LNP Atlas,core_open,LNP Atlas,LNP Atlas,270,core_open:LNPDB,core_open,LNPDB,LNPDB,12845,7,0.000534,0.025926,low_overlap
+core_open:LNP Atlas,core_open,LNP Atlas,LNP Atlas,270,high_throughput:lnp_ml_lion,high_throughput,lnp_ml_lion,LNP_ML / LiON,9377,4,0.000415,0.014815,low_overlap

@@ -1,0 +1,320 @@
+{
+  "generated_at": "2026-05-22T21:50:48",
+  "items": [
+    {
+      "source_key": "agile",
+      "source_dataset": "AGILE",
+      "record_role": "experimental_finetuning",
+      "component_type": "IL",
+      "rows": 1200,
+      "records": 1200,
+      "unique_smiles": 1100
+    },
+    {
+      "source_key": "agile",
+      "source_dataset": "AGILE",
+      "record_role": "experimental_library",
+      "component_type": "A_smiles",
+      "rows": 1200,
+      "records": 1200,
+      "unique_smiles": 20
+    },
+    {
+      "source_key": "agile",
+      "source_dataset": "AGILE",
+      "record_role": "experimental_library",
+      "component_type": "B_smiles",
+      "rows": 1200,
+      "records": 1200,
+      "unique_smiles": 12
+    },
+    {
+      "source_key": "agile",
+      "source_dataset": "AGILE",
+      "record_role": "experimental_library",
+      "component_type": "C_smiles",
+      "rows": 1200,
+      "records": 1200,
+      "unique_smiles": 5
+    },
+    {
+      "source_key": "agile",
+      "source_dataset": "AGILE",
+      "record_role": "experimental_library",
+      "component_type": "IL",
+      "rows": 1200,
+      "records": 1200,
+      "unique_smiles": 1200
+    },
+    {
+      "source_key": "agile",
+      "source_dataset": "AGILE",
+      "record_role": "virtual_candidate",
+      "component_type": "IL",
+      "rows": 12276,
+      "records": 12276,
+      "unique_smiles": 12276
+    },
+    {
+      "source_key": "comet_lance",
+      "source_dataset": "COMET / LANCE",
+      "record_role": "formulation_activity",
+      "component_type": "IL",
+      "rows": 21117,
+      "records": 15867,
+      "unique_smiles": 7
+    },
+    {
+      "source_key": "comet_lance",
+      "source_dataset": "COMET / LANCE",
+      "record_role": "formulation_activity",
+      "component_type": "CH",
+      "rows": 15867,
+      "records": 15867,
+      "unique_smiles": 3
+    },
+    {
+      "source_key": "comet_lance",
+      "source_dataset": "COMET / LANCE",
+      "record_role": "formulation_activity",
+      "component_type": "HL",
+      "rows": 15867,
+      "records": 15867,
+      "unique_smiles": 2
+    },
+    {
+      "source_key": "comet_lance",
+      "source_dataset": "COMET / LANCE",
+      "record_role": "formulation_activity",
+      "component_type": "PEG",
+      "rows": 15867,
+      "records": 15867,
+      "unique_smiles": 2
+    },
+    {
+      "source_key": "comet_lance",
+      "source_dataset": "COMET / LANCE",
+      "record_role": "formulation_activity",
+      "component_type": "PBAE_branching_agent",
+      "rows": 454,
+      "records": 454,
+      "unique_smiles": 3
+    },
+    {
+      "source_key": "comet_lance",
+      "source_dataset": "COMET / LANCE",
+      "record_role": "formulation_activity",
+      "component_type": "PBAE_monomer",
+      "rows": 454,
+      "records": 454,
+      "unique_smiles": 5
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "CH",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "HL",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "IL",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 572
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "PEG",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "m1",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 572
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "m2",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "m3",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_activity",
+      "component_type": "m4",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 1
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_structure",
+      "component_type": "IL",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 572
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_structure",
+      "component_type": "head",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 13
+    },
+    {
+      "source_key": "lipobart",
+      "source_dataset": "LipoBART iPhos",
+      "record_role": "material_structure",
+      "component_type": "tail",
+      "rows": 572,
+      "records": 572,
+      "unique_smiles": 28
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "source_dataset": "LNP_ML / LiON",
+      "record_role": "experimental_delivery",
+      "component_type": "IL",
+      "rows": 13069,
+      "records": 13069,
+      "unique_smiles": 9377
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "source_dataset": "LNP_ML / LiON",
+      "record_role": "experimental_delivery",
+      "component_type": "HL",
+      "rows": 12997,
+      "records": 12997,
+      "unique_smiles": 4
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "source_dataset": "LNP_ML / LiON",
+      "record_role": "experimental_delivery_paper_subset",
+      "component_type": "IL",
+      "rows": 9690,
+      "records": 9690,
+      "unique_smiles": 7493
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "source_dataset": "LNP_ML / LiON",
+      "record_role": "experimental_delivery_paper_subset",
+      "component_type": "HL",
+      "rows": 9618,
+      "records": 9618,
+      "unique_smiles": 4
+    },
+    {
+      "source_key": "lnp_ml_lion",
+      "source_dataset": "LNP_ML / LiON",
+      "record_role": "model_prediction",
+      "component_type": "IL",
+      "rows": 372,
+      "records": 372,
+      "unique_smiles": 165
+    },
+    {
+      "source_key": "lumi_lab",
+      "source_dataset": "LUMI-lab",
+      "record_role": "design_component_set",
+      "component_type": "amines",
+      "rows": 1840,
+      "records": 1840,
+      "unique_smiles": 32
+    },
+    {
+      "source_key": "lumi_lab",
+      "source_dataset": "LUMI-lab",
+      "record_role": "design_component_set",
+      "component_type": "isocyanide",
+      "rows": 1840,
+      "records": 1840,
+      "unique_smiles": 12
+    },
+    {
+      "source_key": "lumi_lab",
+      "source_dataset": "LUMI-lab",
+      "record_role": "design_component_set",
+      "component_type": "lipid_aldehyde",
+      "rows": 1840,
+      "records": 1840,
+      "unique_smiles": 16
+    },
+    {
+      "source_key": "lumi_lab",
+      "source_dataset": "LUMI-lab",
+      "record_role": "design_component_set",
+      "component_type": "lipid_carboxylic_acid",
+      "rows": 1840,
+      "records": 1840,
+      "unique_smiles": 36
+    },
+    {
+      "source_key": "lumi_lab",
+      "source_dataset": "LUMI-lab",
+      "record_role": "experimental_screen",
+      "component_type": "IL",
+      "rows": 1920,
+      "records": 1920,
+      "unique_smiles": 1920
+    },
+    {
+      "source_key": "translnp",
+      "source_dataset": "TransLNP",
+      "record_role": "activity_split",
+      "component_type": "IL",
+      "rows": 2400,
+      "records": 2400,
+      "unique_smiles": 1100
+    },
+    {
+      "source_key": "transma",
+      "source_dataset": "TransMA",
+      "record_role": "activity_split",
+      "component_type": "IL",
+      "rows": 4800,
+      "records": 4800,
+      "unique_smiles": 1100
+    }
+  ]
+}

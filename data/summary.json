@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-05-22T21:50:48",
+  "database": {
+    "path": "D:\\Research\\AtctiveOPV\\LNP\\data\\external\\lnp_open\\external_lnp_open.db",
+    "size_bytes": 671748096
+  },
+  "counts": {
+    "core_open_records": 21283,
+    "high_throughput_records": 79201,
+    "combined_records": 100484,
+    "activity_values": 97031,
+    "component_rows": 156420,
+    "source_files": 31,
+    "supplement_queue_items": 10,
+    "source_collections": 11,
+    "source_role_groups": 18,
+    "unique_ionizable_smiles_core": 13108,
+    "unique_ionizable_smiles_high_throughput": 25264,
+    "unique_ionizable_smiles_combined_exact": 35771,
+    "pairwise_overlap_rows": 10,
+    "strong_overlap_rows": 5
+  },
+  "collections": {
+    "core_open": {
+      "records": 21283,
+      "description": "Open LNP formulation and literature-derived datasets imported into external_lnp_records."
+    },
+    "high_throughput": {
+      "records": 79201,
+      "description": "Structured high-throughput and model-ready LNP datasets imported into normalized high_throughput_* tables."
+    }
+  },
+  "reports": [
+    {
+      "label": "external_lnp_source_difference_audit_20260522_with_strathclyde.md",
+      "path": "reports/external_lnp_source_difference_audit_20260522_with_strathclyde.md",
+      "bytes": 3750
+    },
+    {
+      "label": "external_lnp_source_difference_audit_20260522_with_strathclyde.json",
+      "path": "reports/external_lnp_source_difference_audit_20260522_with_strathclyde.json",
+      "bytes": 22545
+    },
+    {
+      "label": "external_lnp_pairwise_source_overlap_20260522_with_strathclyde.csv",
+      "path": "reports/external_lnp_pairwise_source_overlap_20260522_with_strathclyde.csv",
+      "bytes": 479
+    },
+    {
+      "label": "open_lnp_high_throughput_dataset_discovery_20260522_highthroughput_v3.md",
+      "path": "reports/open_lnp_high_throughput_dataset_discovery_20260522_highthroughput_v3.md",
+      "bytes": 27127
+    },
+    {
+      "label": "open_lnp_high_throughput_dataset_discovery_20260522_highthroughput_v3.json",
+      "path": "reports/open_lnp_high_throughput_dataset_discovery_20260522_highthroughput_v3.json",
+      "bytes": 90440
+    },
+    {
+      "label": "open_lnp_high_throughput_dataset_discovery_20260522_highthroughput_v3.csv",
+      "path": "reports/open_lnp_high_throughput_dataset_discovery_20260522_highthroughput_v3.csv",
+      "bytes": 5652
+    },
+    {
+      "label": "high_throughput_lnp_integration_20260522_highthroughput_integrated.md",
+      "path": "reports/high_throughput_lnp_integration_20260522_highthroughput_integrated.md",
+      "bytes": 6266
+    },
+    {
+      "label": "high_throughput_lnp_integration_20260522_highthroughput_integrated.json",
+      "path": "reports/high_throughput_lnp_integration_20260522_highthroughput_integrated.json",
+      "bytes": 42317
+    },
+    {
+      "label": "high_throughput_lnp_source_summary_20260522_highthroughput_integrated.csv",
+      "path": "reports/high_throughput_lnp_source_summary_20260522_highthroughput_integrated.csv",
+      "bytes": 929
+    },
+    {
+      "label": "high_throughput_lnp_audit_20260522_highthroughput_integrated.md",
+      "path": "reports/high_throughput_lnp_audit_20260522_highthroughput_integrated.md",
+      "bytes": 9068
+    },
+    {
+      "label": "high_throughput_lnp_audit_20260522_highthroughput_integrated.json",
+      "path": "reports/high_throughput_lnp_audit_20260522_highthroughput_integrated.json",
+      "bytes": 53938
+    },
+    {
+      "label": "high_throughput_lnp_audit_source_summary_20260522_highthroughput_integrated.csv",
+      "path": "reports/high_throughput_lnp_audit_source_summary_20260522_highthroughput_integrated.csv",
+      "bytes": 894
+    },
+    {
+      "label": "lnp_literature_supplement_queue_20260522_highthroughput_integrated.csv",
+      "path": "reports/lnp_literature_supplement_queue_20260522_highthroughput_integrated.csv",
+      "bytes": 9989
+    }
+  ]
+}

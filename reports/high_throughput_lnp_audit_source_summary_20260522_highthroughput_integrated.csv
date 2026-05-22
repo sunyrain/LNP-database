@@ -1,0 +1,16 @@
+﻿source_key,record_role,records,unique_ionizable_smiles,activity_metrics,numeric_activity_values,unique_component_smiles
+agile,experimental_finetuning,2400,1100,2,2400,1100
+agile,experimental_library,9600,1200,2,9600,1237
+agile,virtual_candidate,12276,12276,0,0,12276
+comet_lance,formulation_activity,127771,7,4,127771,22
+exosome_mimetic_gan,synthetic_candidate,10000,0,0,0,0
+lipobart,material_activity,18304,572,4,18304,575
+lipobart,material_structure,1716,572,0,0,613
+lipobart,target_definition,616,0,14,572,0
+lnp_ml_lion,experimental_delivery,52132,9377,2,52132,9381
+lnp_ml_lion,experimental_delivery_paper_subset,41995,7493,2,41995,7497
+lnp_ml_lion,model_prediction,2232,165,6,2232,165
+lumi_lab,design_component_set,7360,0,0,0,96
+lumi_lab,experimental_screen,1920,1920,1,1920,1920
+translnp,activity_split,2400,1100,1,2400,1100
+transma,activity_split,4800,1100,1,4800,1100

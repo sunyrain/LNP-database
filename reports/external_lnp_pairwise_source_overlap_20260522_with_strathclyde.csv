@@ -1,0 +1,4 @@
+﻿left,right,shared_publication_dois,left_publication_dois,right_publication_dois,shared_ionizable_lipid_names,left_ionizable_lipid_names,right_ionizable_lipid_names,shared_ionizable_lipid_smiles,left_ionizable_lipid_smiles,right_ionizable_lipid_smiles
+LNP Atlas,LNPDB,10,62,42,7,39,13015,7,270,12845
+LNP Atlas,Strathclyde ionisable lipid/sterol variation dataset,0,62,1,1,39,14,0,270,0
+LNPDB,Strathclyde ionisable lipid/sterol variation dataset,0,42,1,1,13015,14,0,12845,0

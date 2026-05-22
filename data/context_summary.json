@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-05-22T21:50:48",
+  "payload_type_counts": [
+    {
+      "payload_type": "mRNA",
+      "records": 56784
+    },
+    {
+      "payload_type": "unknown",
+      "records": 31352
+    },
+    {
+      "payload_type": "siRNA",
+      "records": 10696
+    },
+    {
+      "payload_type": "pDNA",
+      "records": 1416
+    },
+    {
+      "payload_type": "DNA",
+      "records": 135
+    },
+    {
+      "payload_type": "empty",
+      "records": 53
+    },
+    {
+      "payload_type": "ASO",
+      "records": 36
+    },
+    {
+      "payload_type": "gold_nanoparticles",
+      "records": 6
+    },
+    {
+      "payload_type": "protein",
+      "records": 3
+    },
+    {
+      "payload_type": "mRNA, siRNA",
+      "records": 3
+    }
+  ],
+  "route_counts": [
+    {
+      "route_of_administration": "unknown",
+      "records": 56070
+    },
+    {
+      "route_of_administration": "in_vitro",
+      "records": 20443
+    },
+    {
+      "route_of_administration": "intravenous",
+      "records": 1916
+    },
+    {
+      "route_of_administration": "intramuscular",
+      "records": 674
+    },
+    {
+      "route_of_administration": "intratracheal",
+      "records": 98
+    }
+  ],
+  "delivery_target_counts": [
+    {
+      "delivery_target": "unknown",
+      "records": 56070
+    },
+    {
+      "delivery_target": "generic_cell",
+      "records": 15487
+    },
+    {
+      "delivery_target": "lung_epithelium",
+      "records": 3758
+    },
+    {
+      "delivery_target": "liver",
+      "records": 1480
+    },
+    {
+      "delivery_target": "macrophage",
+      "records": 1272
+    },
+    {
+      "delivery_target": "muscle",
+      "records": 674
+    },
+    {
+      "delivery_target": "spleen",
+      "records": 392
+    },
+    {
+      "delivery_target": "lung",
+      "records": 44
+    },
+    {
+      "delivery_target": "dendritic_cell",
+      "records": 24
+    }
+  ]
+}
