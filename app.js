@@ -9,7 +9,8 @@ const DATA_FILES = {
   supplementQueue: "data/supplement_queue.json",
   recordsPreview: "data/records_preview.json",
   contextSummary: "data/context_summary.json",
-  usageAnalysis: "data/usage_analysis.json"
+  usageAnalysis: "data/usage_analysis.json",
+  deepLearningAnalysis: "data/deep_learning_analysis.json"
 };
 
 const LANG = document.documentElement.lang.toLowerCase().startsWith("zh") ? "zh" : "en";
@@ -65,7 +66,9 @@ const I18N = {
     withContext: "context",
     withPayload: "payload",
     withRatio: "ratio",
-    withSmiles: "SMILES"
+    withSmiles: "SMILES",
+    samples: "samples",
+    coverage: "coverage"
   },
   zh: {
     activityMetric: "活性指标",
@@ -107,7 +110,9 @@ const I18N = {
     withContext: "语境",
     withPayload: "载荷",
     withRatio: "比例",
-    withSmiles: "SMILES"
+    withSmiles: "SMILES",
+    samples: "样本",
+    coverage: "覆盖率"
   }
 };
 
@@ -345,6 +350,7 @@ function setTab(tab) {
 function renderAll() {
   renderStats();
   renderUsageBlocks();
+  renderDeepLearning();
   renderUseSourceMatrix();
   renderMetricFamilies();
   renderReadinessMatrix();
@@ -366,8 +372,6 @@ function renderStats() {
     core: number(counts.core_open_records),
     high: number(counts.high_throughput_records)
   }));
-  setText("statUsageBlocks", number(usage.length));
-  setText("statUsageSub", t("usageBlocks"));
   setText("statMrna", number(byKey.mrna_delivery?.records || 0));
   setText("statMrnaSub", label(byKey.mrna_delivery || {}, "metric"));
   setText("statStructure", number(byKey.structure_activity?.records || 0));
@@ -385,7 +389,7 @@ function renderUsageBlocks() {
   target.innerHTML = blocks.map((block) => `
     <article class="usage-card ${escapeHtml(block.key)}">
       <div class="usage-card-head">
-        <span class="usage-key">${escapeHtml(block.key.replaceAll("_", " "))}</span>
+        <span class="usage-key">${escapeHtml(usageKeyLabel(block.key))}</span>
         <span class="readiness-pill">${escapeHtml(t("readiness"))} ${pct(block.readiness, 0)}</span>
       </div>
       <h3>${escapeHtml(label(block, "label"))}</h3>
@@ -398,6 +402,59 @@ function renderUsageBlocks() {
       <div class="next-line">${escapeHtml(label(block, "next"))}</div>
     </article>
   `).join("");
+}
+
+function usageKeyLabel(key) {
+  const labels = {
+    formulation_lookup: { en: "Lookup", zh: "配方检索" },
+    structure_activity: { en: "Structure activity", zh: "结构-活性" },
+    mrna_delivery: { en: "mRNA delivery", zh: "mRNA 递送" },
+    physicochemical: { en: "Physicochemical", zh: "物化性质" },
+    formulation_space: { en: "Formulation space", zh: "配方空间" },
+    route_target: { en: "Route target", zh: "递送语境" }
+  };
+  return labels[key] ? labels[key][LANG] : key.replaceAll("_", " ");
+}
+
+function renderDeepLearning() {
+  const analysis = state.data.deepLearningAnalysis || {};
+  const tasks = analysis.tasks || [];
+  const taskTarget = $("dlTaskGrid");
+  if (taskTarget) {
+    taskTarget.innerHTML = tasks.map((task) => `
+      <article class="dl-task ${escapeHtml(task.key)}">
+        <div class="dl-task-head">
+          <h3>${escapeHtml(label(task, "label"))}</h3>
+          <span>${pct(task.readiness, 0)}</span>
+        </div>
+        <div class="dl-task-meta">
+          <strong>${number(task.samples)}</strong>
+          <span>${escapeHtml(t("samples"))}</span>
+        </div>
+        <p>${escapeHtml(label(task, "model"))}</p>
+        <p>${escapeHtml(label(task, "target"))}</p>
+        <div class="dl-validation">${escapeHtml(label(task, "validation"))}</div>
+        <div class="dl-risk">${escapeHtml(label(task, "risk"))}</div>
+      </article>
+    `).join("");
+  }
+
+  renderBars("dlFeatureBars", (analysis.feature_coverage || []).map((row) => ({
+    label: label(row, "label"),
+    value: row.covered,
+    sub: `${pct(row.fraction, 0)} ${t("coverage")} / ${number(row.total)} ${t("records")}`
+  })), t("records"));
+
+  const riskTarget = $("dlRiskList");
+  if (riskTarget) {
+    riskTarget.innerHTML = (analysis.risks || []).map((risk) => `
+      <div class="dl-risk-row">
+        <span>${escapeHtml(label(risk, "level"))}</span>
+        <strong>${escapeHtml(label(risk, "label"))}</strong>
+        <p>${escapeHtml(label(risk, "detail"))}</p>
+      </div>
+    `).join("");
+  }
 }
 
 function renderUseSourceMatrix() {

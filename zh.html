@@ -12,7 +12,7 @@
       <div>
         <div class="brand">LNP Open Data Registry</div>
         <h1>LNP 数据用途工作台</h1>
-        <p class="subtitle">把整合后的 LNP 数据按实际用途拆分：检索、建模、mRNA 递送、配方空间与 assay 语境。</p>
+        <p class="subtitle">按用途查看整合后的 LNP 数据：检索、建模、mRNA 递送、配方空间与 assay 语境。</p>
       </div>
       <div class="header-actions">
         <a class="header-link" href="index.html">English</a>
@@ -41,6 +41,7 @@
         </div>
         <div class="intro-actions">
           <a href="#usageBlockGrid">用途分块</a>
+          <a href="#deepLearningSection">深度学习</a>
           <a href="#useSourceMatrix">来源贡献</a>
           <a href="#readinessSection">建模准备度</a>
         </div>
@@ -51,11 +52,6 @@
           <span class="stat-label">整合记录</span>
           <strong class="stat-value" id="statCombined">-</strong>
           <span class="stat-sub" id="statCoreHigh">-</span>
-        </div>
-        <div class="stat-card teal">
-          <span class="stat-label">用途分块</span>
-          <strong class="stat-value" id="statUsageBlocks">-</strong>
-          <span class="stat-sub" id="statUsageSub">-</span>
         </div>
         <div class="stat-card amber">
           <span class="stat-label">mRNA 子集</span>
@@ -75,6 +71,24 @@
       </section>
 
       <section class="usage-grid" id="usageBlockGrid" aria-label="数据用途分块"></section>
+
+      <section class="panel dl-panel" id="deepLearningSection">
+        <div class="panel-head">
+          <h2>深度学习建模准备度</h2>
+          <span class="panel-meta">任务定义、特征覆盖、验证风险</span>
+        </div>
+        <div class="dl-grid" id="dlTaskGrid"></div>
+        <div class="dl-bottom">
+          <section>
+            <h3>特征覆盖</h3>
+            <div class="bar-list" id="dlFeatureBars"></div>
+          </section>
+          <section>
+            <h3>验证风险</h3>
+            <div class="dl-risk-list" id="dlRiskList"></div>
+          </section>
+        </div>
+      </section>
 
       <div class="layout-two">
         <section class="panel">

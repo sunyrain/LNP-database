@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-05-23T00:35:00",
+  "summary": {
+    "label_en": "The integrated dataset is useful for representation learning and source-aware supervised baselines, but direct pooled prediction should be treated as high-risk until assay context and source leakage are controlled.",
+    "label_zh": "当前整合数据适合做表征学习和来源感知的监督基线；在 assay 语境和来源泄漏治理完成前，不宜直接把全量数据混合成一个泛化预测任务。"
+  },
+  "tasks": [
+    {
+      "key": "self_supervised_lipid_embedding",
+      "label_en": "Self-supervised lipid / formulation embeddings",
+      "label_zh": "自监督脂质 / 配方表征",
+      "samples": 65778,
+      "readiness": 0.82,
+      "model_en": "SMILES encoder + component-role pooling",
+      "model_zh": "SMILES 编码器 + 组分角色池化",
+      "target_en": "No activity label required; learn structure and formulation neighborhoods.",
+      "target_zh": "不依赖活性标签，先学习结构和配方邻域。",
+      "validation_en": "Evaluate retrieval by source-held-out neighbors and component-role consistency.",
+      "validation_zh": "用来源留出近邻检索和组分角色一致性评估。",
+      "risk_en": "Medium: generated candidates and experimental rows must stay separated.",
+      "risk_zh": "中：生成候选与实验记录必须分开。"
+    },
+    {
+      "key": "source_aware_activity",
+      "label_en": "Source-aware structure-activity prediction",
+      "label_zh": "来源感知结构-活性预测",
+      "samples": 51090,
+      "readiness": 0.68,
+      "model_en": "Molecular graph / transformer encoder with source-family splits",
+      "model_zh": "分子图或 Transformer 编码器，按来源家族切分",
+      "target_en": "Numeric activity labels with ionizable lipid structures.",
+      "target_zh": "含可电离脂质结构的数值活性标签。",
+      "validation_en": "Require source-held-out validation; random split will overstate performance.",
+      "validation_zh": "必须做来源留出验证；随机切分会高估性能。",
+      "risk_en": "High: AGILE, TransMA, and TransLNP have duplicate-subset overlap.",
+      "risk_zh": "高：AGILE、TransMA、TransLNP 存在重复子集重叠。"
+    },
+    {
+      "key": "mrna_multitask_delivery",
+      "label_en": "mRNA delivery multi-task modeling",
+      "label_zh": "mRNA 递送多任务建模",
+      "samples": 56787,
+      "readiness": 0.58,
+      "model_en": "Multi-task encoder with payload, route, cell, and readout heads",
+      "model_zh": "多任务编码器，拆分载荷、给药途径、细胞和 readout 任务头",
+      "target_en": "mRNA-labeled rows; context normalization is the gating step.",
+      "target_zh": "mRNA 标注记录；关键前置条件是语境标准化。",
+      "validation_en": "Stratify by route/cell/readout before comparing labels.",
+      "validation_zh": "先按给药途径、细胞和 readout 分层，再比较标签。",
+      "risk_en": "High: context coverage is only partial across high-throughput sources.",
+      "risk_zh": "高：高通量来源中的语境覆盖仍不完整。"
+    },
+    {
+      "key": "physicochemical_regression",
+      "label_en": "Physicochemical property regression",
+      "label_zh": "物化性质回归",
+      "samples": 937,
+      "readiness": 0.45,
+      "model_en": "Small-data baseline before deep models",
+      "model_zh": "先做小样本基线，再考虑深度模型",
+      "target_en": "Size, PDI, zeta, encapsulation, and related QC labels.",
+      "target_zh": "粒径、PDI、zeta、包封率等制剂质控标签。",
+      "validation_en": "Use repeated source-aware cross-validation; deep models are likely underpowered.",
+      "validation_zh": "使用来源感知的重复交叉验证；直接深度模型样本量不足。",
+      "risk_en": "Medium: unit and method normalization dominate model choice.",
+      "risk_zh": "中：单位和制备方法标准化比模型选择更关键。"
+    }
+  ],
+  "feature_coverage": [
+    {
+      "key": "ionizable_smiles",
+      "label_en": "Ionizable lipid SMILES",
+      "label_zh": "可电离脂质 SMILES",
+      "covered": 63938,
+      "total": 79201,
+      "fraction": 0.807
+    },
+    {
+      "key": "lipid_ratio",
+      "label_en": "Lipid ratio / formulation composition",
+      "label_zh": "脂质比例 / 配方组成",
+      "covered": 49198,
+      "total": 79201,
+      "fraction": 0.621
+    },
+    {
+      "key": "payload",
+      "label_en": "Payload labels",
+      "label_zh": "载荷标签",
+      "covered": 48118,
+      "total": 79201,
+      "fraction": 0.608
+    },
+    {
+      "key": "primary_activity",
+      "label_en": "Primary numeric activity",
+      "label_zh": "主要数值活性",
+      "covered": 36202,
+      "total": 79201,
+      "fraction": 0.457
+    },
+    {
+      "key": "context",
+      "label_en": "Route / target / cell context",
+      "label_zh": "给药 / 靶向 / 细胞语境",
+      "covered": 23839,
+      "total": 79201,
+      "fraction": 0.301
+    }
+  ],
+  "risks": [
+    {
+      "level_en": "High",
+      "level_zh": "高",
+      "label_en": "Source leakage",
+      "label_zh": "来源泄漏",
+      "detail_en": "AGILE, TransMA, and TransLNP share duplicate-subset structures; use source-family splits.",
+      "detail_zh": "AGILE、TransMA 和 TransLNP 共享重复子集结构；需要按来源家族切分。"
+    },
+    {
+      "level_en": "High",
+      "level_zh": "高",
+      "label_en": "Assay heterogeneity",
+      "label_zh": "Assay 异质性",
+      "detail_en": "Expression, biodistribution, toxicity, and particle-quality labels are not one pooled target.",
+      "detail_zh": "表达、生物分布、毒性和颗粒质量不能混成单一标签。"
+    },
+    {
+      "level_en": "Medium",
+      "level_zh": "中",
+      "label_en": "Generated-vs-experimental mixing",
+      "label_zh": "生成候选与实验记录混合",
+      "detail_en": "GAN or model-generated candidates are useful for representation space, not as experimental labels.",
+      "detail_zh": "GAN 或模型生成候选适合用于表征空间分析，不应当成实验标签。"
+    }
+  ]
+}

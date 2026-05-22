@@ -12,7 +12,7 @@
       <div>
         <div class="brand">LNP Open Data Registry</div>
         <h1>LNP data usage workspace</h1>
-        <p class="subtitle">Partitioning the integrated LNP data by practical uses: lookup, modeling, mRNA delivery, formulation space, and assay context.</p>
+        <p class="subtitle">Use-oriented views for lookup, modeling, mRNA delivery, formulation space, and assay context.</p>
       </div>
       <div class="header-actions">
         <a class="header-link" href="zh.html">中文</a>
@@ -41,6 +41,7 @@
         </div>
         <div class="intro-actions">
           <a href="#usageBlockGrid">Use blocks</a>
+          <a href="#deepLearningSection">Deep learning</a>
           <a href="#useSourceMatrix">Source by use</a>
           <a href="#readinessSection">Readiness</a>
         </div>
@@ -51,11 +52,6 @@
           <span class="stat-label">Integrated Records</span>
           <strong class="stat-value" id="statCombined">-</strong>
           <span class="stat-sub" id="statCoreHigh">-</span>
-        </div>
-        <div class="stat-card teal">
-          <span class="stat-label">Use Blocks</span>
-          <strong class="stat-value" id="statUsageBlocks">-</strong>
-          <span class="stat-sub" id="statUsageSub">-</span>
         </div>
         <div class="stat-card amber">
           <span class="stat-label">mRNA Subset</span>
@@ -75,6 +71,24 @@
       </section>
 
       <section class="usage-grid" id="usageBlockGrid" aria-label="Data use blocks"></section>
+
+      <section class="panel dl-panel" id="deepLearningSection">
+        <div class="panel-head">
+          <h2>Deep Learning Readiness</h2>
+          <span class="panel-meta">task framing, feature coverage, validation risk</span>
+        </div>
+        <div class="dl-grid" id="dlTaskGrid"></div>
+        <div class="dl-bottom">
+          <section>
+            <h3>Feature Coverage</h3>
+            <div class="bar-list" id="dlFeatureBars"></div>
+          </section>
+          <section>
+            <h3>Validation Risks</h3>
+            <div class="dl-risk-list" id="dlRiskList"></div>
+          </section>
+        </div>
+      </section>
 
       <div class="layout-two">
         <section class="panel">
