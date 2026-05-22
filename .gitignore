@@ -8,3 +8,4 @@ high_throughput_lnp_components_*.csv
 __pycache__/
 .pytest_cache/
 server*.log
+screenshots/

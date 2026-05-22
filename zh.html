@@ -11,8 +11,8 @@
     <div class="header-inner">
       <div>
         <div class="brand">LNP Open Data Registry</div>
-        <h1>mRNA LNP 配方数据集市</h1>
-        <p class="subtitle">整合开源数据集、高通量筛选、SMILES 重叠审计和文献补充提取队列。</p>
+        <h1>mRNA LNP 数据工作台</h1>
+        <p class="subtitle">聚合开源配方数据、高通量筛选、来源重叠审计和文献补充提取进度。</p>
       </div>
       <div class="header-actions">
         <a class="header-link" href="index.html">English</a>
@@ -33,8 +33,21 @@
     <div id="errorPanel" class="error-panel" hidden></div>
 
     <div id="mainContent" hidden>
+      <section class="dashboard-intro">
+        <div class="intro-copy">
+          <span class="kicker">Integrated mart</span>
+          <h2>先看来源、重叠和 assay 语境，再进入建模。</h2>
+          <p>当前看板把来源清单、SMILES 精确重叠、活性指标和记录预览拆开呈现，便于先审计数据库，再决定建模切分或文献扩展。</p>
+        </div>
+        <div class="intro-actions">
+          <a href="data/source_inventory.csv">来源清单</a>
+          <a href="data/overlap.csv">重叠审计</a>
+          <a href="data/supplement_queue.csv">提取队列</a>
+        </div>
+      </section>
+
       <section class="stats-grid" aria-label="数据库计数">
-        <div class="stat-card">
+        <div class="stat-card primary">
           <span class="stat-label">合并记录数</span>
           <strong class="stat-value" id="statCombined">-</strong>
           <span class="stat-sub" id="statCoreHigh">-</span>
@@ -59,6 +72,24 @@
           <strong class="stat-value" id="statOverlaps">-</strong>
           <span class="stat-sub" id="statQueue">-</span>
         </div>
+      </section>
+
+      <section class="insight-grid" aria-label="看板解读">
+        <article class="insight-card">
+          <span class="insight-label">数据范围</span>
+          <strong id="insightScope">-</strong>
+          <p>核心文献来源和高通量/建模来源应保留为两个分析层，避免直接按行混合。</p>
+        </article>
+        <article class="insight-card warning">
+          <span class="insight-label">去重风险</span>
+          <strong id="insightOverlap">-</strong>
+          <p>训练/测试切分和跨来源性能比较之前，应先用精确 SMILES 重叠审计排除泄漏。</p>
+        </article>
+        <article class="insight-card action">
+          <span class="insight-label">下一步提取</span>
+          <strong id="insightQueue">-</strong>
+          <p>优先处理同时包含配方组成、assay metadata 和测量活性的补充表格。</p>
+        </article>
       </section>
 
       <nav class="tabs" aria-label="LNP 数据区段">

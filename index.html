@@ -11,14 +11,14 @@
     <div class="header-inner">
       <div>
         <div class="brand">LNP Open Data Registry</div>
-        <h1>mRNA LNP formulation data mart</h1>
-        <p class="subtitle">Integrated open datasets, high-throughput screens, overlap audit, and literature extraction queue.</p>
+        <h1>mRNA LNP data workspace</h1>
+        <p class="subtitle">A compact view of open formulation datasets, high-throughput screens, source overlap, and extraction readiness.</p>
       </div>
       <div class="header-actions">
         <a class="header-link" href="data/summary.json">Summary JSON</a>
         <a class="header-link" href="data/source_inventory.csv">Source CSV</a>
         <a class="header-link" href="zh.html">中文</a>
-        <a class="header-link" href="processing_zh.html">Data Plan</a>
+        <a class="header-link" href="processing_zh.html">Processing Plan</a>
         <button class="header-link button-link" id="downloadSummaryBtn" type="button">Export Summary</button>
       </div>
     </div>
@@ -33,8 +33,21 @@
     <div id="errorPanel" class="error-panel" hidden></div>
 
     <div id="mainContent" hidden>
+      <section class="dashboard-intro">
+        <div class="intro-copy">
+          <span class="kicker">Integrated mart</span>
+          <h2>Start with provenance, overlap, and assay context.</h2>
+          <p>The dashboard separates source inventory, exact SMILES overlap, activity metrics, and preview records so the database can be audited before modeling or literature expansion.</p>
+        </div>
+        <div class="intro-actions">
+          <a href="data/source_inventory.csv">Source inventory</a>
+          <a href="data/overlap.csv">Overlap audit</a>
+          <a href="data/supplement_queue.csv">Extraction queue</a>
+        </div>
+      </section>
+
       <section class="stats-grid" aria-label="Database counts">
-        <div class="stat-card">
+        <div class="stat-card primary">
           <span class="stat-label">Combined Records</span>
           <strong class="stat-value" id="statCombined">-</strong>
           <span class="stat-sub" id="statCoreHigh">-</span>
@@ -59,6 +72,24 @@
           <strong class="stat-value" id="statOverlaps">-</strong>
           <span class="stat-sub" id="statQueue">-</span>
         </div>
+      </section>
+
+      <section class="insight-grid" aria-label="Dashboard interpretation">
+        <article class="insight-card">
+          <span class="insight-label">Data Scope</span>
+          <strong id="insightScope">-</strong>
+          <p>Keep core literature-derived rows and high-throughput/model-ready rows as separate analytical layers.</p>
+        </article>
+        <article class="insight-card warning">
+          <span class="insight-label">Deduplication Risk</span>
+          <strong id="insightOverlap">-</strong>
+          <p>Use exact SMILES overlap before splitting train/test sets or comparing model performance across sources.</p>
+        </article>
+        <article class="insight-card action">
+          <span class="insight-label">Next Extraction</span>
+          <strong id="insightQueue">-</strong>
+          <p>Prioritize supplementary tables that pair formulation composition with assay metadata and measured activity.</p>
+        </article>
       </section>
 
       <nav class="tabs" aria-label="LNP data sections">

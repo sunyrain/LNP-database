@@ -40,6 +40,9 @@ const I18N = {
     helperSmiles: "Helper SMILES",
     high: "High",
     highThroughput: "High-throughput",
+    insightOverlap: "{count} strong overlap pairs",
+    insightQueue: "{count} supplement items queued",
+    insightScope: "{sources} source collections across {records} records",
     lipidName: "Lipid Name",
     lipidRatio: "Lipid Ratio",
     loadingError: "Unable to load static data assets. Serve this directory over HTTP and retry. Details: {message}",
@@ -86,6 +89,9 @@ const I18N = {
     helperSmiles: "辅助脂质 SMILES",
     high: "高",
     highThroughput: "高通量",
+    insightOverlap: "{count} 对强重叠来源",
+    insightQueue: "{count} 个补充材料待提取",
+    insightScope: "{sources} 个来源集合，{records} 条记录",
     lipidName: "脂质名称",
     lipidRatio: "脂质比例",
     loadingError: "无法加载静态数据资产。请通过 HTTP 服务打开本目录后重试。错误详情：{message}",
@@ -370,6 +376,12 @@ function renderStats() {
   $("statSources").textContent = t("sourceCollections", { count: number(counts.source_collections) });
   $("statOverlaps").textContent = number(counts.strong_overlap_rows);
   $("statQueue").textContent = t("queueItems", { count: number(counts.supplement_queue_items) });
+  $("insightScope").textContent = t("insightScope", {
+    sources: number(counts.source_collections),
+    records: number(counts.combined_records)
+  });
+  $("insightOverlap").textContent = t("insightOverlap", { count: number(counts.strong_overlap_rows) });
+  $("insightQueue").textContent = t("insightQueue", { count: number(counts.supplement_queue_items) });
   $("overviewGenerated").textContent = t("generated", { time: summary.generated_at });
   $("footerUpdated").textContent = t("generated", { time: summary.generated_at });
 }
