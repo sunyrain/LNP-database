@@ -9,18 +9,23 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <div>
-        <div class="brand">LNP Open Data Registry</div>
+      <div class="header-title">
+        <div class="brand-row">
+          <div class="brand">LNP Open Data Registry</div>
+          <nav class="language-switch" aria-label="Language">
+            <a class="language-option active" href="index.html" aria-current="page">EN</a>
+            <a class="language-option" href="zh.html">中</a>
+          </nav>
+        </div>
         <h1>LNP data usage workspace</h1>
         <p class="subtitle">Use-oriented views for lookup, modeling, mRNA delivery, formulation space, and assay context.</p>
       </div>
-      <div class="header-actions">
-        <a class="header-link" href="zh.html">中文</a>
+      <nav class="header-actions" aria-label="Site actions">
         <a class="header-link" href="governance.html">Governance</a>
         <a class="header-link" href="processing_zh.html">Processing Plan</a>
         <a class="header-link" href="data/usage_analysis.json">Usage JSON</a>
         <button class="header-link button-link" id="downloadSummaryBtn" type="button">Export Summary</button>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -39,12 +44,12 @@
           <h2>Use the same database differently for lookup, modeling, mRNA delivery, and formulation design.</h2>
           <p>The homepage focuses on analytical slices that can drive lookup, modeling, formulation-space mapping, and mRNA-delivery subset construction.</p>
         </div>
-        <div class="intro-actions">
+        <nav class="section-nav" aria-label="Dashboard sections">
           <a href="#usageBlockGrid">Use blocks</a>
           <a href="#deepLearningSection">Deep learning</a>
           <a href="#useSourceMatrix">Source by use</a>
           <a href="#readinessSection">Readiness</a>
-        </div>
+        </nav>
       </section>
 
       <section class="stats-grid" aria-label="Database counts">
@@ -146,15 +151,18 @@
 
       <section class="tab-panel active" id="tab-sources">
         <div class="toolbar">
-          <input type="search" id="sourceSearch" placeholder="Search source, role, collection">
-          <select id="sourceCollectionFilter">
-            <option value="">All collections</option>
-            <option value="core_open">Core open</option>
-            <option value="high_throughput">High-throughput</option>
-          </select>
-          <button class="btn" type="button" id="clearSourceFilters">Clear</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadSourcesBtn">Export CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="sourceSearch" placeholder="Search source, role, collection">
+            <select id="sourceCollectionFilter">
+              <option value="">All collections</option>
+              <option value="core_open">Core open</option>
+              <option value="high_throughput">High-throughput</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearSourceFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadSourcesBtn">Export CSV</button>
+          </div>
           <span class="table-info" id="sourceInfo">-</span>
         </div>
         <div class="table-wrap">
@@ -179,10 +187,13 @@
 
       <section class="tab-panel" id="tab-activity">
         <div class="toolbar">
-          <input type="search" id="activitySearch" placeholder="Search source, role, metric">
-          <button class="btn" type="button" id="clearActivityFilters">Clear</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadActivityBtn">Export CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="activitySearch" placeholder="Search source, role, metric">
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearActivityFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadActivityBtn">Export CSV</button>
+          </div>
           <span class="table-info" id="activityInfo">-</span>
         </div>
         <div class="layout-two activity-layout">
@@ -215,15 +226,18 @@
 
       <section class="tab-panel" id="tab-records">
         <div class="toolbar">
-          <input type="search" id="recordSearch" placeholder="Search source, DOI, lipid, SMILES, payload">
-          <select id="recordCollectionFilter">
-            <option value="">All collections</option>
-            <option value="core_open">Core open</option>
-            <option value="high_throughput">High-throughput</option>
-          </select>
-          <button class="btn" type="button" id="clearRecordFilters">Clear</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadRecordsBtn">Export CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="recordSearch" placeholder="Search source, DOI, lipid, SMILES, payload">
+            <select id="recordCollectionFilter">
+              <option value="">All collections</option>
+              <option value="core_open">Core open</option>
+              <option value="high_throughput">High-throughput</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearRecordFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadRecordsBtn">Export CSV</button>
+          </div>
           <span class="table-info" id="recordInfo">-</span>
         </div>
         <div class="table-wrap">

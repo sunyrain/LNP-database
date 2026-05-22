@@ -9,18 +9,23 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <div>
-        <div class="brand">LNP Open Data Registry</div>
+      <div class="header-title">
+        <div class="brand-row">
+          <div class="brand">LNP Open Data Registry</div>
+          <nav class="language-switch" aria-label="Language">
+            <a class="language-option active" href="governance.html" aria-current="page">EN</a>
+            <a class="language-option" href="governance_zh.html">中</a>
+          </nav>
+        </div>
         <h1>LNP data governance</h1>
         <p class="subtitle">Operational tables for source overlap, leakage risk, and literature supplement extraction. These are separated from the analytical homepage.</p>
       </div>
-      <div class="header-actions">
+      <nav class="header-actions" aria-label="Site actions">
         <a class="header-link" href="index.html">Usage Workspace</a>
-        <a class="header-link" href="governance_zh.html">中文</a>
         <a class="header-link" href="data/overlap.json">Overlap JSON</a>
         <a class="header-link" href="data/supplement_queue.json">Queue JSON</a>
         <button class="header-link button-link" id="downloadSummaryBtn" type="button">Export Summary</button>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -39,10 +44,10 @@
           <h2>Keep audit and extraction operations available without crowding the homepage.</h2>
           <p>Use this page when deciding train/test leakage controls, deduplication rules, and which supplementary datasets to extract next.</p>
         </div>
-        <div class="intro-actions">
+        <nav class="section-nav" aria-label="Governance shortcuts">
           <a href="#tab-overlap">Overlap audit</a>
           <a href="#tab-queue">Extraction queue</a>
-        </div>
+        </nav>
       </section>
 
       <nav class="tabs" aria-label="Governance sections">
@@ -52,17 +57,20 @@
 
       <section class="tab-panel active" id="tab-overlap">
         <div class="toolbar">
-          <input type="search" id="overlapSearch" placeholder="Search source or risk">
-          <select id="overlapRiskFilter">
-            <option value="">All risk levels</option>
-            <option value="duplicate_subset">Duplicate subset</option>
-            <option value="material_overlap">Material overlap</option>
-            <option value="moderate_overlap">Moderate overlap</option>
-            <option value="low_overlap">Low overlap</option>
-          </select>
-          <button class="btn" type="button" id="clearOverlapFilters">Clear</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadOverlapBtn">Export CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="overlapSearch" placeholder="Search source or risk">
+            <select id="overlapRiskFilter">
+              <option value="">All risk levels</option>
+              <option value="duplicate_subset">Duplicate subset</option>
+              <option value="material_overlap">Material overlap</option>
+              <option value="moderate_overlap">Moderate overlap</option>
+              <option value="low_overlap">Low overlap</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearOverlapFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadOverlapBtn">Export CSV</button>
+          </div>
           <span class="table-info" id="overlapInfo">-</span>
         </div>
         <div class="table-wrap">
@@ -84,16 +92,19 @@
 
       <section class="tab-panel" id="tab-queue">
         <div class="toolbar">
-          <input type="search" id="queueSearch" placeholder="Search paper, DOI, source, reason">
-          <select id="queuePriorityFilter">
-            <option value="">All priorities</option>
-            <option value="A_literature_supplement_extraction">A literature supplement extraction</option>
-            <option value="B_literature_supplement_extraction">B literature supplement extraction</option>
-            <option value="C_code_only_no_public_training_data">C code only, no public training data</option>
-          </select>
-          <button class="btn" type="button" id="clearQueueFilters">Clear</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadQueueBtn">Export CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="queueSearch" placeholder="Search paper, DOI, source, reason">
+            <select id="queuePriorityFilter">
+              <option value="">All priorities</option>
+              <option value="A_literature_supplement_extraction">A literature supplement extraction</option>
+              <option value="B_literature_supplement_extraction">B literature supplement extraction</option>
+              <option value="C_code_only_no_public_training_data">C code only, no public training data</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearQueueFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadQueueBtn">Export CSV</button>
+          </div>
           <span class="table-info" id="queueInfo">-</span>
         </div>
         <div class="table-wrap">

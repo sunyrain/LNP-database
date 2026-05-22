@@ -9,18 +9,23 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <div>
-        <div class="brand">LNP Open Data Registry</div>
+      <div class="header-title">
+        <div class="brand-row">
+          <div class="brand">LNP Open Data Registry</div>
+          <nav class="language-switch" aria-label="语言">
+            <a class="language-option" href="governance.html">EN</a>
+            <a class="language-option active" href="governance_zh.html" aria-current="page">中</a>
+          </nav>
+        </div>
         <h1>LNP 数据治理</h1>
         <p class="subtitle">把来源重叠、泄漏风险和文献补充材料提取队列放在独立治理页，不再占用分析主页。</p>
       </div>
-      <div class="header-actions">
+      <nav class="header-actions" aria-label="站点操作">
         <a class="header-link" href="zh.html">用途工作台</a>
-        <a class="header-link" href="governance.html">English</a>
         <a class="header-link" href="data/overlap.json">重叠 JSON</a>
         <a class="header-link" href="data/supplement_queue.json">队列 JSON</a>
         <button class="header-link button-link" id="downloadSummaryBtn" type="button">导出汇总</button>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -39,10 +44,10 @@
           <h2>审计和提取任务仍然保留，但不再干扰主页的数据用途分析。</h2>
           <p>这个页面用于决定训练/测试泄漏控制、去重规则，以及下一批应优先提取的 supplementary data / GitHub / Zenodo 数据。</p>
         </div>
-        <div class="intro-actions">
+        <nav class="section-nav" aria-label="治理快捷入口">
           <a href="#tab-overlap">重叠审计</a>
           <a href="#tab-queue">提取队列</a>
-        </div>
+        </nav>
       </section>
 
       <nav class="tabs" aria-label="治理数据区段">
@@ -52,17 +57,20 @@
 
       <section class="tab-panel active" id="tab-overlap">
         <div class="toolbar">
-          <input type="search" id="overlapSearch" placeholder="搜索来源或风险等级">
-          <select id="overlapRiskFilter">
-            <option value="">全部风险等级</option>
-            <option value="duplicate_subset">重复子集</option>
-            <option value="material_overlap">实质重叠</option>
-            <option value="moderate_overlap">中等重叠</option>
-            <option value="low_overlap">低重叠</option>
-          </select>
-          <button class="btn" type="button" id="clearOverlapFilters">清空</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadOverlapBtn">导出 CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="overlapSearch" placeholder="搜索来源或风险等级">
+            <select id="overlapRiskFilter">
+              <option value="">全部风险等级</option>
+              <option value="duplicate_subset">重复子集</option>
+              <option value="material_overlap">实质重叠</option>
+              <option value="moderate_overlap">中等重叠</option>
+              <option value="low_overlap">低重叠</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearOverlapFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadOverlapBtn">导出 CSV</button>
+          </div>
           <span class="table-info" id="overlapInfo">-</span>
         </div>
         <div class="table-wrap">
@@ -84,16 +92,19 @@
 
       <section class="tab-panel" id="tab-queue">
         <div class="toolbar">
-          <input type="search" id="queueSearch" placeholder="搜索论文、DOI、来源或原因">
-          <select id="queuePriorityFilter">
-            <option value="">全部优先级</option>
-            <option value="A_literature_supplement_extraction">A 文献补充材料提取</option>
-            <option value="B_literature_supplement_extraction">B 文献补充材料提取</option>
-            <option value="C_code_only_no_public_training_data">C 仅代码、无公开训练数据</option>
-          </select>
-          <button class="btn" type="button" id="clearQueueFilters">清空</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadQueueBtn">导出 CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="queueSearch" placeholder="搜索论文、DOI、来源或原因">
+            <select id="queuePriorityFilter">
+              <option value="">全部优先级</option>
+              <option value="A_literature_supplement_extraction">A 文献补充材料提取</option>
+              <option value="B_literature_supplement_extraction">B 文献补充材料提取</option>
+              <option value="C_code_only_no_public_training_data">C 仅代码、无公开训练数据</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearQueueFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadQueueBtn">导出 CSV</button>
+          </div>
           <span class="table-info" id="queueInfo">-</span>
         </div>
         <div class="table-wrap">

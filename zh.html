@@ -9,18 +9,23 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <div>
-        <div class="brand">LNP Open Data Registry</div>
+      <div class="header-title">
+        <div class="brand-row">
+          <div class="brand">LNP Open Data Registry</div>
+          <nav class="language-switch" aria-label="语言">
+            <a class="language-option" href="index.html">EN</a>
+            <a class="language-option active" href="zh.html" aria-current="page">中</a>
+          </nav>
+        </div>
         <h1>LNP 数据用途工作台</h1>
         <p class="subtitle">按用途查看整合后的 LNP 数据：检索、建模、mRNA 递送、配方空间与 assay 语境。</p>
       </div>
-      <div class="header-actions">
-        <a class="header-link" href="index.html">English</a>
+      <nav class="header-actions" aria-label="站点操作">
         <a class="header-link" href="governance_zh.html">治理与审计</a>
         <a class="header-link" href="processing_zh.html">数据处理路线</a>
         <a class="header-link" href="data/usage_analysis.json">用途 JSON</a>
         <button class="header-link button-link" id="downloadSummaryBtn" type="button">导出汇总</button>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -39,12 +44,12 @@
           <h2>同一批 LNP 数据，需要按用途拆开看。</h2>
           <p>主页聚焦有分析价值的数据分块：配方检索、结构-活性建模、mRNA 子集、物化性质、组分配方空间和递送语境。</p>
         </div>
-        <div class="intro-actions">
+        <nav class="section-nav" aria-label="看板分区">
           <a href="#usageBlockGrid">用途分块</a>
           <a href="#deepLearningSection">深度学习</a>
           <a href="#useSourceMatrix">来源贡献</a>
           <a href="#readinessSection">建模准备度</a>
-        </div>
+        </nav>
       </section>
 
       <section class="stats-grid" aria-label="数据库计数">
@@ -146,15 +151,18 @@
 
       <section class="tab-panel active" id="tab-sources">
         <div class="toolbar">
-          <input type="search" id="sourceSearch" placeholder="搜索来源、角色、数据层">
-          <select id="sourceCollectionFilter">
-            <option value="">全部数据层</option>
-            <option value="core_open">核心开源</option>
-            <option value="high_throughput">高通量</option>
-          </select>
-          <button class="btn" type="button" id="clearSourceFilters">清空</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadSourcesBtn">导出 CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="sourceSearch" placeholder="搜索来源、角色、数据层">
+            <select id="sourceCollectionFilter">
+              <option value="">全部数据层</option>
+              <option value="core_open">核心开源</option>
+              <option value="high_throughput">高通量</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearSourceFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadSourcesBtn">导出 CSV</button>
+          </div>
           <span class="table-info" id="sourceInfo">-</span>
         </div>
         <div class="table-wrap">
@@ -179,10 +187,13 @@
 
       <section class="tab-panel" id="tab-activity">
         <div class="toolbar">
-          <input type="search" id="activitySearch" placeholder="搜索来源、角色、指标">
-          <button class="btn" type="button" id="clearActivityFilters">清空</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadActivityBtn">导出 CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="activitySearch" placeholder="搜索来源、角色、指标">
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearActivityFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadActivityBtn">导出 CSV</button>
+          </div>
           <span class="table-info" id="activityInfo">-</span>
         </div>
         <div class="layout-two activity-layout">
@@ -215,15 +226,18 @@
 
       <section class="tab-panel" id="tab-records">
         <div class="toolbar">
-          <input type="search" id="recordSearch" placeholder="搜索来源、DOI、脂质、SMILES、载荷">
-          <select id="recordCollectionFilter">
-            <option value="">全部数据层</option>
-            <option value="core_open">核心开源</option>
-            <option value="high_throughput">高通量</option>
-          </select>
-          <button class="btn" type="button" id="clearRecordFilters">清空</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadRecordsBtn">导出 CSV</button>
+          <div class="toolbar-filters">
+            <input type="search" id="recordSearch" placeholder="搜索来源、DOI、脂质、SMILES、载荷">
+            <select id="recordCollectionFilter">
+              <option value="">全部数据层</option>
+              <option value="core_open">核心开源</option>
+              <option value="high_throughput">高通量</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearRecordFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadRecordsBtn">导出 CSV</button>
+          </div>
           <span class="table-info" id="recordInfo">-</span>
         </div>
         <div class="table-wrap">
