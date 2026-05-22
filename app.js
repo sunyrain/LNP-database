@@ -21,7 +21,111 @@ const state = {
   records: { search: "", collection: "", page: 1, perPage: 100 }
 };
 
-const nf = new Intl.NumberFormat("en-US");
+const LANG = document.documentElement.lang.toLowerCase().startsWith("zh") ? "zh" : "en";
+const nf = new Intl.NumberFormat(LANG === "zh" ? "zh-CN" : "en-US");
+
+const I18N = {
+  en: {
+    activityValue: "Activity Value",
+    activityMetric: "Activity Metric",
+    cellContext: "Cell Context",
+    collection: "Collection",
+    componentSmiles: "Component SMILES",
+    coreOpen: "Core open",
+    coreHigh: "{core} core, {high} high-throughput",
+    datasetDoi: "Dataset DOI",
+    deliveryTarget: "Delivery Target",
+    detailTitle: "{collection} / {source}",
+    generated: "generated {time}",
+    helperSmiles: "Helper SMILES",
+    high: "High",
+    highThroughput: "High-throughput",
+    lipidName: "Lipid Name",
+    lipidRatio: "Lipid Ratio",
+    loadingError: "Unable to load static data assets. Serve this directory over HTTP and retry. Details: {message}",
+    low: "Low",
+    medium: "Medium",
+    metricGroups: "{count} metric groups",
+    noData: "No data",
+    pageInfo: "Page {page} of {total}",
+    payload: "Payload",
+    pegSmiles: "PEG SMILES",
+    previewId: "Preview ID",
+    previewRows: "{count} preview rows",
+    publicationDoi: "Publication DOI",
+    queueItems: "{count} queue items",
+    records: "records",
+    role: "Role",
+    rows: "{count} rows",
+    pairs: "{count} pairs",
+    riskDuplicateSubset: "duplicate subset",
+    riskLowOverlap: "low overlap",
+    riskMaterialOverlap: "material overlap",
+    riskModerateOverlap: "moderate overlap",
+    route: "Route",
+    source: "Source",
+    sourceCollections: "{count} source collections",
+    sourceRecordId: "Source Record ID",
+    sterolSmiles: "Sterol SMILES",
+    title: "Title",
+    numeric: "numeric",
+    unknown: "unknown"
+  },
+  zh: {
+    activityValue: "活性值",
+    activityMetric: "活性指标",
+    cellContext: "细胞/实验背景",
+    collection: "数据层",
+    componentSmiles: "组分 SMILES",
+    coreOpen: "核心开源",
+    coreHigh: "{core} 条核心开源，{high} 条高通量",
+    datasetDoi: "数据集 DOI",
+    deliveryTarget: "递送靶向",
+    detailTitle: "{collection} / {source}",
+    generated: "生成时间 {time}",
+    helperSmiles: "辅助脂质 SMILES",
+    high: "高",
+    highThroughput: "高通量",
+    lipidName: "脂质名称",
+    lipidRatio: "脂质比例",
+    loadingError: "无法加载静态数据资产。请通过 HTTP 服务打开本目录后重试。错误详情：{message}",
+    low: "低",
+    medium: "中",
+    metricGroups: "{count} 个指标分组",
+    noData: "暂无数据",
+    pageInfo: "第 {page} / {total} 页",
+    payload: "载荷",
+    pegSmiles: "PEG 脂质 SMILES",
+    previewId: "预览编号",
+    previewRows: "{count} 条预览记录",
+    publicationDoi: "论文 DOI",
+    queueItems: "{count} 个待提取条目",
+    records: "条记录",
+    role: "角色",
+    rows: "{count} 行",
+    pairs: "{count} 对",
+    riskDuplicateSubset: "重复子集",
+    riskLowOverlap: "低重叠",
+    riskMaterialOverlap: "实质重叠",
+    riskModerateOverlap: "中等重叠",
+    route: "给药途径",
+    source: "来源",
+    sourceCollections: "{count} 个来源集合",
+    sourceRecordId: "来源记录 ID",
+    sterolSmiles: "甾醇 SMILES",
+    title: "标题",
+    numeric: "数值",
+    unknown: "未知"
+  }
+};
+
+function t(key, values = {}) {
+  let template = I18N[LANG][key] || I18N.en[key] || key;
+  Object.entries(values).forEach(([name, value]) => {
+    template = template.replaceAll(`{${name}}`, value);
+  });
+  return template;
+}
 
 function $(id) {
   return document.getElementById(id);
@@ -103,7 +207,7 @@ async function loadData() {
     $("loadingPanel").hidden = true;
     const panel = $("errorPanel");
     panel.hidden = false;
-    panel.textContent = `Unable to load static data assets. Serve this directory over HTTP and retry. Details: ${error.message}`;
+    panel.textContent = t("loadingError", { message: error.message });
   }
 }
 
@@ -255,16 +359,19 @@ function renderStats() {
   const summary = state.data.summary;
   const counts = summary.counts;
   $("statCombined").textContent = number(counts.combined_records);
-  $("statCoreHigh").textContent = `${number(counts.core_open_records)} core, ${number(counts.high_throughput_records)} high-throughput`;
+  $("statCoreHigh").textContent = t("coreHigh", {
+    core: number(counts.core_open_records),
+    high: number(counts.high_throughput_records)
+  });
   $("statSmiles").textContent = number(counts.unique_ionizable_smiles_combined_exact);
   $("statActivity").textContent = number(counts.activity_values);
-  $("statMetrics").textContent = `${number(state.data.activityMetrics.items.length)} metric groups`;
+  $("statMetrics").textContent = t("metricGroups", { count: number(state.data.activityMetrics.items.length) });
   $("statComponents").textContent = number(counts.component_rows);
-  $("statSources").textContent = `${number(counts.source_collections)} source collections`;
+  $("statSources").textContent = t("sourceCollections", { count: number(counts.source_collections) });
   $("statOverlaps").textContent = number(counts.strong_overlap_rows);
-  $("statQueue").textContent = `${number(counts.supplement_queue_items)} queue items`;
-  $("overviewGenerated").textContent = `generated ${summary.generated_at}`;
-  $("footerUpdated").textContent = `generated ${summary.generated_at}`;
+  $("statQueue").textContent = t("queueItems", { count: number(counts.supplement_queue_items) });
+  $("overviewGenerated").textContent = t("generated", { time: summary.generated_at });
+  $("footerUpdated").textContent = t("generated", { time: summary.generated_at });
 }
 
 function renderOverview() {
@@ -273,32 +380,32 @@ function renderOverview() {
     (row) => row.source_dataset,
     (row) => Number(row.records || 0)
   ).slice(0, 12);
-  renderBars("sourceBars", sourceTotals, "records");
+  renderBars("sourceBars", sourceTotals, t("records"));
 
   const payloadCounts = (state.data.contextSummary.payload_type_counts || [])
     .filter((row) => row.payload_type !== "unknown")
     .slice(0, 12)
     .map((row) => ({ label: row.payload_type, value: row.records }));
-  renderBars("payloadBars", payloadCounts, "records");
+  renderBars("payloadBars", payloadCounts, t("records"));
 
   const activityTotals = aggregateBy(
     state.data.activityMetrics.items,
     (row) => row.source_dataset,
     (row) => Number(row.numeric_rows || 0)
   ).slice(0, 12);
-  renderBars("activityBars", activityTotals, "numeric");
+  renderBars("activityBars", activityTotals, t("numeric"));
 
   const routes = (state.data.contextSummary.route_counts || [])
     .filter((row) => row.route_of_administration !== "unknown")
     .slice(0, 6)
     .map((row) => ({ label: row.route_of_administration, value: row.records }));
-  renderBars("routeBars", routes, "records");
+  renderBars("routeBars", routes, t("records"));
 
   const targets = (state.data.contextSummary.delivery_target_counts || [])
     .filter((row) => row.delivery_target !== "unknown")
     .slice(0, 6)
     .map((row) => ({ label: row.delivery_target, value: row.records }));
-  renderBars("targetBars", targets, "records");
+  renderBars("targetBars", targets, t("records"));
 }
 
 function aggregateBy(items, labelFn, valueFn) {
@@ -315,7 +422,7 @@ function aggregateBy(items, labelFn, valueFn) {
 function renderBars(targetId, items, valueLabel) {
   const target = $(targetId);
   if (!items.length) {
-    target.innerHTML = `<div class="bar-row"><span class="bar-label">No data</span></div>`;
+    target.innerHTML = `<div class="bar-row"><span class="bar-label">${escapeHtml(t("noData"))}</span></div>`;
     return;
   }
   const max = Math.max(...items.map((item) => Number(item.value || 0)), 1);
@@ -342,7 +449,7 @@ function filteredSources() {
 
 function renderSources() {
   const items = filteredSources();
-  $("sourceInfo").textContent = `${number(items.length)} rows`;
+  $("sourceInfo").textContent = t("rows", { count: number(items.length) });
   $("sourceTable").innerHTML = items
     .map((row) => `
       <tr>
@@ -375,7 +482,7 @@ function filteredOverlap() {
 
 function renderOverlap() {
   const items = filteredOverlap();
-  $("overlapInfo").textContent = `${number(items.length)} pairs`;
+  $("overlapInfo").textContent = t("pairs", { count: number(items.length) });
   $("overlapTable").innerHTML = items
     .map((row) => `
       <tr>
@@ -398,7 +505,7 @@ function filteredActivity() {
 
 function renderActivity() {
   const items = filteredActivity();
-  $("activityInfo").textContent = `${number(items.length)} metric groups`;
+  $("activityInfo").textContent = t("metricGroups", { count: number(items.length) });
   $("activityTable").innerHTML = items
     .map((row) => `
       <tr>
@@ -451,11 +558,11 @@ function filteredQueue() {
 
 function renderQueue() {
   const items = filteredQueue();
-  $("queueInfo").textContent = `${number(items.length)} items`;
+  $("queueInfo").textContent = t("queueItems", { count: number(items.length) });
   $("queueTable").innerHTML = items
     .map((row) => `
       <tr>
-        <td><span class="pill ${escapeHtml(row.priority)}">${escapeHtml(text(row.priority))}</span></td>
+        <td><span class="pill ${escapeHtml(row.priority)}">${escapeHtml(labelPriority(row.priority))}</span></td>
         <td>${escapeHtml(row.source_key)}</td>
         <td>${linkOrText(row.source_url, row.title)}</td>
         <td class="mono">${doiLink(row.paper_doi)}</td>
@@ -496,8 +603,8 @@ function renderRecords() {
   state.records.page = Math.min(state.records.page, totalPages);
   const start = (state.records.page - 1) * state.records.perPage;
   const pageItems = items.slice(start, start + state.records.perPage);
-  $("recordInfo").textContent = `${number(items.length)} preview rows`;
-  $("recordPageInfo").textContent = `Page ${state.records.page} of ${totalPages}`;
+  $("recordInfo").textContent = t("previewRows", { count: number(items.length) });
+  $("recordPageInfo").textContent = t("pageInfo", { page: state.records.page, total: totalPages });
   $("recordPrevBtn").disabled = state.records.page <= 1;
   $("recordNextBtn").disabled = state.records.page >= totalPages;
   $("recordTable").innerHTML = pageItems
@@ -537,28 +644,31 @@ function renderReports() {
 }
 
 function openDetail(row) {
-  $("detailTitle").textContent = `${labelCollection(row.collection)} / ${text(row.source_dataset)}`;
+  $("detailTitle").textContent = t("detailTitle", {
+    collection: labelCollection(row.collection),
+    source: text(row.source_dataset)
+  });
   const fields = [
-    ["Preview ID", row.preview_id],
-    ["Collection", labelCollection(row.collection)],
-    ["Source", row.source_dataset],
-    ["Role", row.record_role],
-    ["Source Record ID", row.source_record_id],
-    ["Publication DOI", row.publication_doi],
-    ["Dataset DOI", row.dataset_doi],
-    ["Title", row.paper_title],
-    ["Lipid Name", row.lipid_name],
+    [t("previewId"), row.preview_id],
+    [t("collection"), labelCollection(row.collection)],
+    [t("source"), row.source_dataset],
+    [t("role"), row.record_role],
+    [t("sourceRecordId"), row.source_record_id],
+    [t("publicationDoi"), row.publication_doi],
+    [t("datasetDoi"), row.dataset_doi],
+    [t("title"), row.paper_title],
+    [t("lipidName"), row.lipid_name],
     ["Ionizable SMILES", row.ionizable_lipid_smiles],
-    ["Helper SMILES", row.helper_lipid_smiles],
-    ["Sterol SMILES", row.sterol_lipid_smiles],
-    ["PEG SMILES", row.peg_lipid_smiles],
-    ["Payload", row.payload_type],
-    ["Cell Context", row.cell_context],
-    ["Route", row.route_of_administration],
-    ["Delivery Target", row.delivery_target],
-    ["Lipid Ratio", row.lipid_ratio],
-    ["Activity Metric", row.activity_metric],
-    ["Activity Value", row.activity_value ?? row.activity_value_text]
+    [t("helperSmiles"), row.helper_lipid_smiles],
+    [t("sterolSmiles"), row.sterol_lipid_smiles],
+    [t("pegSmiles"), row.peg_lipid_smiles],
+    [t("payload"), row.payload_type],
+    [t("cellContext"), row.cell_context],
+    [t("route"), row.route_of_administration],
+    [t("deliveryTarget"), row.delivery_target],
+    [t("lipidRatio"), row.lipid_ratio],
+    [t("activityMetric"), row.activity_metric],
+    [t("activityValue"), row.activity_value ?? row.activity_value_text]
   ];
   $("detailBody").innerHTML = `
     <dl class="detail-grid">
@@ -573,13 +683,24 @@ function closeDetail() {
 }
 
 function labelCollection(value) {
-  if (value === "core_open") return "Core open";
-  if (value === "high_throughput") return "High-throughput";
+  if (value === "core_open") return t("coreOpen");
+  if (value === "high_throughput") return t("highThroughput");
   return text(value);
 }
 
 function formatRisk(value) {
+  if (value === "duplicate_subset") return t("riskDuplicateSubset");
+  if (value === "material_overlap") return t("riskMaterialOverlap");
+  if (value === "moderate_overlap") return t("riskModerateOverlap");
+  if (value === "low_overlap") return t("riskLowOverlap");
   return text(value).replaceAll("_", " ");
+}
+
+function labelPriority(value) {
+  if (value === "high") return t("high");
+  if (value === "medium") return t("medium");
+  if (value === "low") return t("low");
+  return text(value);
 }
 
 function linkOrText(url, label) {

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNP 开源数据登记库</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <div class="brand">LNP Open Data Registry</div>
+        <h1>mRNA LNP 配方数据集市</h1>
+        <p class="subtitle">整合开源数据集、高通量筛选、SMILES 重叠审计和文献补充提取队列。</p>
+      </div>
+      <div class="header-actions">
+        <a class="header-link" href="index.html">English</a>
+        <a class="header-link" href="processing_zh.html">数据处理路线</a>
+        <a class="header-link" href="data/summary.json">汇总 JSON</a>
+        <a class="header-link" href="data/source_inventory.csv">来源 CSV</a>
+        <button class="header-link button-link" id="downloadSummaryBtn" type="button">导出汇总</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="loading" id="loadingPanel">
+      <div class="spinner"></div>
+      <span>正在加载 LNP 数据资产</span>
+    </div>
+
+    <div id="errorPanel" class="error-panel" hidden></div>
+
+    <div id="mainContent" hidden>
+      <section class="stats-grid" aria-label="数据库计数">
+        <div class="stat-card">
+          <span class="stat-label">合并记录数</span>
+          <strong class="stat-value" id="statCombined">-</strong>
+          <span class="stat-sub" id="statCoreHigh">-</span>
+        </div>
+        <div class="stat-card teal">
+          <span class="stat-label">可电离脂质 SMILES</span>
+          <strong class="stat-value" id="statSmiles">-</strong>
+          <span class="stat-sub">精确字符串去重</span>
+        </div>
+        <div class="stat-card amber">
+          <span class="stat-label">活性数值</span>
+          <strong class="stat-value" id="statActivity">-</strong>
+          <span class="stat-sub" id="statMetrics">-</span>
+        </div>
+        <div class="stat-card green">
+          <span class="stat-label">组分记录</span>
+          <strong class="stat-value" id="statComponents">-</strong>
+          <span class="stat-sub" id="statSources">-</span>
+        </div>
+        <div class="stat-card red">
+          <span class="stat-label">强重叠来源</span>
+          <strong class="stat-value" id="statOverlaps">-</strong>
+          <span class="stat-sub" id="statQueue">-</span>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="LNP 数据区段">
+        <button class="tab active" type="button" data-tab="overview">总览</button>
+        <button class="tab" type="button" data-tab="sources">数据来源</button>
+        <button class="tab" type="button" data-tab="overlap">重叠审计</button>
+        <button class="tab" type="button" data-tab="activity">活性指标</button>
+        <button class="tab" type="button" data-tab="queue">提取队列</button>
+        <button class="tab" type="button" data-tab="records">记录预览</button>
+        <button class="tab" type="button" data-tab="reports">报告</button>
+      </nav>
+
+      <section class="tab-panel active" id="tab-overview">
+        <div class="layout-two">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>按来源统计记录</h2>
+              <span class="panel-meta" id="overviewGenerated">-</span>
+            </div>
+            <div class="bar-list" id="sourceBars"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>载荷类型分布</h2>
+              <span class="panel-meta">合并表统计</span>
+            </div>
+            <div class="bar-list compact" id="payloadBars"></div>
+          </section>
+        </div>
+        <div class="layout-two">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>高通量活性数据</h2>
+              <span class="panel-meta">数值型记录</span>
+            </div>
+            <div class="bar-list compact" id="activityBars"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>给药途径与靶向覆盖</h2>
+              <span class="panel-meta">高通量数据层</span>
+            </div>
+            <div class="mini-grid">
+              <div>
+                <h3>给药途径</h3>
+                <div class="bar-list mini" id="routeBars"></div>
+              </div>
+              <div>
+                <h3>递送靶向</h3>
+                <div class="bar-list mini" id="targetBars"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-sources">
+        <div class="toolbar">
+          <input type="search" id="sourceSearch" placeholder="搜索来源、角色、数据层">
+          <select id="sourceCollectionFilter">
+            <option value="">全部数据层</option>
+            <option value="core_open">核心开源</option>
+            <option value="high_throughput">高通量</option>
+          </select>
+          <button class="btn" type="button" id="clearSourceFilters">清空</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadSourcesBtn">导出 CSV</button>
+          <span class="table-info" id="sourceInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-source-sort="collection">数据层</th>
+                <th data-source-sort="source_dataset">来源</th>
+                <th data-source-sort="record_role">角色</th>
+                <th data-source-sort="records" class="num">记录数</th>
+                <th data-source-sort="unique_ionizable_smiles" class="num">可电离 SMILES</th>
+                <th data-source-sort="numeric_activity_values" class="num">数值活性</th>
+                <th data-source-sort="activity_metrics" class="num">指标</th>
+                <th data-source-sort="unique_component_smiles" class="num">组分 SMILES</th>
+                <th data-source-sort="source_files" class="num">文件</th>
+              </tr>
+            </thead>
+            <tbody id="sourceTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-overlap">
+        <div class="toolbar">
+          <input type="search" id="overlapSearch" placeholder="搜索来源组合">
+          <select id="overlapRiskFilter">
+            <option value="">全部风险等级</option>
+            <option value="duplicate_subset">重复子集</option>
+            <option value="material_overlap">实质重叠</option>
+            <option value="moderate_overlap">中等重叠</option>
+            <option value="low_overlap">低重叠</option>
+          </select>
+          <button class="btn" type="button" id="clearOverlapFilters">清空</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadOverlapBtn">导出 CSV</button>
+          <span class="table-info" id="overlapInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-overlap-sort="left_source_dataset">左侧来源</th>
+                <th data-overlap-sort="right_source_dataset">右侧来源</th>
+                <th data-overlap-sort="shared_smiles" class="num">共享 SMILES</th>
+                <th data-overlap-sort="overlap_of_smaller" class="num">较小集合覆盖率</th>
+                <th data-overlap-sort="jaccard" class="num">Jaccard</th>
+                <th data-overlap-sort="risk_level">风险</th>
+              </tr>
+            </thead>
+            <tbody id="overlapTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-activity">
+        <div class="toolbar">
+          <input type="search" id="activitySearch" placeholder="搜索来源、角色、指标">
+          <button class="btn" type="button" id="clearActivityFilters">清空</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadActivityBtn">导出 CSV</button>
+          <span class="table-info" id="activityInfo">-</span>
+        </div>
+        <div class="layout-two activity-layout">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-activity-sort="source_dataset">来源</th>
+                  <th data-activity-sort="record_role">角色</th>
+                  <th data-activity-sort="metric">指标</th>
+                  <th data-activity-sort="rows" class="num">行数</th>
+                  <th data-activity-sort="numeric_rows" class="num">数值行</th>
+                  <th data-activity-sort="avg_value" class="num">平均</th>
+                  <th data-activity-sort="min_value" class="num">最小</th>
+                  <th data-activity-sort="max_value" class="num">最大</th>
+                </tr>
+              </thead>
+              <tbody id="activityTable"></tbody>
+            </table>
+          </div>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>组分覆盖</h2>
+              <span class="panel-meta">归一化组分表</span>
+            </div>
+            <div class="component-list" id="componentList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-queue">
+        <div class="toolbar">
+          <input type="search" id="queueSearch" placeholder="搜索标题、来源、DOI、原因">
+          <select id="queuePriorityFilter">
+            <option value="">全部优先级</option>
+            <option value="high">高</option>
+            <option value="medium">中</option>
+            <option value="low">低</option>
+          </select>
+          <button class="btn" type="button" id="clearQueueFilters">清空</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadQueueBtn">导出 CSV</button>
+          <span class="table-info" id="queueInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>优先级</th>
+                <th>来源</th>
+                <th>标题</th>
+                <th>论文 DOI</th>
+                <th>数据集 DOI</th>
+                <th>状态</th>
+                <th>原因</th>
+              </tr>
+            </thead>
+            <tbody id="queueTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-records">
+        <div class="toolbar">
+          <input type="search" id="recordSearch" placeholder="搜索来源、DOI、脂质、SMILES、载荷">
+          <select id="recordCollectionFilter">
+            <option value="">全部数据层</option>
+            <option value="core_open">核心开源</option>
+            <option value="high_throughput">高通量</option>
+          </select>
+          <button class="btn" type="button" id="clearRecordFilters">清空</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadRecordsBtn">导出 CSV</button>
+          <span class="table-info" id="recordInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>数据层</th>
+                <th>来源</th>
+                <th>角色</th>
+                <th>DOI</th>
+                <th>脂质</th>
+                <th>可电离 SMILES</th>
+                <th>载荷</th>
+                <th>实验背景</th>
+                <th>指标</th>
+                <th class="num">数值</th>
+              </tr>
+            </thead>
+            <tbody id="recordTable"></tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <button class="btn" type="button" id="recordPrevBtn">上一页</button>
+          <span id="recordPageInfo">-</span>
+          <button class="btn" type="button" id="recordNextBtn">下一页</button>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-reports">
+        <div class="report-grid" id="reportGrid"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="detailModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal-head">
+        <h2 id="detailTitle">记录详情</h2>
+        <button class="modal-close" type="button" id="closeDetailBtn">关闭</button>
+      </div>
+      <div class="modal-body" id="detailBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>LNP 开源数据登记库</span>
+    <span id="footerUpdated">-</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

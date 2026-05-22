@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNP 数据处理路线</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <div class="brand">LNP Data Processing</div>
+        <h1>LNP 开源数据可以怎么处理</h1>
+        <p class="subtitle">从数据治理、去重、标准化到建模与文献提取的工作范围建议。</p>
+      </div>
+      <div class="header-actions">
+        <a class="header-link" href="zh.html">中文看板</a>
+        <a class="header-link" href="index.html">English</a>
+        <a class="header-link" href="data/source_inventory.csv">来源 CSV</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container doc-page">
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>一、先做数据治理，而不是直接合并训练</h2>
+        <span class="panel-meta">当前最优先</span>
+      </div>
+      <div class="doc-body">
+        <p>现在的开源数据已经形成了两个层次：核心开源配方库和高通量/模型数据集。它们不能简单按行拼接，因为 AGILE、TransMA、TransLNP、LNPDB/LiON 等来源在可电离脂质 SMILES 上存在明显重叠。</p>
+        <ul>
+          <li>建立 canonical SMILES、InChIKey、盐型/异构体处理规则，给每个脂质一个稳定实体 ID。</li>
+          <li>把 formulation row、lipid entity、activity assay、source file、publication 分成不同实体表。</li>
+          <li>用 overlap audit 标记重复子集、训练泄漏风险和可复用外部验证集。</li>
+          <li>保留 raw_json 和来源字段，后续修订不能丢失原始上下文。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>二、可立即产出的分析层</h2>
+        <span class="panel-meta">适合展示和审计</span>
+      </div>
+      <div class="doc-body">
+        <ul>
+          <li>来源差异图谱：每个数据集覆盖的脂质类型、载荷、给药途径、细胞/动物背景、指标类型。</li>
+          <li>缺失值矩阵：粒径、PDI、zeta、电位、包封率、脂质比例、活性标签的覆盖率。</li>
+          <li>重复和泄漏报告：按 SMILES、DOI、source_record_id、配方比例检查跨数据集重复。</li>
+          <li>补充材料提取优先级：优先处理高通量、表格化、含 formulation/activity 成对数据的文献。</li>
+          <li>mRNA 子集视图：把 mRNA、siRNA、DNA、ASO、protein 等载荷分开，避免任务混淆。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>三、建模前需要统一的标签体系</h2>
+        <span class="panel-meta">决定模型是否可解释</span>
+      </div>
+      <div class="doc-body">
+        <p>LNP 数据的标签并不等价：体外 transfection、体内 luciferase、organ tropism、cell viability、particle property、model prediction 是不同任务。建议先拆成任务族。</p>
+        <ul>
+          <li>物化性质任务：particle size、PDI、zeta potential、encapsulation efficiency。</li>
+          <li>体外递送任务：cell line、payload、readout、dose/time、normalized expression。</li>
+          <li>体内递送任务：species、route、organ/cell type、dose、timepoint、reporter/readout。</li>
+          <li>安全性任务：viability、toxicity、cytokine、body weight、histology 等。</li>
+          <li>生成式候选任务：把虚拟/合成候选和实验记录分开，只用于设计空间分析或预筛选。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>四、可以构建的模型与工具</h2>
+        <span class="panel-meta">分阶段推进</span>
+      </div>
+      <div class="doc-body">
+        <ul>
+          <li>检索工具：按脂质 SMILES、配方比例、载荷、给药途径、活性指标快速查相似记录。</li>
+          <li>配方相似性：用脂质结构指纹、摩尔比例、组分类型构建 formulation embedding。</li>
+          <li>性质预测：粒径、PDI、包封率等相对稳定的标签可先做 baseline 模型。</li>
+          <li>递送活性预测：必须按 assay 分层，先做同来源交叉验证，再做跨来源外部验证。</li>
+          <li>主动学习：找出已有数据空间中的空白区域，指导下一轮文献提取或实验设计。</li>
+          <li>文献抽取辅助：用当前 schema 反向生成抽取模板，优先抓 formulation table、activity table 和 SI 文件。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>五、下一步建议</h2>
+        <span class="panel-meta">工程顺序</span>
+      </div>
+      <div class="doc-body">
+        <ol>
+          <li>增加 canonical structure 表，给 ionizable/helper/sterol/PEG 脂质统一实体 ID。</li>
+          <li>建立 deduplicated formulation view，并保留 source-specific row view。</li>
+          <li>把 mRNA 递送任务单独切出来，形成一个可直接建模的 v0 数据集。</li>
+          <li>从 supplement queue 开始抽取高通量文献，优先补充 assay metadata。</li>
+          <li>发布两类下载：轻量展示资产和全量 SQLite/Parquet 数据包。</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>LNP 数据处理路线</span>
+    <span>面向去重、建模和文献提取</span>
+  </footer>
+</body>
+</html>
