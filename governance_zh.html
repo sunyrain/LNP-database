@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNP 数据治理</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <div class="brand">LNP Open Data Registry</div>
+        <h1>LNP 数据治理</h1>
+        <p class="subtitle">把来源重叠、泄漏风险和文献补充材料提取队列放在独立治理页，不再占用分析主页。</p>
+      </div>
+      <div class="header-actions">
+        <a class="header-link" href="zh.html">用途工作台</a>
+        <a class="header-link" href="governance.html">English</a>
+        <a class="header-link" href="data/overlap.json">重叠 JSON</a>
+        <a class="header-link" href="data/supplement_queue.json">队列 JSON</a>
+        <button class="header-link button-link" id="downloadSummaryBtn" type="button">导出汇总</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="loading" id="loadingPanel">
+      <div class="spinner"></div>
+      <span>正在加载治理数据</span>
+    </div>
+
+    <div id="errorPanel" class="error-panel" hidden></div>
+
+    <div id="mainContent" hidden>
+      <section class="dashboard-intro">
+        <div class="intro-copy">
+          <span class="kicker">Governance tables</span>
+          <h2>审计和提取任务仍然保留，但不再干扰主页的数据用途分析。</h2>
+          <p>这个页面用于决定训练/测试泄漏控制、去重规则，以及下一批应优先提取的 supplementary data / GitHub / Zenodo 数据。</p>
+        </div>
+        <div class="intro-actions">
+          <a href="#tab-overlap">重叠审计</a>
+          <a href="#tab-queue">提取队列</a>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="治理数据区段">
+        <button class="tab active" type="button" data-tab="overlap">重叠审计</button>
+        <button class="tab" type="button" data-tab="queue">提取队列</button>
+      </nav>
+
+      <section class="tab-panel active" id="tab-overlap">
+        <div class="toolbar">
+          <input type="search" id="overlapSearch" placeholder="搜索来源或风险等级">
+          <select id="overlapRiskFilter">
+            <option value="">全部风险等级</option>
+            <option value="duplicate_subset">重复子集</option>
+            <option value="material_overlap">实质重叠</option>
+            <option value="moderate_overlap">中等重叠</option>
+            <option value="low_overlap">低重叠</option>
+          </select>
+          <button class="btn" type="button" id="clearOverlapFilters">清空</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadOverlapBtn">导出 CSV</button>
+          <span class="table-info" id="overlapInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-overlap-sort="left_source_dataset">左侧来源</th>
+                <th data-overlap-sort="right_source_dataset">右侧来源</th>
+                <th data-overlap-sort="shared_smiles" class="num">共享 SMILES</th>
+                <th data-overlap-sort="overlap_of_smaller" class="num">小集合覆盖</th>
+                <th data-overlap-sort="jaccard" class="num">Jaccard</th>
+                <th data-overlap-sort="risk_level">风险</th>
+              </tr>
+            </thead>
+            <tbody id="overlapTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-queue">
+        <div class="toolbar">
+          <input type="search" id="queueSearch" placeholder="搜索论文、DOI、来源或原因">
+          <select id="queuePriorityFilter">
+            <option value="">全部优先级</option>
+            <option value="A_literature_supplement_extraction">A 文献补充材料提取</option>
+            <option value="B_literature_supplement_extraction">B 文献补充材料提取</option>
+            <option value="C_code_only_no_public_training_data">C 仅代码、无公开训练数据</option>
+          </select>
+          <button class="btn" type="button" id="clearQueueFilters">清空</button>
+          <span class="spacer"></span>
+          <button class="btn primary" type="button" id="downloadQueueBtn">导出 CSV</button>
+          <span class="table-info" id="queueInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>优先级</th>
+                <th>来源键</th>
+                <th>标题 / 数据集</th>
+                <th>论文 DOI</th>
+                <th>数据集 DOI</th>
+                <th>状态</th>
+                <th>原因</th>
+              </tr>
+            </thead>
+            <tbody id="queueTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>LNP 数据治理</span>
+    <span id="footerUpdated">-</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LNP 开源数据登记库</title>
+  <title>LNP 数据用途工作台</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,14 +11,14 @@
     <div class="header-inner">
       <div>
         <div class="brand">LNP Open Data Registry</div>
-        <h1>mRNA LNP 数据工作台</h1>
-        <p class="subtitle">聚合开源配方数据、高通量筛选、来源重叠审计和文献补充提取进度。</p>
+        <h1>LNP 数据用途工作台</h1>
+        <p class="subtitle">把整合后的 LNP 数据按实际用途拆分：检索、建模、mRNA 递送、配方空间与 assay 语境。</p>
       </div>
       <div class="header-actions">
         <a class="header-link" href="index.html">English</a>
+        <a class="header-link" href="governance_zh.html">治理与审计</a>
         <a class="header-link" href="processing_zh.html">数据处理路线</a>
-        <a class="header-link" href="data/summary.json">汇总 JSON</a>
-        <a class="header-link" href="data/source_inventory.csv">来源 CSV</a>
+        <a class="header-link" href="data/usage_analysis.json">用途 JSON</a>
         <button class="header-link button-link" id="downloadSummaryBtn" type="button">导出汇总</button>
       </div>
     </div>
@@ -35,118 +35,102 @@
     <div id="mainContent" hidden>
       <section class="dashboard-intro">
         <div class="intro-copy">
-          <span class="kicker">Integrated mart</span>
-          <h2>先看来源、重叠和 assay 语境，再进入建模。</h2>
-          <p>当前看板把来源清单、SMILES 精确重叠、活性指标和记录预览拆开呈现，便于先审计数据库，再决定建模切分或文献扩展。</p>
+          <span class="kicker">Use-oriented analysis</span>
+          <h2>同一批 LNP 数据，需要按用途拆开看。</h2>
+          <p>主页聚焦有分析价值的数据分块：配方检索、结构-活性建模、mRNA 子集、物化性质、组分配方空间和递送语境。</p>
         </div>
         <div class="intro-actions">
-          <a href="data/source_inventory.csv">来源清单</a>
-          <a href="data/overlap.csv">重叠审计</a>
-          <a href="data/supplement_queue.csv">提取队列</a>
+          <a href="#usageBlockGrid">用途分块</a>
+          <a href="#useSourceMatrix">来源贡献</a>
+          <a href="#readinessSection">建模准备度</a>
         </div>
       </section>
 
       <section class="stats-grid" aria-label="数据库计数">
         <div class="stat-card primary">
-          <span class="stat-label">合并记录数</span>
+          <span class="stat-label">整合记录</span>
           <strong class="stat-value" id="statCombined">-</strong>
           <span class="stat-sub" id="statCoreHigh">-</span>
         </div>
         <div class="stat-card teal">
-          <span class="stat-label">可电离脂质 SMILES</span>
-          <strong class="stat-value" id="statSmiles">-</strong>
-          <span class="stat-sub">精确字符串去重</span>
+          <span class="stat-label">用途分块</span>
+          <strong class="stat-value" id="statUsageBlocks">-</strong>
+          <span class="stat-sub" id="statUsageSub">-</span>
         </div>
         <div class="stat-card amber">
-          <span class="stat-label">活性数值</span>
-          <strong class="stat-value" id="statActivity">-</strong>
-          <span class="stat-sub" id="statMetrics">-</span>
+          <span class="stat-label">mRNA 子集</span>
+          <strong class="stat-value" id="statMrna">-</strong>
+          <span class="stat-sub" id="statMrnaSub">-</span>
         </div>
         <div class="stat-card green">
-          <span class="stat-label">组分记录</span>
-          <strong class="stat-value" id="statComponents">-</strong>
-          <span class="stat-sub" id="statSources">-</span>
+          <span class="stat-label">结构-活性</span>
+          <strong class="stat-value" id="statStructure">-</strong>
+          <span class="stat-sub" id="statStructureSub">-</span>
         </div>
         <div class="stat-card red">
-          <span class="stat-label">强重叠来源</span>
-          <strong class="stat-value" id="statOverlaps">-</strong>
-          <span class="stat-sub" id="statQueue">-</span>
+          <span class="stat-label">物化性质</span>
+          <strong class="stat-value" id="statPhyschem">-</strong>
+          <span class="stat-sub" id="statPhyschemSub">-</span>
         </div>
       </section>
 
-      <section class="insight-grid" aria-label="看板解读">
-        <article class="insight-card">
-          <span class="insight-label">数据范围</span>
-          <strong id="insightScope">-</strong>
-          <p>核心文献来源和高通量/建模来源应保留为两个分析层，避免直接按行混合。</p>
-        </article>
-        <article class="insight-card warning">
-          <span class="insight-label">去重风险</span>
-          <strong id="insightOverlap">-</strong>
-          <p>训练/测试切分和跨来源性能比较之前，应先用精确 SMILES 重叠审计排除泄漏。</p>
-        </article>
-        <article class="insight-card action">
-          <span class="insight-label">下一步提取</span>
-          <strong id="insightQueue">-</strong>
-          <p>优先处理同时包含配方组成、assay metadata 和测量活性的补充表格。</p>
-        </article>
+      <section class="usage-grid" id="usageBlockGrid" aria-label="数据用途分块"></section>
+
+      <div class="layout-two">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>活性指标族</h2>
+            <span class="panel-meta">数值型 activity rows</span>
+          </div>
+          <div class="bar-list" id="metricFamilyBars"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>载荷类型分布</h2>
+            <span class="panel-meta">合并表统计</span>
+          </div>
+          <div class="bar-list" id="payloadBars"></div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>不同用途下的来源贡献</h2>
+          <span class="panel-meta" id="overviewGenerated">-</span>
+        </div>
+        <div class="use-source-matrix" id="useSourceMatrix"></div>
       </section>
 
-      <nav class="tabs" aria-label="LNP 数据区段">
-        <button class="tab active" type="button" data-tab="overview">总览</button>
-        <button class="tab" type="button" data-tab="sources">数据来源</button>
-        <button class="tab" type="button" data-tab="overlap">重叠审计</button>
+      <section class="panel" id="readinessSection">
+        <div class="panel-head">
+          <h2>按来源的建模准备度</h2>
+          <span class="panel-meta">高通量数据层</span>
+        </div>
+        <div class="table-wrap static-table">
+          <table>
+            <thead>
+              <tr>
+                <th>来源</th>
+                <th class="num">行数</th>
+                <th>SMILES</th>
+                <th>载荷</th>
+                <th>活性</th>
+                <th>比例</th>
+                <th>语境</th>
+              </tr>
+            </thead>
+            <tbody id="readinessTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="详细数据区段">
+        <button class="tab active" type="button" data-tab="sources">来源清单</button>
         <button class="tab" type="button" data-tab="activity">活性指标</button>
-        <button class="tab" type="button" data-tab="queue">提取队列</button>
         <button class="tab" type="button" data-tab="records">记录预览</button>
-        <button class="tab" type="button" data-tab="reports">报告</button>
       </nav>
 
-      <section class="tab-panel active" id="tab-overview">
-        <div class="layout-two">
-          <section class="panel">
-            <div class="panel-head">
-              <h2>按来源统计记录</h2>
-              <span class="panel-meta" id="overviewGenerated">-</span>
-            </div>
-            <div class="bar-list" id="sourceBars"></div>
-          </section>
-          <section class="panel">
-            <div class="panel-head">
-              <h2>载荷类型分布</h2>
-              <span class="panel-meta">合并表统计</span>
-            </div>
-            <div class="bar-list compact" id="payloadBars"></div>
-          </section>
-        </div>
-        <div class="layout-two">
-          <section class="panel">
-            <div class="panel-head">
-              <h2>高通量活性数据</h2>
-              <span class="panel-meta">数值型记录</span>
-            </div>
-            <div class="bar-list compact" id="activityBars"></div>
-          </section>
-          <section class="panel">
-            <div class="panel-head">
-              <h2>给药途径与靶向覆盖</h2>
-              <span class="panel-meta">高通量数据层</span>
-            </div>
-            <div class="mini-grid">
-              <div>
-                <h3>给药途径</h3>
-                <div class="bar-list mini" id="routeBars"></div>
-              </div>
-              <div>
-                <h3>递送靶向</h3>
-                <div class="bar-list mini" id="targetBars"></div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section class="tab-panel" id="tab-sources">
+      <section class="tab-panel active" id="tab-sources">
         <div class="toolbar">
           <input type="search" id="sourceSearch" placeholder="搜索来源、角色、数据层">
           <select id="sourceCollectionFilter">
@@ -175,38 +159,6 @@
               </tr>
             </thead>
             <tbody id="sourceTable"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="tab-panel" id="tab-overlap">
-        <div class="toolbar">
-          <input type="search" id="overlapSearch" placeholder="搜索来源组合">
-          <select id="overlapRiskFilter">
-            <option value="">全部风险等级</option>
-            <option value="duplicate_subset">重复子集</option>
-            <option value="material_overlap">实质重叠</option>
-            <option value="moderate_overlap">中等重叠</option>
-            <option value="low_overlap">低重叠</option>
-          </select>
-          <button class="btn" type="button" id="clearOverlapFilters">清空</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadOverlapBtn">导出 CSV</button>
-          <span class="table-info" id="overlapInfo">-</span>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th data-overlap-sort="left_source_dataset">左侧来源</th>
-                <th data-overlap-sort="right_source_dataset">右侧来源</th>
-                <th data-overlap-sort="shared_smiles" class="num">共享 SMILES</th>
-                <th data-overlap-sort="overlap_of_smaller" class="num">较小集合覆盖率</th>
-                <th data-overlap-sort="jaccard" class="num">Jaccard</th>
-                <th data-overlap-sort="risk_level">风险</th>
-              </tr>
-            </thead>
-            <tbody id="overlapTable"></tbody>
           </table>
         </div>
       </section>
@@ -244,38 +196,6 @@
             </div>
             <div class="component-list" id="componentList"></div>
           </section>
-        </div>
-      </section>
-
-      <section class="tab-panel" id="tab-queue">
-        <div class="toolbar">
-          <input type="search" id="queueSearch" placeholder="搜索标题、来源、DOI、原因">
-          <select id="queuePriorityFilter">
-            <option value="">全部优先级</option>
-            <option value="high">高</option>
-            <option value="medium">中</option>
-            <option value="low">低</option>
-          </select>
-          <button class="btn" type="button" id="clearQueueFilters">清空</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadQueueBtn">导出 CSV</button>
-          <span class="table-info" id="queueInfo">-</span>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>优先级</th>
-                <th>来源</th>
-                <th>标题</th>
-                <th>论文 DOI</th>
-                <th>数据集 DOI</th>
-                <th>状态</th>
-                <th>原因</th>
-              </tr>
-            </thead>
-            <tbody id="queueTable"></tbody>
-          </table>
         </div>
       </section>
 
@@ -317,10 +237,6 @@
           <button class="btn" type="button" id="recordNextBtn">下一页</button>
         </div>
       </section>
-
-      <section class="tab-panel" id="tab-reports">
-        <div class="report-grid" id="reportGrid"></div>
-      </section>
     </div>
   </main>
 
@@ -335,7 +251,7 @@
   </div>
 
   <footer class="site-footer">
-    <span>LNP 开源数据登记库</span>
+    <span>LNP 数据用途工作台</span>
     <span id="footerUpdated">-</span>
   </footer>
 

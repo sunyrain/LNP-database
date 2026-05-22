@@ -1,0 +1,432 @@
+{
+  "generated_at": "2026-05-23T00:06:09",
+  "usage_blocks": [
+    {
+      "key": "formulation_lookup",
+      "label_en": "Formulation lookup and source registry",
+      "label_zh": "配方检索与来源登记",
+      "records": 100484,
+      "readiness": 0.92,
+      "metric": "all integrated rows",
+      "metric_en": "all integrated rows",
+      "metric_zh": "全量整合记录",
+      "why_en": "Best for provenance-aware search, formulation comparison, payload filtering, and source-level coverage checks.",
+      "why_zh": "适合做来源可追溯检索、配方比较、载荷筛选和来源覆盖检查。",
+      "next_en": "Keep source-specific rows and add canonical lipid entity IDs before building deduplicated views.",
+      "next_zh": "保留来源行，同时补 canonical lipid entity ID，再生成去重视图。",
+      "fraction": 1.0
+    },
+    {
+      "key": "structure_activity",
+      "label_en": "Structure-activity modeling",
+      "label_zh": "结构-活性建模",
+      "records": 51090,
+      "readiness": 0.76,
+      "metric": "rows with ionizable SMILES and numeric activity",
+      "metric_en": "rows with ionizable SMILES and numeric activity",
+      "metric_zh": "含可电离脂质 SMILES 和数值活性的记录",
+      "why_en": "Most useful supervised-learning slice, but assay context and leakage controls are mandatory.",
+      "why_zh": "最适合监督学习的切片，但必须保留 assay 语境并控制跨来源泄漏。",
+      "next_en": "Split by source families and evaluate external-source generalization.",
+      "next_zh": "按来源家族切分，并做跨来源外部验证。",
+      "fraction": 0.508439
+    },
+    {
+      "key": "mrna_delivery",
+      "label_en": "mRNA delivery subset",
+      "label_zh": "mRNA 递送子集",
+      "records": 56787,
+      "readiness": 0.68,
+      "metric": "rows with mRNA-like payload labels",
+      "metric_en": "rows with mRNA-like payload labels",
+      "metric_zh": "载荷标签包含 mRNA 的记录",
+      "why_en": "Closest slice to the project objective, but route, cell type, and readout metadata must be normalized.",
+      "why_zh": "最贴近本项目目标，但仍需统一给药途径、细胞类型和 readout metadata。",
+      "next_en": "Build an mRNA-only v0 table with payload, route, readout, and source split columns.",
+      "next_zh": "建立 mRNA-only v0 表，包含载荷、给药途径、readout 和来源切分字段。",
+      "fraction": 0.565135
+    },
+    {
+      "key": "physicochemical",
+      "label_en": "Physicochemical property modeling",
+      "label_zh": "物化性质建模",
+      "records": 937,
+      "readiness": 0.61,
+      "metric": "rows with size, PDI, zeta, or encapsulation data",
+      "metric_en": "rows with size, PDI, zeta, or encapsulation data",
+      "metric_zh": "含粒径、PDI、zeta 或包封率数据的记录",
+      "why_en": "Useful for formulation QC and pre-screening because measurements are closer to formulation conditions.",
+      "why_zh": "适合做配方质控和预筛选，因为这些标签更接近制剂条件。",
+      "next_en": "Normalize units and formulation method metadata before regression baselines.",
+      "next_zh": "先统一单位和制备方法 metadata，再做回归基线。",
+      "fraction": 0.009325
+    },
+    {
+      "key": "formulation_space",
+      "label_en": "Formulation component space",
+      "label_zh": "组分与配方空间",
+      "records": 65778,
+      "readiness": 0.72,
+      "metric": "records represented in normalized component rows",
+      "metric_en": "records represented in normalized component rows",
+      "metric_zh": "已表示为标准化组分行的记录",
+      "why_en": "Useful for component co-occurrence, lipid class coverage, and formulation embedding construction.",
+      "why_zh": "适合分析组分共现、脂质类型覆盖和构建 formulation embedding。",
+      "next_en": "Map component types to ionizable/helper/sterol/PEG roles and normalize ratio formats.",
+      "next_zh": "把组分类型映射到 ionizable/helper/sterol/PEG 角色，并统一比例格式。",
+      "fraction": 0.654612
+    },
+    {
+      "key": "route_target",
+      "label_en": "Route, cell, and target context",
+      "label_zh": "给药途径、细胞与靶向语境",
+      "records": 27931,
+      "readiness": 0.54,
+      "metric": "high-throughput rows with route, target, or cell context",
+      "metric_en": "high-throughput rows with route, target, or cell context",
+      "metric_zh": "含给药途径、靶向或细胞语境的高通量记录",
+      "why_en": "Useful for stratified analysis of delivery context, not as a single pooled label space.",
+      "why_zh": "适合做递送语境的分层分析，不适合直接混成一个标签空间。",
+      "next_en": "Create controlled vocabularies for route, organ/cell target, and assay system.",
+      "next_zh": "建立给药途径、器官/细胞靶向和 assay system 的受控词表。",
+      "fraction": 0.277965
+    }
+  ],
+  "source_by_use": [
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "LNP_ML / LiON",
+      "records": 26510
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "LNPDB",
+      "records": 19797
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "COMET / LANCE",
+      "records": 15867
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "AGILE",
+      "records": 14676
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "Exosome-mimetic LNP GAN candidates",
+      "records": 10000
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "TransMA",
+      "records": 4800
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "LUMI-lab",
+      "records": 3760
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "TransLNP",
+      "records": 2400
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "LipoBART iPhos",
+      "records": 1188
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "LNP Atlas",
+      "records": 1092
+    },
+    {
+      "use_key": "formulation_lookup",
+      "source_dataset": "Strathclyde ionisable lipid/sterol variation dataset",
+      "records": 394
+    },
+    {
+      "use_key": "formulation_space",
+      "source_dataset": "LNP_ML / LiON",
+      "records": 23131
+    },
+    {
+      "use_key": "formulation_space",
+      "source_dataset": "COMET / LANCE",
+      "records": 15867
+    },
+    {
+      "use_key": "formulation_space",
+      "source_dataset": "AGILE",
+      "records": 14676
+    },
+    {
+      "use_key": "formulation_space",
+      "source_dataset": "TransMA",
+      "records": 4800
+    },
+    {
+      "use_key": "formulation_space",
+      "source_dataset": "LUMI-lab",
+      "records": 3760
+    },
+    {
+      "use_key": "formulation_space",
+      "source_dataset": "TransLNP",
+      "records": 2400
+    },
+    {
+      "use_key": "formulation_space",
+      "source_dataset": "LipoBART iPhos",
+      "records": 1144
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "LNP_ML / LiON",
+      "records": 16147
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "COMET / LANCE",
+      "records": 15867
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "LNPDB",
+      "records": 14578
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "TransMA",
+      "records": 4800
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "TransLNP",
+      "records": 2400
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "LUMI-lab",
+      "records": 1920
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "LNP Atlas",
+      "records": 681
+    },
+    {
+      "use_key": "mrna_delivery",
+      "source_dataset": "Strathclyde ionisable lipid/sterol variation dataset",
+      "records": 394
+    },
+    {
+      "use_key": "physicochemical",
+      "source_dataset": "LNP Atlas",
+      "records": 817
+    },
+    {
+      "use_key": "physicochemical",
+      "source_dataset": "Strathclyde ionisable lipid/sterol variation dataset",
+      "records": 120
+    },
+    {
+      "use_key": "route_target",
+      "source_dataset": "LNP_ML / LiON",
+      "records": 23131
+    },
+    {
+      "use_key": "route_target",
+      "source_dataset": "TransMA",
+      "records": 4800
+    },
+    {
+      "use_key": "structure_activity",
+      "source_dataset": "LNP_ML / LiON",
+      "records": 23131
+    },
+    {
+      "use_key": "structure_activity",
+      "source_dataset": "COMET / LANCE",
+      "records": 15867
+    },
+    {
+      "use_key": "structure_activity",
+      "source_dataset": "TransMA",
+      "records": 4800
+    },
+    {
+      "use_key": "structure_activity",
+      "source_dataset": "TransLNP",
+      "records": 2400
+    },
+    {
+      "use_key": "structure_activity",
+      "source_dataset": "AGILE",
+      "records": 2400
+    },
+    {
+      "use_key": "structure_activity",
+      "source_dataset": "LUMI-lab",
+      "records": 1920
+    },
+    {
+      "use_key": "structure_activity",
+      "source_dataset": "LipoBART iPhos",
+      "records": 572
+    }
+  ],
+  "metric_families": [
+    {
+      "metric_family": "other_activity",
+      "rows": 89831,
+      "numeric_rows": 89787,
+      "source_datasets": 5
+    },
+    {
+      "metric_family": "tropism_biodistribution",
+      "rows": 7200,
+      "numeric_rows": 7200,
+      "source_datasets": 2
+    }
+  ],
+  "readiness_matrix": [
+    {
+      "source_dataset": "LNP_ML / LiON",
+      "records": 26510,
+      "with_ionizable_smiles": 23131,
+      "with_payload": 23131,
+      "with_cell_context": 19039,
+      "with_route": 23131,
+      "with_target": 23131,
+      "with_primary_activity": 26510,
+      "with_lipid_ratio": 22759
+    },
+    {
+      "source_dataset": "COMET / LANCE",
+      "records": 15867,
+      "with_ionizable_smiles": 15867,
+      "with_payload": 15867,
+      "with_cell_context": 0,
+      "with_route": 0,
+      "with_target": 0,
+      "with_primary_activity": 0,
+      "with_lipid_ratio": 15867
+    },
+    {
+      "source_dataset": "AGILE",
+      "records": 14676,
+      "with_ionizable_smiles": 14676,
+      "with_payload": 0,
+      "with_cell_context": 0,
+      "with_route": 0,
+      "with_target": 0,
+      "with_primary_activity": 0,
+      "with_lipid_ratio": 0
+    },
+    {
+      "source_dataset": "Exosome-mimetic LNP GAN candidates",
+      "records": 10000,
+      "with_ionizable_smiles": 0,
+      "with_payload": 0,
+      "with_cell_context": 0,
+      "with_route": 0,
+      "with_target": 0,
+      "with_primary_activity": 0,
+      "with_lipid_ratio": 10000
+    },
+    {
+      "source_dataset": "TransMA",
+      "records": 4800,
+      "with_ionizable_smiles": 4800,
+      "with_payload": 4800,
+      "with_cell_context": 4800,
+      "with_route": 0,
+      "with_target": 0,
+      "with_primary_activity": 4800,
+      "with_lipid_ratio": 0
+    },
+    {
+      "source_dataset": "LUMI-lab",
+      "records": 3760,
+      "with_ionizable_smiles": 1920,
+      "with_payload": 1920,
+      "with_cell_context": 0,
+      "with_route": 0,
+      "with_target": 0,
+      "with_primary_activity": 1920,
+      "with_lipid_ratio": 0
+    },
+    {
+      "source_dataset": "TransLNP",
+      "records": 2400,
+      "with_ionizable_smiles": 2400,
+      "with_payload": 2400,
+      "with_cell_context": 0,
+      "with_route": 0,
+      "with_target": 0,
+      "with_primary_activity": 2400,
+      "with_lipid_ratio": 0
+    },
+    {
+      "source_dataset": "LipoBART iPhos",
+      "records": 1188,
+      "with_ionizable_smiles": 1144,
+      "with_payload": 0,
+      "with_cell_context": 0,
+      "with_route": 0,
+      "with_target": 0,
+      "with_primary_activity": 572,
+      "with_lipid_ratio": 572
+    }
+  ],
+  "combined_source_counts": [
+    {
+      "source_dataset": "LNP_ML / LiON",
+      "records": 26510
+    },
+    {
+      "source_dataset": "LNPDB",
+      "records": 19797
+    },
+    {
+      "source_dataset": "COMET / LANCE",
+      "records": 15867
+    },
+    {
+      "source_dataset": "AGILE",
+      "records": 14676
+    },
+    {
+      "source_dataset": "Exosome-mimetic LNP GAN candidates",
+      "records": 10000
+    },
+    {
+      "source_dataset": "TransMA",
+      "records": 4800
+    },
+    {
+      "source_dataset": "LUMI-lab",
+      "records": 3760
+    },
+    {
+      "source_dataset": "TransLNP",
+      "records": 2400
+    },
+    {
+      "source_dataset": "LipoBART iPhos",
+      "records": 1188
+    },
+    {
+      "source_dataset": "LNP Atlas",
+      "records": 1092
+    },
+    {
+      "source_dataset": "Strathclyde ionisable lipid/sterol variation dataset",
+      "records": 394
+    }
+  ]
+}

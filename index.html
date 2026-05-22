@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LNP Open Data Registry</title>
+  <title>LNP Data Usage Workspace</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,14 +11,14 @@
     <div class="header-inner">
       <div>
         <div class="brand">LNP Open Data Registry</div>
-        <h1>mRNA LNP data workspace</h1>
-        <p class="subtitle">A compact view of open formulation datasets, high-throughput screens, source overlap, and extraction readiness.</p>
+        <h1>LNP data usage workspace</h1>
+        <p class="subtitle">Partitioning the integrated LNP data by practical uses: lookup, modeling, mRNA delivery, formulation space, and assay context.</p>
       </div>
       <div class="header-actions">
-        <a class="header-link" href="data/summary.json">Summary JSON</a>
-        <a class="header-link" href="data/source_inventory.csv">Source CSV</a>
         <a class="header-link" href="zh.html">中文</a>
+        <a class="header-link" href="governance.html">Governance</a>
         <a class="header-link" href="processing_zh.html">Processing Plan</a>
+        <a class="header-link" href="data/usage_analysis.json">Usage JSON</a>
         <button class="header-link button-link" id="downloadSummaryBtn" type="button">Export Summary</button>
       </div>
     </div>
@@ -35,118 +35,102 @@
     <div id="mainContent" hidden>
       <section class="dashboard-intro">
         <div class="intro-copy">
-          <span class="kicker">Integrated mart</span>
-          <h2>Start with provenance, overlap, and assay context.</h2>
-          <p>The dashboard separates source inventory, exact SMILES overlap, activity metrics, and preview records so the database can be audited before modeling or literature expansion.</p>
+          <span class="kicker">Use-oriented analysis</span>
+          <h2>Use the same database differently for lookup, modeling, mRNA delivery, and formulation design.</h2>
+          <p>The homepage focuses on analytical slices that can drive lookup, modeling, formulation-space mapping, and mRNA-delivery subset construction.</p>
         </div>
         <div class="intro-actions">
-          <a href="data/source_inventory.csv">Source inventory</a>
-          <a href="data/overlap.csv">Overlap audit</a>
-          <a href="data/supplement_queue.csv">Extraction queue</a>
+          <a href="#usageBlockGrid">Use blocks</a>
+          <a href="#useSourceMatrix">Source by use</a>
+          <a href="#readinessSection">Readiness</a>
         </div>
       </section>
 
       <section class="stats-grid" aria-label="Database counts">
         <div class="stat-card primary">
-          <span class="stat-label">Combined Records</span>
+          <span class="stat-label">Integrated Records</span>
           <strong class="stat-value" id="statCombined">-</strong>
           <span class="stat-sub" id="statCoreHigh">-</span>
         </div>
         <div class="stat-card teal">
-          <span class="stat-label">Ionizable SMILES</span>
-          <strong class="stat-value" id="statSmiles">-</strong>
-          <span class="stat-sub">exact unique strings</span>
+          <span class="stat-label">Use Blocks</span>
+          <strong class="stat-value" id="statUsageBlocks">-</strong>
+          <span class="stat-sub" id="statUsageSub">-</span>
         </div>
         <div class="stat-card amber">
-          <span class="stat-label">Activity Values</span>
-          <strong class="stat-value" id="statActivity">-</strong>
-          <span class="stat-sub" id="statMetrics">-</span>
+          <span class="stat-label">mRNA Subset</span>
+          <strong class="stat-value" id="statMrna">-</strong>
+          <span class="stat-sub" id="statMrnaSub">-</span>
         </div>
         <div class="stat-card green">
-          <span class="stat-label">Component Rows</span>
-          <strong class="stat-value" id="statComponents">-</strong>
-          <span class="stat-sub" id="statSources">-</span>
+          <span class="stat-label">Structure-Activity</span>
+          <strong class="stat-value" id="statStructure">-</strong>
+          <span class="stat-sub" id="statStructureSub">-</span>
         </div>
         <div class="stat-card red">
-          <span class="stat-label">Strong Overlaps</span>
-          <strong class="stat-value" id="statOverlaps">-</strong>
-          <span class="stat-sub" id="statQueue">-</span>
+          <span class="stat-label">Physicochemical</span>
+          <strong class="stat-value" id="statPhyschem">-</strong>
+          <span class="stat-sub" id="statPhyschemSub">-</span>
         </div>
       </section>
 
-      <section class="insight-grid" aria-label="Dashboard interpretation">
-        <article class="insight-card">
-          <span class="insight-label">Data Scope</span>
-          <strong id="insightScope">-</strong>
-          <p>Keep core literature-derived rows and high-throughput/model-ready rows as separate analytical layers.</p>
-        </article>
-        <article class="insight-card warning">
-          <span class="insight-label">Deduplication Risk</span>
-          <strong id="insightOverlap">-</strong>
-          <p>Use exact SMILES overlap before splitting train/test sets or comparing model performance across sources.</p>
-        </article>
-        <article class="insight-card action">
-          <span class="insight-label">Next Extraction</span>
-          <strong id="insightQueue">-</strong>
-          <p>Prioritize supplementary tables that pair formulation composition with assay metadata and measured activity.</p>
-        </article>
+      <section class="usage-grid" id="usageBlockGrid" aria-label="Data use blocks"></section>
+
+      <div class="layout-two">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Metric Families</h2>
+            <span class="panel-meta">numeric activity rows</span>
+          </div>
+          <div class="bar-list" id="metricFamilyBars"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Payload Distribution</h2>
+            <span class="panel-meta">combined tables</span>
+          </div>
+          <div class="bar-list" id="payloadBars"></div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Source Contribution By Use</h2>
+          <span class="panel-meta" id="overviewGenerated">-</span>
+        </div>
+        <div class="use-source-matrix" id="useSourceMatrix"></div>
       </section>
 
-      <nav class="tabs" aria-label="LNP data sections">
-        <button class="tab active" type="button" data-tab="overview">Overview</button>
-        <button class="tab" type="button" data-tab="sources">Sources</button>
-        <button class="tab" type="button" data-tab="overlap">Overlap</button>
-        <button class="tab" type="button" data-tab="activity">Activity</button>
-        <button class="tab" type="button" data-tab="queue">Extraction Queue</button>
+      <section class="panel" id="readinessSection">
+        <div class="panel-head">
+          <h2>Modeling Readiness By Source</h2>
+          <span class="panel-meta">high-throughput layer</span>
+        </div>
+        <div class="table-wrap static-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th class="num">Rows</th>
+                <th>SMILES</th>
+                <th>Payload</th>
+                <th>Activity</th>
+                <th>Ratio</th>
+                <th>Context</th>
+              </tr>
+            </thead>
+            <tbody id="readinessTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Detailed data sections">
+        <button class="tab active" type="button" data-tab="sources">Source Inventory</button>
+        <button class="tab" type="button" data-tab="activity">Activity Metrics</button>
         <button class="tab" type="button" data-tab="records">Record Preview</button>
-        <button class="tab" type="button" data-tab="reports">Reports</button>
       </nav>
 
-      <section class="tab-panel active" id="tab-overview">
-        <div class="layout-two">
-          <section class="panel">
-            <div class="panel-head">
-              <h2>Records By Source</h2>
-              <span class="panel-meta" id="overviewGenerated">-</span>
-            </div>
-            <div class="bar-list" id="sourceBars"></div>
-          </section>
-          <section class="panel">
-            <div class="panel-head">
-              <h2>Payload Distribution</h2>
-              <span class="panel-meta">combined tables</span>
-            </div>
-            <div class="bar-list compact" id="payloadBars"></div>
-          </section>
-        </div>
-        <div class="layout-two">
-          <section class="panel">
-            <div class="panel-head">
-              <h2>High-Throughput Activity</h2>
-              <span class="panel-meta">numeric rows</span>
-            </div>
-            <div class="bar-list compact" id="activityBars"></div>
-          </section>
-          <section class="panel">
-            <div class="panel-head">
-              <h2>Route And Target Coverage</h2>
-              <span class="panel-meta">high-throughput layer</span>
-            </div>
-            <div class="mini-grid">
-              <div>
-                <h3>Routes</h3>
-                <div class="bar-list mini" id="routeBars"></div>
-              </div>
-              <div>
-                <h3>Targets</h3>
-                <div class="bar-list mini" id="targetBars"></div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      <section class="tab-panel" id="tab-sources">
+      <section class="tab-panel active" id="tab-sources">
         <div class="toolbar">
           <input type="search" id="sourceSearch" placeholder="Search source, role, collection">
           <select id="sourceCollectionFilter">
@@ -175,38 +159,6 @@
               </tr>
             </thead>
             <tbody id="sourceTable"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="tab-panel" id="tab-overlap">
-        <div class="toolbar">
-          <input type="search" id="overlapSearch" placeholder="Search source pair">
-          <select id="overlapRiskFilter">
-            <option value="">All risk levels</option>
-            <option value="duplicate_subset">Duplicate subset</option>
-            <option value="material_overlap">Material overlap</option>
-            <option value="moderate_overlap">Moderate overlap</option>
-            <option value="low_overlap">Low overlap</option>
-          </select>
-          <button class="btn" type="button" id="clearOverlapFilters">Clear</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadOverlapBtn">Export CSV</button>
-          <span class="table-info" id="overlapInfo">-</span>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th data-overlap-sort="left_source_dataset">Left Source</th>
-                <th data-overlap-sort="right_source_dataset">Right Source</th>
-                <th data-overlap-sort="shared_smiles" class="num">Shared SMILES</th>
-                <th data-overlap-sort="overlap_of_smaller" class="num">Overlap Smaller</th>
-                <th data-overlap-sort="jaccard" class="num">Jaccard</th>
-                <th data-overlap-sort="risk_level">Risk</th>
-              </tr>
-            </thead>
-            <tbody id="overlapTable"></tbody>
           </table>
         </div>
       </section>
@@ -247,38 +199,6 @@
         </div>
       </section>
 
-      <section class="tab-panel" id="tab-queue">
-        <div class="toolbar">
-          <input type="search" id="queueSearch" placeholder="Search title, source, DOI, reason">
-          <select id="queuePriorityFilter">
-            <option value="">All priorities</option>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-          <button class="btn" type="button" id="clearQueueFilters">Clear</button>
-          <span class="spacer"></span>
-          <button class="btn primary" type="button" id="downloadQueueBtn">Export CSV</button>
-          <span class="table-info" id="queueInfo">-</span>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Priority</th>
-                <th>Source</th>
-                <th>Title</th>
-                <th>Paper DOI</th>
-                <th>Dataset DOI</th>
-                <th>Status</th>
-                <th>Reason</th>
-              </tr>
-            </thead>
-            <tbody id="queueTable"></tbody>
-          </table>
-        </div>
-      </section>
-
       <section class="tab-panel" id="tab-records">
         <div class="toolbar">
           <input type="search" id="recordSearch" placeholder="Search source, DOI, lipid, SMILES, payload">
@@ -316,10 +236,6 @@
           <span id="recordPageInfo">-</span>
           <button class="btn" type="button" id="recordNextBtn">Next</button>
         </div>
-      </section>
-
-      <section class="tab-panel" id="tab-reports">
-        <div class="report-grid" id="reportGrid"></div>
       </section>
     </div>
   </main>
