@@ -79,8 +79,26 @@
 
       <section class="panel dl-panel" id="deepLearningSection">
         <div class="panel-head">
-          <h2>Deep Learning Readiness</h2>
-          <span class="panel-meta">task framing, feature coverage, validation risk</span>
+          <h2>Deep Learning Analysis</h2>
+          <span class="panel-meta">ChemBERTa weights, embedding map, supervised baselines</span>
+        </div>
+        <div class="dl-run-grid" id="dlRunGrid"></div>
+        <div class="dl-visual-grid">
+          <section>
+            <div class="dl-section-head">
+              <h3>Representation Map</h3>
+              <span id="dlProjectionMeta">-</span>
+            </div>
+            <div class="embedding-plot" id="dlEmbeddingPlot"></div>
+            <div class="embedding-legend" id="dlEmbeddingLegend"></div>
+          </section>
+          <section>
+            <div class="dl-section-head">
+              <h3>Task Baselines</h3>
+              <span>ChemBERTa vs RDKit</span>
+            </div>
+            <div class="dl-benchmark-list" id="dlBenchmarkList"></div>
+          </section>
         </div>
         <div class="dl-grid" id="dlTaskGrid"></div>
         <div class="dl-bottom">
@@ -91,6 +109,24 @@
           <section>
             <h3>Validation Risks</h3>
             <div class="dl-risk-list" id="dlRiskList"></div>
+          </section>
+        </div>
+        <div class="dl-extra-grid">
+          <section>
+            <h3>Embedding Clusters</h3>
+            <div class="dl-cluster-list" id="dlClusterList"></div>
+          </section>
+          <section>
+            <h3>Source Embedding Coverage</h3>
+            <div class="dl-source-list" id="dlSourceEmbeddingList"></div>
+          </section>
+          <section>
+            <h3>Cross-source Transfer</h3>
+            <div class="dl-transfer-list" id="dlTransferList"></div>
+          </section>
+          <section>
+            <h3>Nearest Cross-source Neighbors</h3>
+            <div class="dl-neighbor-list" id="dlNeighborList"></div>
           </section>
         </div>
       </section>

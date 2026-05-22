@@ -68,7 +68,20 @@ const I18N = {
     withRatio: "ratio",
     withSmiles: "SMILES",
     samples: "samples",
-    coverage: "coverage"
+    coverage: "coverage",
+    molecules: "molecules",
+    embedded: "embedded",
+    dimensions: "dimensions",
+    model: "model",
+    device: "device",
+    bestR2: "best R²",
+    clusters: "clusters",
+    r2: "R²",
+    mae: "MAE",
+    rmse: "RMSE",
+    spearman: "Spearman",
+    trainTest: "{train} train / {test} test",
+    noModelRun: "No model run available"
   },
   zh: {
     activityMetric: "活性指标",
@@ -112,7 +125,20 @@ const I18N = {
     withRatio: "比例",
     withSmiles: "SMILES",
     samples: "样本",
-    coverage: "覆盖率"
+    coverage: "覆盖率",
+    molecules: "分子",
+    embedded: "已嵌入",
+    dimensions: "维度",
+    model: "模型",
+    device: "设备",
+    bestR2: "最佳 R²",
+    clusters: "聚类",
+    r2: "R²",
+    mae: "MAE",
+    rmse: "RMSE",
+    spearman: "Spearman",
+    trainTest: "{train} 训练 / {test} 测试",
+    noModelRun: "暂无模型运行结果"
   }
 };
 
@@ -418,6 +444,10 @@ function usageKeyLabel(key) {
 
 function renderDeepLearning() {
   const analysis = state.data.deepLearningAnalysis || {};
+  renderModelRun(analysis);
+  renderEmbeddingPlot(analysis);
+  renderBenchmarks(analysis);
+  renderDeepLearningExtras(analysis);
   const tasks = analysis.tasks || [];
   const taskTarget = $("dlTaskGrid");
   if (taskTarget) {
@@ -455,6 +485,143 @@ function renderDeepLearning() {
       </div>
     `).join("");
   }
+}
+
+function renderModelRun(analysis) {
+  const target = $("dlRunGrid");
+  if (!target) return;
+  const run = analysis.model_run || {};
+  if (!run.model_id) {
+    target.innerHTML = `<div class="dl-run-card"><span>${escapeHtml(t("noModelRun"))}</span></div>`;
+    return;
+  }
+  const items = [
+    { label: t("model"), value: run.model_id, sub: run.reused_embeddings ? "cached embeddings reused" : "fresh embedding run" },
+    { label: t("embedded"), value: number(run.embedded_molecules), sub: `${number(run.embedding_dim)} ${t("dimensions")}` },
+    { label: t("device"), value: run.device || "-", sub: `${number(run.runtime_seconds, 1)} s embedding runtime` },
+    { label: t("bestR2"), value: number(run.best_embedding_r2, 3), sub: `${number(run.clusters)} ${t("clusters")} / ${run.projection_method || "-"}` }
+  ];
+  target.innerHTML = items.map((item) => `
+    <div class="dl-run-card">
+      <span>${escapeHtml(item.label)}</span>
+      <strong>${escapeHtml(item.value)}</strong>
+      <p>${escapeHtml(item.sub)}</p>
+    </div>
+  `).join("");
+}
+
+function renderEmbeddingPlot(analysis) {
+  const plot = $("dlEmbeddingPlot");
+  const legend = $("dlEmbeddingLegend");
+  const meta = $("dlProjectionMeta");
+  if (!plot) return;
+  const projection = analysis.projection || {};
+  const points = projection.points || [];
+  if (meta) {
+    meta.textContent = `${number(points.length)} ${t("molecules")} / ${projection.method || "-"}`;
+  }
+  const sourcePalette = sourceColorMap(points);
+  plot.innerHTML = points.map((point) => {
+    const color = sourcePalette[point.source] || "#526174";
+    const title = `${point.source} / cluster ${point.cluster} / ${point.hash}`;
+    return `<button class="embedding-point" title="${escapeHtml(title)}" style="--x:${Number(point.x) * 100}%;--y:${Number(point.y) * 100}%;--point:${escapeHtml(color)}" type="button"></button>`;
+  }).join("");
+  if (legend) {
+    const rows = (projection.legend || []).slice(0, 8);
+    legend.innerHTML = rows.map((row) => `
+      <span><i style="background:${escapeHtml(sourcePalette[row.label] || "#526174")}"></i>${escapeHtml(row.label)} <b>${number(row.count)}</b></span>
+    `).join("");
+  }
+}
+
+function sourceColorMap(points) {
+  const palette = ["#0d8f83", "#3156b7", "#a76513", "#14753b", "#b43b35", "#6f4bb8", "#246a73", "#8c5b2d", "#5b6f92", "#9b3d74"];
+  const sources = [];
+  points.forEach((point) => {
+    if (!sources.includes(point.source)) sources.push(point.source);
+  });
+  return Object.fromEntries(sources.map((source, index) => [source, palette[index % palette.length]]));
+}
+
+function renderBenchmarks(analysis) {
+  const target = $("dlBenchmarkList");
+  if (!target) return;
+  const rows = analysis.benchmarks || [];
+  target.innerHTML = rows.slice(0, 8).map((row) => {
+    const embeddingR2 = Number(row.embedding?.r2);
+    const descriptorR2 = Number(row.descriptor?.r2);
+    const width = Math.max(2, Math.min(100, ((embeddingR2 + 0.2) / 1.2) * 100));
+    const descWidth = Math.max(2, Math.min(100, ((descriptorR2 + 0.2) / 1.2) * 100));
+    return `
+      <article class="dl-benchmark-row">
+        <div>
+          <strong>${escapeHtml(label(row, "label"))}</strong>
+          <span>${number(row.rows)} rows / ${escapeHtml(row.split_method || "-")}</span>
+        </div>
+        <div class="benchmark-bars">
+          <span><b>ChemBERTa</b><i><em style="width:${width}%"></em></i><b>${number(embeddingR2, 3)}</b></span>
+          <span><b>RDKit</b><i><em style="width:${descWidth}%"></em></i><b>${number(descriptorR2, 3)}</b></span>
+        </div>
+        <p>${escapeHtml(t("trainTest", { train: number(row.train_rows), test: number(row.test_rows) }))} · ${escapeHtml(t("mae"))} ${number(row.embedding?.mae, 3)} · ${escapeHtml(t("spearman"))} ${number(row.embedding?.spearman, 3)}</p>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderDeepLearningExtras(analysis) {
+  renderClusterList(analysis.clusters || []);
+  renderSourceEmbeddingList(analysis.source_embedding || []);
+  renderTransferList(analysis.source_transfer || []);
+  renderNeighborList(analysis.nearest_cross_source_neighbors || []);
+}
+
+function renderClusterList(rows) {
+  const target = $("dlClusterList");
+  if (!target) return;
+  target.innerHTML = rows.slice(0, 6).map((row) => `
+    <div class="dl-compact-row">
+      <strong>${escapeHtml(label(row, "label"))}</strong>
+      <span>${number(row.molecules)} ${escapeHtml(t("molecules"))} / ${number(row.records)} ${escapeHtml(t("records"))}</span>
+      <p>MW ${number(row.mean_mol_wt, 1)} · logP ${number(row.mean_logp, 1)} · TPSA ${number(row.mean_tpsa, 1)}</p>
+    </div>
+  `).join("");
+}
+
+function renderSourceEmbeddingList(rows) {
+  const target = $("dlSourceEmbeddingList");
+  if (!target) return;
+  const max = Math.max(...rows.map((row) => Number(row.molecules || 0)), 1);
+  target.innerHTML = rows.slice(0, 8).map((row) => `
+    <div class="dl-source-row">
+      <span>${escapeHtml(row.source_dataset)}</span>
+      <i><em style="width:${Math.max(2, Math.round((Number(row.molecules || 0) / max) * 100))}%"></em></i>
+      <b>${number(row.molecules)}</b>
+    </div>
+  `).join("");
+}
+
+function renderTransferList(rows) {
+  const target = $("dlTransferList");
+  if (!target) return;
+  target.innerHTML = rows.map((row) => `
+    <div class="dl-compact-row">
+      <strong>${escapeHtml(label(row, "label"))}</strong>
+      <span>${escapeHtml(t("r2"))} ${number(row.embedding?.r2, 3)} · ${escapeHtml(t("spearman"))} ${number(row.embedding?.spearman, 3)}</span>
+      <p>${escapeHtml(t("trainTest", { train: number(row.train_rows), test: number(row.test_rows) }))}</p>
+    </div>
+  `).join("");
+}
+
+function renderNeighborList(rows) {
+  const target = $("dlNeighborList");
+  if (!target) return;
+  target.innerHTML = rows.slice(0, 8).map((row) => `
+    <div class="dl-compact-row">
+      <strong>${escapeHtml(row.left_source)} / ${escapeHtml(row.right_source)}</strong>
+      <span>cos ${number(row.cosine_similarity, 3)}</span>
+      <p>${escapeHtml(row.left_hash)} / ${escapeHtml(row.right_hash)}</p>
+    </div>
+  `).join("");
 }
 
 function renderUseSourceMatrix() {

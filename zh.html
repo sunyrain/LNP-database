@@ -79,8 +79,26 @@
 
       <section class="panel dl-panel" id="deepLearningSection">
         <div class="panel-head">
-          <h2>深度学习建模准备度</h2>
-          <span class="panel-meta">任务定义、特征覆盖、验证风险</span>
+          <h2>深度学习分析</h2>
+          <span class="panel-meta">ChemBERTa 权重、表征图谱、监督基线</span>
+        </div>
+        <div class="dl-run-grid" id="dlRunGrid"></div>
+        <div class="dl-visual-grid">
+          <section>
+            <div class="dl-section-head">
+              <h3>表征空间图</h3>
+              <span id="dlProjectionMeta">-</span>
+            </div>
+            <div class="embedding-plot" id="dlEmbeddingPlot"></div>
+            <div class="embedding-legend" id="dlEmbeddingLegend"></div>
+          </section>
+          <section>
+            <div class="dl-section-head">
+              <h3>任务基线</h3>
+              <span>ChemBERTa vs RDKit</span>
+            </div>
+            <div class="dl-benchmark-list" id="dlBenchmarkList"></div>
+          </section>
         </div>
         <div class="dl-grid" id="dlTaskGrid"></div>
         <div class="dl-bottom">
@@ -91,6 +109,24 @@
           <section>
             <h3>验证风险</h3>
             <div class="dl-risk-list" id="dlRiskList"></div>
+          </section>
+        </div>
+        <div class="dl-extra-grid">
+          <section>
+            <h3>表征聚类</h3>
+            <div class="dl-cluster-list" id="dlClusterList"></div>
+          </section>
+          <section>
+            <h3>来源表征覆盖</h3>
+            <div class="dl-source-list" id="dlSourceEmbeddingList"></div>
+          </section>
+          <section>
+            <h3>跨来源迁移</h3>
+            <div class="dl-transfer-list" id="dlTransferList"></div>
+          </section>
+          <section>
+            <h3>跨来源近邻</h3>
+            <div class="dl-neighbor-list" id="dlNeighborList"></div>
           </section>
         </div>
       </section>
