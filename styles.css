@@ -420,6 +420,161 @@ p {
   border-top-color: var(--red);
 }
 
+.method-section {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.method-head {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.method-head h2 {
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.method-head p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.method-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--blue);
+  border-radius: var(--radius);
+  background: var(--bg-muted);
+  padding: 12px;
+}
+
+.method-card.structure {
+  border-top-color: var(--blue);
+}
+
+.method-card.mrna {
+  border-top-color: var(--amber);
+}
+
+.method-card.formulation {
+  border-top-color: var(--teal);
+}
+
+.method-card.quality {
+  border-top-color: var(--green);
+}
+
+.method-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  min-width: 0;
+}
+
+.method-title span {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.method-title b {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.flow-diagram {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr) 22px minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.flow-node {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 78px;
+  border: 1px solid #d5dee8;
+  border-radius: 7px;
+  background: #ffffff;
+  padding: 9px;
+}
+
+.flow-node strong {
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.flow-node span {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.flow-arrow {
+  position: relative;
+  min-height: 78px;
+}
+
+.flow-arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  background: #aeb9c7;
+  transform: translateY(-50%);
+}
+
+.flow-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #aeb9c7;
+  border-right: 2px solid #aeb9c7;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.method-card p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .usage-card-head,
 .matrix-card-head {
   display: grid;
@@ -1607,6 +1762,7 @@ td {
   .layout-two,
   .activity-layout,
   .usage-grid,
+  .method-grid,
   .use-source-matrix,
   .dl-run-grid,
   .dl-visual-grid,
@@ -1724,6 +1880,7 @@ td {
   .stats-grid,
   .insight-grid,
   .usage-grid,
+  .method-grid,
   .use-source-matrix,
   .dl-run-grid,
   .dl-visual-grid,
@@ -1735,6 +1892,8 @@ td {
   .stat-card,
   .insight-card,
   .usage-card,
+  .method-section,
+  .method-card,
   .tabs,
   .toolbar,
   .table-wrap {
@@ -1815,6 +1974,50 @@ td {
 
   .usage-card {
     min-height: 0;
+  }
+
+  .method-section {
+    padding: 14px;
+  }
+
+  .method-title {
+    display: grid;
+    gap: 3px;
+  }
+
+  .method-title b {
+    white-space: normal;
+  }
+
+  .flow-diagram {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .flow-node {
+    min-height: 0;
+  }
+
+  .flow-arrow {
+    min-height: 18px;
+  }
+
+  .flow-arrow::before {
+    top: 3px;
+    bottom: 3px;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .flow-arrow::after {
+    top: auto;
+    right: auto;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%) rotate(135deg);
   }
 
   .usage-card-head,

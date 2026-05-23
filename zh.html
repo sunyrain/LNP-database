@@ -46,6 +46,7 @@
         </div>
         <nav class="section-nav" aria-label="看板分区">
           <a href="#usageBlockGrid">用途分块</a>
+          <a href="#methodMaps">处理示意</a>
           <a href="#deepLearningSection">深度学习</a>
           <a href="#useSourceMatrix">来源贡献</a>
           <a href="#readinessSection">建模准备度</a>
@@ -76,6 +77,111 @@
       </section>
 
       <section class="usage-grid" id="usageBlockGrid" aria-label="数据用途分块"></section>
+
+      <section class="method-section" id="methodMaps" aria-label="处理思路示意图">
+        <div class="method-head">
+          <span class="kicker">Method maps</span>
+          <h2>这些数据分块分别在回答什么问题</h2>
+          <p>示意图只描述建模与数据整理逻辑，不代表实验配方或制备流程。</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-card structure">
+            <div class="method-title">
+              <span>结构-活性建模</span>
+              <b>Structure → Activity</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node molecule">
+                <strong>脂质结构</strong>
+                <span>SMILES / 描述符 / ChemBERTa</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node split">
+                <strong>骨架留出</strong>
+                <span>新 scaffold 测试泛化</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>活性预测</strong>
+                <span>R² / MAE / Spearman</span>
+              </div>
+            </div>
+            <p>目标是判断“只看 ionizable lipid 结构”能否预测递送或表达活性，适合做候选排序和特征价值评估。</p>
+          </article>
+
+          <article class="method-card mrna">
+            <div class="method-title">
+              <span>mRNA 递送子集</span>
+              <b>Payload-specific subset</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node filter">
+                <strong>载荷筛选</strong>
+                <span>payload = mRNA / reporter</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node context">
+                <strong>语境保留</strong>
+                <span>cell / tissue / route / readout</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>递送任务</strong>
+                <span>表达、递送效率、靶向趋势</span>
+              </div>
+            </div>
+            <p>目标是把 mRNA 相关记录从总库中单独拿出，并保留实验语境，避免把不同载荷和 readout 混成一个标签。</p>
+          </article>
+
+          <article class="method-card formulation">
+            <div class="method-title">
+              <span>配方空间整理</span>
+              <b>Formulation space</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node components">
+                <strong>组分组合</strong>
+                <span>ionizable / helper / sterol / PEG</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node ratio">
+                <strong>比例字段</strong>
+                <span>molar ratio / N:P / dose</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node map">
+                <strong>配方地图</strong>
+                <span>来源覆盖、缺口、相似配方</span>
+              </div>
+            </div>
+            <p>目标是从“单个脂质”升级到“完整 LNP 配方”视角，用于检索、去重、相似配方查找和后续多模态建模。</p>
+          </article>
+
+          <article class="method-card quality">
+            <div class="method-title">
+              <span>物化性质与质量</span>
+              <b>Quality readouts</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node process">
+                <strong>配方/工艺上下文</strong>
+                <span>组分、比例、制备批次</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node measure">
+                <strong>颗粒 readout</strong>
+                <span>size / PDI / zeta / EE</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>质量建模</strong>
+                <span>可制造性与稳定性线索</span>
+              </div>
+            </div>
+            <p>目标是把活性之外的质量指标独立出来，判断哪些配方区域更可能形成合适颗粒并支持稳定递送。</p>
+          </article>
+        </div>
+      </section>
 
       <section class="panel dl-panel" id="deepLearningSection">
         <div class="panel-head">
