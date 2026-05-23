@@ -707,6 +707,7 @@ p {
 }
 
 .dl-task-meta span,
+.dl-task-clarifier,
 .dl-task p,
 .dl-validation,
 .dl-risk {
@@ -714,6 +715,13 @@ p {
   font-size: 12px;
   line-height: 1.4;
   overflow-wrap: anywhere;
+}
+
+.dl-task-clarifier {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.45;
 }
 
 .dl-task p {

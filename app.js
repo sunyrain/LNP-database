@@ -459,8 +459,9 @@ function renderDeepLearning() {
         </div>
         <div class="dl-task-meta">
           <strong>${number(task.samples)}</strong>
-          <span>${escapeHtml(t("samples"))}</span>
+          <span>${escapeHtml(deepTaskUnit(task))}</span>
         </div>
+        ${deepTaskClarifier(task) ? `<small class="dl-task-clarifier">${escapeHtml(deepTaskClarifier(task))}</small>` : ""}
         <p>${escapeHtml(label(task, "model"))}</p>
         <p>${escapeHtml(label(task, "target"))}</p>
         <div class="dl-validation">${escapeHtml(label(task, "validation"))}</div>
@@ -485,6 +486,23 @@ function renderDeepLearning() {
       </div>
     `).join("");
   }
+}
+
+function deepTaskUnit(task) {
+  const units = {
+    chemberta_representation_map: { en: "molecules", zh: "个分子" },
+    source_aware_embedding_baselines: { en: "labeled rows", zh: "条有标签记录" },
+    descriptor_comparison: { en: "baseline tasks", zh: "个基线任务" },
+    mrna_delivery_readiness: { en: "activity molecules", zh: "个活性分子" }
+  };
+  return units[task.key]?.[LANG] || t("samples");
+}
+
+function deepTaskClarifier(task) {
+  if (task.key !== "descriptor_comparison") return "";
+  return LANG === "zh"
+    ? "这里的 6 指可比较 ChemBERTa 与 RDKit 描述符的任务数，不是 6 条数据或 6 个分子。"
+    : "The count is benchmark tasks comparing ChemBERTa with RDKit descriptors, not molecules or rows.";
 }
 
 function renderModelRun(analysis) {
