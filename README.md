@@ -2,6 +2,8 @@
 
 Static GitHub Pages dashboard for the integrated LNP open-data mart.
 
+Chinese project overview: [PROJECT_OVERVIEW_ZH.md](PROJECT_OVERVIEW_ZH.md)
+
 Current static build:
 
 - Combined records: 100,484
