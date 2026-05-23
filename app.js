@@ -543,6 +543,24 @@ function sourceColorMap(points) {
   return Object.fromEntries(sources.map((source, index) => [source, palette[index % palette.length]]));
 }
 
+function benchmarkMeaning(row) {
+  if (LANG !== "zh") return "";
+  const key = `${row.source_key || ""}::${row.record_role || ""}::${row.metric || ""}`;
+  const meanings = {
+    "lipobart::material_activity::family;y1;y2": "iPhos 材料活性任务：检验模型能否用脂质结构表征恢复离子化磷脂家族及其活性相关输出。",
+    "lumi_lab::experimental_screen::RLU_log2": "高通量体外表达任务：用 log2 RLU 衡量不同脂质在筛选体系中的 mRNA 表达强弱。",
+    "transma::activity_split::TARGET": "TransMA 活性任务：用 TARGET 标签评估模型对 LNP 递送/表达活性趋势的预测能力。",
+    "lnp_ml_lion::experimental_delivery::quantified_delivery": "LiON 实验递送任务：用定量递送读数评估脂质结构对 mRNA/LNP 功能输出的预测能力。",
+    "lnp_ml_lion::experimental_delivery_paper_subset::quantified_delivery": "LiON 文献子集任务：在更接近发表实验的数据分布上检查模型复现与泛化能力。",
+    "translnp::activity_split::TARGET": "TransLNP 对照任务：用同类 TARGET 标签测试模型在相近数据源之间的可迁移性。"
+  };
+  if (meanings[key]) return meanings[key];
+  if ((row.metric || "").toLowerCase().includes("rlu")) return "表达读数任务：评估模型对发光/表达强度这一实验 readout 的预测能力。";
+  if ((row.metric || "").toLowerCase().includes("delivery")) return "递送效率任务：评估模型对 LNP 功能递送输出的预测能力。";
+  if ((row.metric || "").toLowerCase().includes("target")) return "活性标签任务：评估模型对递送/表达活性排序和数值趋势的恢复能力。";
+  return "监督基线任务：用于判断 ChemBERTa 分子表征是否比传统 RDKit 描述符提供额外信息。";
+}
+
 function renderBenchmarks(analysis) {
   const target = $("dlBenchmarkList");
   if (!target) return;
@@ -552,10 +570,12 @@ function renderBenchmarks(analysis) {
     const descriptorR2 = Number(row.descriptor?.r2);
     const width = Math.max(2, Math.min(100, ((embeddingR2 + 0.2) / 1.2) * 100));
     const descWidth = Math.max(2, Math.min(100, ((descriptorR2 + 0.2) / 1.2) * 100));
+    const meaning = benchmarkMeaning(row);
     return `
       <article class="dl-benchmark-row">
         <div>
           <strong>${escapeHtml(label(row, "label"))}</strong>
+          ${meaning ? `<small class="dl-benchmark-note">${escapeHtml(meaning)}</small>` : ""}
           <span>${number(row.rows)} rows / ${escapeHtml(row.split_method || "-")}</span>
         </div>
         <div class="benchmark-bars">

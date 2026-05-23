@@ -818,6 +818,15 @@ p {
   overflow-wrap: anywhere;
 }
 
+.dl-benchmark-note {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .dl-benchmark-row span,
 .dl-compact-row span,
 .dl-benchmark-row p,
