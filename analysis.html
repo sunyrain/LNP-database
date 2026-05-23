@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNP Data Usage Workspace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <div class="brand-row">
+          <div class="brand">LNP Open Data Registry</div>
+          <nav class="language-switch" aria-label="Language">
+            <a class="language-option active" href="analysis.html" aria-current="page">EN</a>
+            <a class="language-option" href="analysis_zh.html">中</a>
+          </nav>
+        </div>
+        <h1>LNP data usage workspace</h1>
+        <p class="subtitle">Use-oriented views for lookup, modeling, mRNA delivery, formulation space, and assay context.</p>
+      </div>
+      <nav class="header-actions" aria-label="Site actions">
+        <a class="header-link" href="index.html">Overview</a>
+        <a class="header-link active" href="analysis.html" aria-current="page">Analysis</a>
+        <a class="header-link" href="processing.html">Methods</a>
+        <a class="header-link" href="governance.html">Governance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="loading" id="loadingPanel">
+      <div class="spinner"></div>
+      <span>Loading LNP data assets</span>
+    </div>
+
+    <div id="errorPanel" class="error-panel" hidden></div>
+
+    <div id="mainContent" hidden>
+      <section class="dashboard-intro">
+        <div class="intro-copy">
+          <span class="kicker">Use-oriented analysis</span>
+          <h2>Use the same database differently for lookup, modeling, mRNA delivery, and formulation design.</h2>
+          <p>The homepage focuses on analytical slices that can drive lookup, modeling, formulation-space mapping, and mRNA-delivery subset construction.</p>
+        </div>
+        <nav class="section-nav" aria-label="Dashboard sections">
+          <a href="#usageBlockGrid">Use blocks</a>
+          <a href="#methodMaps">Method maps</a>
+          <a href="#deepLearningSection">Deep learning</a>
+          <a href="#useSourceMatrix">Source by use</a>
+          <a href="#readinessSection">Readiness</a>
+        </nav>
+      </section>
+
+      <section class="stats-grid" aria-label="Database counts">
+        <div class="stat-card primary">
+          <span class="stat-label">Integrated Records</span>
+          <strong class="stat-value" id="statCombined">-</strong>
+          <span class="stat-sub" id="statCoreHigh">-</span>
+        </div>
+        <div class="stat-card amber">
+          <span class="stat-label">mRNA Subset</span>
+          <strong class="stat-value" id="statMrna">-</strong>
+          <span class="stat-sub" id="statMrnaSub">-</span>
+        </div>
+        <div class="stat-card green">
+          <span class="stat-label">Structure-Activity</span>
+          <strong class="stat-value" id="statStructure">-</strong>
+          <span class="stat-sub" id="statStructureSub">-</span>
+        </div>
+        <div class="stat-card red">
+          <span class="stat-label">Physicochemical</span>
+          <strong class="stat-value" id="statPhyschem">-</strong>
+          <span class="stat-sub" id="statPhyschemSub">-</span>
+        </div>
+      </section>
+
+      <section class="usage-grid" id="usageBlockGrid" aria-label="Data use blocks"></section>
+
+      <section class="method-section" id="methodMaps" aria-label="Method maps">
+        <div class="method-head">
+          <span class="kicker">Method maps</span>
+          <h2>What each data block is meant to answer</h2>
+          <p>These diagrams describe data handling and modeling logic, not experimental formulation or manufacturing procedures.</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-card structure">
+            <div class="method-title">
+              <span>Structure-activity modeling</span>
+              <b>Structure → Activity</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node molecule">
+                <strong>Lipid structure</strong>
+                <span>SMILES / descriptors / ChemBERTa</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node split">
+                <strong>Scaffold holdout</strong>
+                <span>test generalization to new scaffolds</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>Activity prediction</strong>
+                <span>R² / MAE / Spearman</span>
+              </div>
+            </div>
+            <p>Tests whether ionizable-lipid structure alone carries enough signal for delivery or expression activity ranking.</p>
+          </article>
+
+          <article class="method-card mrna">
+            <div class="method-title">
+              <span>mRNA delivery subset</span>
+              <b>Payload-specific subset</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node filter">
+                <strong>Payload filter</strong>
+                <span>payload = mRNA / reporter</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node context">
+                <strong>Context retained</strong>
+                <span>cell / tissue / route / readout</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>Delivery task</strong>
+                <span>expression, efficiency, tropism trend</span>
+              </div>
+            </div>
+            <p>Separates mRNA-related records from the full database while keeping assay context so different payloads and readouts are not pooled blindly.</p>
+          </article>
+
+          <article class="method-card formulation">
+            <div class="method-title">
+              <span>Formulation space</span>
+              <b>Formulation space</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node components">
+                <strong>Component set</strong>
+                <span>ionizable / helper / sterol / PEG</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node ratio">
+                <strong>Ratio fields</strong>
+                <span>molar ratio / N:P / dose</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node map">
+                <strong>Formulation map</strong>
+                <span>coverage, gaps, similar formulations</span>
+              </div>
+            </div>
+            <p>Moves from single-lipid lookup to full LNP formulation records for search, deduplication, similarity, and later multimodal modeling.</p>
+          </article>
+
+          <article class="method-card quality">
+            <div class="method-title">
+              <span>Physicochemical quality</span>
+              <b>Quality readouts</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node process">
+                <strong>Formulation context</strong>
+                <span>components, ratio, batch context</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node measure">
+                <strong>Particle readout</strong>
+                <span>size / PDI / zeta / EE</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>Quality model</strong>
+                <span>manufacturability and stability signals</span>
+              </div>
+            </div>
+            <p>Keeps non-activity quality endpoints separate so the database can support particle-quality and formulation-readiness modeling.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel dl-panel" id="deepLearningSection">
+        <div class="panel-head">
+          <h2>Deep Learning Analysis</h2>
+          <span class="panel-meta">ChemBERTa weights, embedding map, supervised baselines</span>
+        </div>
+        <div class="dl-run-grid" id="dlRunGrid"></div>
+        <div class="dl-visual-grid">
+          <section>
+            <div class="dl-section-head">
+              <h3>Representation Map</h3>
+              <span id="dlProjectionMeta">-</span>
+            </div>
+            <div class="embedding-plot" id="dlEmbeddingPlot"></div>
+            <div class="embedding-legend" id="dlEmbeddingLegend"></div>
+          </section>
+          <section>
+            <div class="dl-section-head">
+              <h3>Task Baselines</h3>
+              <span>ChemBERTa vs RDKit</span>
+            </div>
+            <div class="dl-benchmark-list" id="dlBenchmarkList"></div>
+          </section>
+        </div>
+        <div class="dl-grid" id="dlTaskGrid"></div>
+        <div class="dl-bottom">
+          <section>
+            <h3>Feature Coverage</h3>
+            <div class="bar-list" id="dlFeatureBars"></div>
+          </section>
+          <section>
+            <h3>Validation Risks</h3>
+            <div class="dl-risk-list" id="dlRiskList"></div>
+          </section>
+        </div>
+        <div class="dl-extra-grid">
+          <section>
+            <h3>Embedding Clusters</h3>
+            <div class="dl-cluster-list" id="dlClusterList"></div>
+          </section>
+          <section>
+            <h3>Source Embedding Coverage</h3>
+            <div class="dl-source-list" id="dlSourceEmbeddingList"></div>
+          </section>
+          <section>
+            <h3>Cross-source Transfer</h3>
+            <div class="dl-transfer-list" id="dlTransferList"></div>
+          </section>
+          <section>
+            <h3>Nearest Cross-source Neighbors</h3>
+            <div class="dl-neighbor-list" id="dlNeighborList"></div>
+          </section>
+        </div>
+      </section>
+
+      <div class="layout-two">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Metric Families</h2>
+            <span class="panel-meta">numeric activity rows</span>
+          </div>
+          <div class="bar-list" id="metricFamilyBars"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Payload Distribution</h2>
+            <span class="panel-meta">combined tables</span>
+          </div>
+          <div class="bar-list" id="payloadBars"></div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Source Contribution By Use</h2>
+          <span class="panel-meta" id="overviewGenerated">-</span>
+        </div>
+        <div class="use-source-matrix" id="useSourceMatrix"></div>
+      </section>
+
+      <section class="panel" id="readinessSection">
+        <div class="panel-head">
+          <h2>Modeling Readiness By Source</h2>
+          <span class="panel-meta">high-throughput layer</span>
+        </div>
+        <div class="table-wrap static-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th class="num">Rows</th>
+                <th>SMILES</th>
+                <th>Payload</th>
+                <th>Activity</th>
+                <th>Ratio</th>
+                <th>Context</th>
+              </tr>
+            </thead>
+            <tbody id="readinessTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Detailed data sections">
+        <button class="tab active" type="button" data-tab="sources">Source Inventory</button>
+        <button class="tab" type="button" data-tab="activity">Activity Metrics</button>
+        <button class="tab" type="button" data-tab="records">Record Preview</button>
+      </nav>
+
+      <section class="tab-panel active" id="tab-sources">
+        <div class="toolbar">
+          <div class="toolbar-filters">
+            <input type="search" id="sourceSearch" placeholder="Search source, role, collection">
+            <select id="sourceCollectionFilter">
+              <option value="">All collections</option>
+              <option value="core_open">Core open</option>
+              <option value="high_throughput">High-throughput</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearSourceFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadSourcesBtn">Export CSV</button>
+          </div>
+          <span class="table-info" id="sourceInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-source-sort="collection">Collection</th>
+                <th data-source-sort="source_dataset">Source</th>
+                <th data-source-sort="record_role">Role</th>
+                <th data-source-sort="records" class="num">Records</th>
+                <th data-source-sort="unique_ionizable_smiles" class="num">Ionizable SMILES</th>
+                <th data-source-sort="numeric_activity_values" class="num">Numeric Activity</th>
+                <th data-source-sort="activity_metrics" class="num">Metrics</th>
+                <th data-source-sort="unique_component_smiles" class="num">Component SMILES</th>
+                <th data-source-sort="source_files" class="num">Files</th>
+              </tr>
+            </thead>
+            <tbody id="sourceTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-activity">
+        <div class="toolbar">
+          <div class="toolbar-filters">
+            <input type="search" id="activitySearch" placeholder="Search source, role, metric">
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearActivityFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadActivityBtn">Export CSV</button>
+          </div>
+          <span class="table-info" id="activityInfo">-</span>
+        </div>
+        <div class="layout-two activity-layout">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-activity-sort="source_dataset">Source</th>
+                  <th data-activity-sort="record_role">Role</th>
+                  <th data-activity-sort="metric">Metric</th>
+                  <th data-activity-sort="rows" class="num">Rows</th>
+                  <th data-activity-sort="numeric_rows" class="num">Numeric</th>
+                  <th data-activity-sort="avg_value" class="num">Average</th>
+                  <th data-activity-sort="min_value" class="num">Min</th>
+                  <th data-activity-sort="max_value" class="num">Max</th>
+                </tr>
+              </thead>
+              <tbody id="activityTable"></tbody>
+            </table>
+          </div>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Component Coverage</h2>
+              <span class="panel-meta">normalized components</span>
+            </div>
+            <div class="component-list" id="componentList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-records">
+        <div class="toolbar">
+          <div class="toolbar-filters">
+            <input type="search" id="recordSearch" placeholder="Search source, DOI, lipid, SMILES, payload">
+            <select id="recordCollectionFilter">
+              <option value="">All collections</option>
+              <option value="core_open">Core open</option>
+              <option value="high_throughput">High-throughput</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearRecordFilters">Clear</button>
+            <button class="btn primary" type="button" id="downloadRecordsBtn">Export CSV</button>
+          </div>
+          <span class="table-info" id="recordInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Collection</th>
+                <th>Source</th>
+                <th>Role</th>
+                <th>DOI</th>
+                <th>Lipid</th>
+                <th>Ionizable SMILES</th>
+                <th>Payload</th>
+                <th>Context</th>
+                <th>Metric</th>
+                <th class="num">Value</th>
+              </tr>
+            </thead>
+            <tbody id="recordTable"></tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <button class="btn" type="button" id="recordPrevBtn">Previous</button>
+          <span id="recordPageInfo">-</span>
+          <button class="btn" type="button" id="recordNextBtn">Next</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="detailModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal-head">
+        <h2 id="detailTitle">Record Detail</h2>
+        <button class="modal-close" type="button" id="closeDetailBtn">Close</button>
+      </div>
+      <div class="modal-body" id="detailBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>LNP Open Data Registry</span>
+    <span id="footerUpdated">-</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

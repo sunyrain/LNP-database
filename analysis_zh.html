@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNP 数据用途工作台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <div class="brand-row">
+          <div class="brand">LNP Open Data Registry</div>
+          <nav class="language-switch" aria-label="语言">
+            <a class="language-option" href="analysis.html">EN</a>
+            <a class="language-option active" href="analysis_zh.html" aria-current="page">中</a>
+          </nav>
+        </div>
+        <h1>LNP 数据用途工作台</h1>
+        <p class="subtitle">按用途查看整合后的 LNP 数据：检索、建模、mRNA 递送、配方空间与 assay 语境。</p>
+      </div>
+      <nav class="header-actions" aria-label="站点操作">
+        <a class="header-link" href="zh.html">展示首页</a>
+        <a class="header-link active" href="analysis_zh.html" aria-current="page">分析详情</a>
+        <a class="header-link" href="processing_zh.html">数据路线</a>
+        <a class="header-link" href="governance_zh.html">治理审计</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="loading" id="loadingPanel">
+      <div class="spinner"></div>
+      <span>正在加载 LNP 数据资产</span>
+    </div>
+
+    <div id="errorPanel" class="error-panel" hidden></div>
+
+    <div id="mainContent" hidden>
+      <section class="dashboard-intro">
+        <div class="intro-copy">
+          <span class="kicker">Use-oriented analysis</span>
+          <h2>同一批 LNP 数据，需要按用途拆开看。</h2>
+          <p>主页聚焦有分析价值的数据分块：配方检索、结构-活性建模、mRNA 子集、物化性质、组分配方空间和递送语境。</p>
+        </div>
+        <nav class="section-nav" aria-label="看板分区">
+          <a href="#usageBlockGrid">用途分块</a>
+          <a href="#methodMaps">处理示意</a>
+          <a href="#deepLearningSection">深度学习</a>
+          <a href="#useSourceMatrix">来源贡献</a>
+          <a href="#readinessSection">建模准备度</a>
+        </nav>
+      </section>
+
+      <section class="stats-grid" aria-label="数据库计数">
+        <div class="stat-card primary">
+          <span class="stat-label">整合记录</span>
+          <strong class="stat-value" id="statCombined">-</strong>
+          <span class="stat-sub" id="statCoreHigh">-</span>
+        </div>
+        <div class="stat-card amber">
+          <span class="stat-label">mRNA 子集</span>
+          <strong class="stat-value" id="statMrna">-</strong>
+          <span class="stat-sub" id="statMrnaSub">-</span>
+        </div>
+        <div class="stat-card green">
+          <span class="stat-label">结构-活性</span>
+          <strong class="stat-value" id="statStructure">-</strong>
+          <span class="stat-sub" id="statStructureSub">-</span>
+        </div>
+        <div class="stat-card red">
+          <span class="stat-label">物化性质</span>
+          <strong class="stat-value" id="statPhyschem">-</strong>
+          <span class="stat-sub" id="statPhyschemSub">-</span>
+        </div>
+      </section>
+
+      <section class="usage-grid" id="usageBlockGrid" aria-label="数据用途分块"></section>
+
+      <section class="method-section" id="methodMaps" aria-label="处理思路示意图">
+        <div class="method-head">
+          <span class="kicker">Method maps</span>
+          <h2>这些数据分块分别在回答什么问题</h2>
+          <p>示意图只描述建模与数据整理逻辑，不代表实验配方或制备流程。</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-card structure">
+            <div class="method-title">
+              <span>结构-活性建模</span>
+              <b>Structure → Activity</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node molecule">
+                <strong>脂质结构</strong>
+                <span>SMILES / 描述符 / ChemBERTa</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node split">
+                <strong>骨架留出</strong>
+                <span>新 scaffold 测试泛化</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>活性预测</strong>
+                <span>R² / MAE / Spearman</span>
+              </div>
+            </div>
+            <p>目标是判断“只看 ionizable lipid 结构”能否预测递送或表达活性，适合做候选排序和特征价值评估。</p>
+          </article>
+
+          <article class="method-card mrna">
+            <div class="method-title">
+              <span>mRNA 递送子集</span>
+              <b>Payload-specific subset</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node filter">
+                <strong>载荷筛选</strong>
+                <span>payload = mRNA / reporter</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node context">
+                <strong>语境保留</strong>
+                <span>cell / tissue / route / readout</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>递送任务</strong>
+                <span>表达、递送效率、靶向趋势</span>
+              </div>
+            </div>
+            <p>目标是把 mRNA 相关记录从总库中单独拿出，并保留实验语境，避免把不同载荷和 readout 混成一个标签。</p>
+          </article>
+
+          <article class="method-card formulation">
+            <div class="method-title">
+              <span>配方空间整理</span>
+              <b>Formulation space</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node components">
+                <strong>组分组合</strong>
+                <span>ionizable / helper / sterol / PEG</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node ratio">
+                <strong>比例字段</strong>
+                <span>molar ratio / N:P / dose</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node map">
+                <strong>配方地图</strong>
+                <span>来源覆盖、缺口、相似配方</span>
+              </div>
+            </div>
+            <p>目标是从“单个脂质”升级到“完整 LNP 配方”视角，用于检索、去重、相似配方查找和后续多模态建模。</p>
+          </article>
+
+          <article class="method-card quality">
+            <div class="method-title">
+              <span>物化性质与质量</span>
+              <b>Quality readouts</b>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-node process">
+                <strong>配方/工艺上下文</strong>
+                <span>组分、比例、制备批次</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node measure">
+                <strong>颗粒 readout</strong>
+                <span>size / PDI / zeta / EE</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-node output">
+                <strong>质量建模</strong>
+                <span>可制造性与稳定性线索</span>
+              </div>
+            </div>
+            <p>目标是把活性之外的质量指标独立出来，判断哪些配方区域更可能形成合适颗粒并支持稳定递送。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel dl-panel" id="deepLearningSection">
+        <div class="panel-head">
+          <h2>深度学习分析</h2>
+          <span class="panel-meta">ChemBERTa 权重、表征图谱、监督基线</span>
+        </div>
+        <div class="dl-run-grid" id="dlRunGrid"></div>
+        <div class="dl-visual-grid">
+          <section>
+            <div class="dl-section-head">
+              <h3>表征空间图</h3>
+              <span id="dlProjectionMeta">-</span>
+            </div>
+            <div class="embedding-plot" id="dlEmbeddingPlot"></div>
+            <div class="embedding-legend" id="dlEmbeddingLegend"></div>
+          </section>
+          <section>
+            <div class="dl-section-head">
+              <h3>任务基线</h3>
+              <span>ChemBERTa vs RDKit</span>
+            </div>
+            <div class="dl-benchmark-list" id="dlBenchmarkList"></div>
+          </section>
+        </div>
+        <div class="dl-grid" id="dlTaskGrid"></div>
+        <div class="dl-bottom">
+          <section>
+            <h3>特征覆盖</h3>
+            <div class="bar-list" id="dlFeatureBars"></div>
+          </section>
+          <section>
+            <h3>验证风险</h3>
+            <div class="dl-risk-list" id="dlRiskList"></div>
+          </section>
+        </div>
+        <div class="dl-extra-grid">
+          <section>
+            <h3>表征聚类</h3>
+            <div class="dl-cluster-list" id="dlClusterList"></div>
+          </section>
+          <section>
+            <h3>来源表征覆盖</h3>
+            <div class="dl-source-list" id="dlSourceEmbeddingList"></div>
+          </section>
+          <section>
+            <h3>跨来源迁移</h3>
+            <div class="dl-transfer-list" id="dlTransferList"></div>
+          </section>
+          <section>
+            <h3>跨来源近邻</h3>
+            <div class="dl-neighbor-list" id="dlNeighborList"></div>
+          </section>
+        </div>
+      </section>
+
+      <div class="layout-two">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>活性指标族</h2>
+            <span class="panel-meta">数值型 activity rows</span>
+          </div>
+          <div class="bar-list" id="metricFamilyBars"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>载荷类型分布</h2>
+            <span class="panel-meta">合并表统计</span>
+          </div>
+          <div class="bar-list" id="payloadBars"></div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>不同用途下的来源贡献</h2>
+          <span class="panel-meta" id="overviewGenerated">-</span>
+        </div>
+        <div class="use-source-matrix" id="useSourceMatrix"></div>
+      </section>
+
+      <section class="panel" id="readinessSection">
+        <div class="panel-head">
+          <h2>按来源的建模准备度</h2>
+          <span class="panel-meta">高通量数据层</span>
+        </div>
+        <div class="table-wrap static-table">
+          <table>
+            <thead>
+              <tr>
+                <th>来源</th>
+                <th class="num">行数</th>
+                <th>SMILES</th>
+                <th>载荷</th>
+                <th>活性</th>
+                <th>比例</th>
+                <th>语境</th>
+              </tr>
+            </thead>
+            <tbody id="readinessTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="详细数据区段">
+        <button class="tab active" type="button" data-tab="sources">来源清单</button>
+        <button class="tab" type="button" data-tab="activity">活性指标</button>
+        <button class="tab" type="button" data-tab="records">记录预览</button>
+      </nav>
+
+      <section class="tab-panel active" id="tab-sources">
+        <div class="toolbar">
+          <div class="toolbar-filters">
+            <input type="search" id="sourceSearch" placeholder="搜索来源、角色、数据层">
+            <select id="sourceCollectionFilter">
+              <option value="">全部数据层</option>
+              <option value="core_open">核心开源</option>
+              <option value="high_throughput">高通量</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearSourceFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadSourcesBtn">导出 CSV</button>
+          </div>
+          <span class="table-info" id="sourceInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-source-sort="collection">数据层</th>
+                <th data-source-sort="source_dataset">来源</th>
+                <th data-source-sort="record_role">角色</th>
+                <th data-source-sort="records" class="num">记录数</th>
+                <th data-source-sort="unique_ionizable_smiles" class="num">可电离 SMILES</th>
+                <th data-source-sort="numeric_activity_values" class="num">数值活性</th>
+                <th data-source-sort="activity_metrics" class="num">指标</th>
+                <th data-source-sort="unique_component_smiles" class="num">组分 SMILES</th>
+                <th data-source-sort="source_files" class="num">文件</th>
+              </tr>
+            </thead>
+            <tbody id="sourceTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-activity">
+        <div class="toolbar">
+          <div class="toolbar-filters">
+            <input type="search" id="activitySearch" placeholder="搜索来源、角色、指标">
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearActivityFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadActivityBtn">导出 CSV</button>
+          </div>
+          <span class="table-info" id="activityInfo">-</span>
+        </div>
+        <div class="layout-two activity-layout">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-activity-sort="source_dataset">来源</th>
+                  <th data-activity-sort="record_role">角色</th>
+                  <th data-activity-sort="metric">指标</th>
+                  <th data-activity-sort="rows" class="num">行数</th>
+                  <th data-activity-sort="numeric_rows" class="num">数值行</th>
+                  <th data-activity-sort="avg_value" class="num">平均</th>
+                  <th data-activity-sort="min_value" class="num">最小</th>
+                  <th data-activity-sort="max_value" class="num">最大</th>
+                </tr>
+              </thead>
+              <tbody id="activityTable"></tbody>
+            </table>
+          </div>
+          <section class="panel">
+            <div class="panel-head">
+              <h2>组分覆盖</h2>
+              <span class="panel-meta">归一化组分表</span>
+            </div>
+            <div class="component-list" id="componentList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-records">
+        <div class="toolbar">
+          <div class="toolbar-filters">
+            <input type="search" id="recordSearch" placeholder="搜索来源、DOI、脂质、SMILES、载荷">
+            <select id="recordCollectionFilter">
+              <option value="">全部数据层</option>
+              <option value="core_open">核心开源</option>
+              <option value="high_throughput">高通量</option>
+            </select>
+          </div>
+          <div class="toolbar-actions">
+            <button class="btn" type="button" id="clearRecordFilters">清空</button>
+            <button class="btn primary" type="button" id="downloadRecordsBtn">导出 CSV</button>
+          </div>
+          <span class="table-info" id="recordInfo">-</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>数据层</th>
+                <th>来源</th>
+                <th>角色</th>
+                <th>DOI</th>
+                <th>脂质</th>
+                <th>可电离 SMILES</th>
+                <th>载荷</th>
+                <th>实验背景</th>
+                <th>指标</th>
+                <th class="num">数值</th>
+              </tr>
+            </thead>
+            <tbody id="recordTable"></tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <button class="btn" type="button" id="recordPrevBtn">上一页</button>
+          <span id="recordPageInfo">-</span>
+          <button class="btn" type="button" id="recordNextBtn">下一页</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="detailModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal-head">
+        <h2 id="detailTitle">记录详情</h2>
+        <button class="modal-close" type="button" id="closeDetailBtn">关闭</button>
+      </div>
+      <div class="modal-body" id="detailBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>LNP 数据用途工作台</span>
+    <span id="footerUpdated">-</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

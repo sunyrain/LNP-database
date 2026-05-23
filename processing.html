@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNP Data Processing Methods</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <div class="brand-row">
+          <div class="brand">LNP Open Data Registry</div>
+          <nav class="language-switch" aria-label="Language">
+            <a class="language-option active" href="processing.html" aria-current="page">EN</a>
+            <a class="language-option" href="processing_zh.html">中</a>
+          </nav>
+        </div>
+        <h1>LNP data processing methods</h1>
+        <p class="subtitle">A practical route from governance, deduplication, and normalization to modeling-ready task construction.</p>
+      </div>
+      <nav class="header-actions" aria-label="Site actions">
+        <a class="header-link" href="index.html">Overview</a>
+        <a class="header-link" href="analysis.html">Analysis</a>
+        <a class="header-link active" href="processing.html" aria-current="page">Methods</a>
+        <a class="header-link" href="governance.html">Governance</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container doc-page">
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>1. Govern before pooling</h2>
+        <span class="panel-meta">First priority</span>
+      </div>
+      <div class="doc-body">
+        <p>The open LNP data now has two layers: core open formulation records and high-throughput/modeling datasets. They should not be pooled naively because several sources share related ionizable-lipid structures.</p>
+        <ul>
+          <li>Create stable lipid entity IDs from canonical SMILES and related structure keys.</li>
+          <li>Separate formulation rows, lipid entities, assay labels, source files, and publications.</li>
+          <li>Use overlap audits to flag duplicate subsets, leakage risk, and reusable external validation sets.</li>
+          <li>Keep raw source context so future corrections do not erase provenance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>2. Build immediate analysis layers</h2>
+        <span class="panel-meta">Display and audit</span>
+      </div>
+      <div class="doc-body">
+        <ul>
+          <li>Source maps: lipid types, payloads, routes, cell or animal context, and activity metrics by dataset.</li>
+          <li>Missingness matrices for size, PDI, zeta, encapsulation, lipid ratios, and activity labels.</li>
+          <li>Duplicate and leakage reports across SMILES, DOI, source record IDs, and formulation ratios.</li>
+          <li>Prioritized supplement extraction queues for large tabular formulation/activity datasets.</li>
+          <li>Separate views for mRNA, siRNA, DNA, ASO, protein, and other payload classes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>3. Normalize modeling labels</h2>
+        <span class="panel-meta">Interpretability</span>
+      </div>
+      <div class="doc-body">
+        <p>LNP labels are not interchangeable. In vitro transfection, in vivo luciferase, organ tropism, viability, particle quality, and model-generated predictions should be treated as different task families.</p>
+        <ul>
+          <li>Physicochemical tasks: particle size, PDI, zeta potential, and encapsulation efficiency.</li>
+          <li>In vitro delivery tasks: cell line, payload, readout, dose/time, and normalized expression.</li>
+          <li>In vivo delivery tasks: species, route, organ/cell type, dose, timepoint, and reporter readout.</li>
+          <li>Safety tasks: viability, toxicity, cytokines, body weight, histology, and related endpoints.</li>
+          <li>Generated-candidate tasks: keep virtual and model-predicted candidates separate from experiments.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel doc-panel">
+      <div class="panel-head">
+        <h2>4. Modeling and tools</h2>
+        <span class="panel-meta">Phased build</span>
+      </div>
+      <div class="doc-body">
+        <ul>
+          <li>Lookup tools for lipid SMILES, formulation ratios, payloads, routes, and activity metrics.</li>
+          <li>Formulation similarity from lipid fingerprints, component roles, and molar ratios.</li>
+          <li>Baseline prediction for more stable labels such as size, PDI, and encapsulation efficiency.</li>
+          <li>Delivery activity models only after assay-aware task splitting and external validation design.</li>
+          <li>Active-learning views that identify sparse areas in the current formulation space.</li>
+          <li>Literature extraction templates generated from the target database schema.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>LNP data processing methods</span>
+    <span>For deduplication, modeling, and literature extraction</span>
+  </footer>
+</body>
+</html>
